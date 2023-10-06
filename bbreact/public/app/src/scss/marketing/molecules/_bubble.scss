@@ -1,0 +1,82 @@
+/*********************************************************
+ * Bubble
+ *********************************************************/
+
+$bubbleSize: 6em;
+$iconSize: 3em;
+.bubble-container {
+	.bubble-title {
+		.lang-global & {
+			@include geo-medium;
+		}
+
+		.lang-jp & {
+			@include jp-medium;
+		}
+		text-transform: uppercase;
+	}
+	.bubble-text {
+		font-size: 1.7rem;
+
+		.lang-global & {
+			@include geo-regular;
+		}
+
+		.lang-jp & {
+			@include jp-regular;
+		}
+		max-width: 22.5em;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.bubble {
+	font-size: 1.6rem;
+	align-items: center;
+	border-radius: 50%;
+	background-color: $white;
+	display: inline-flex;
+	height: $bubbleSize;
+	justify-content: center;
+	overflow: hidden;
+	width: $bubbleSize;
+	vertical-align: middle;
+	.bubble-icon-container {
+		display: inline-block;
+		height: $iconSize;
+		width: $iconSize;
+	}
+	.bubble-icon,
+	img {
+		display: inline-block;
+		max-width: 100%;
+		height: auto;
+		max-height: 100%;
+	}
+	/**
+	 * Pages style
+	**/
+	@each $class, $color in $primary-colors {
+		.page-#{$class} & {
+			background-color: $color;
+		}
+	}
+	/**
+	 * Direct styles
+	**/
+	@each $class, $color in $primary-colors {
+		&.mod-#{$class} {
+			background-color: $color;
+		}
+	}
+	&.mod-white {
+		background-color: $white;
+	}
+	&.mod-gray-lighter {
+		background-color: $gray-lighter;
+	}
+	&.mod-xs {
+		font-size: calc(1rem / 1.25);
+	}
+}

@@ -1,0 +1,134 @@
+/*********************************************************
+ * Alert
+ *
+ * Small window with a message
+ *********************************************************/
+
+%alert {
+	border-radius: $border-radius;
+	display: flex;
+	font-family: $robotoFont;
+	font-size: 1.6rem;
+	font-weight: 400;
+
+	@include marketing-override {
+		border-radius: 0;
+	}
+
+	a {
+		font-family: $robotoFont;
+		font-weight: 400;
+		color: $white;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	.alert-close {
+		padding: 0.6rem 0.6rem 0.6rem 0;
+		position: relative;
+
+		&.banner {
+			padding: 0 0 0 0.6rem;
+		}
+	}
+
+	.alert-close-icon {
+		cursor: pointer;
+		position: absolute;
+		padding: 1.6rem;
+		right: 0;
+		top: 0;
+
+		.svg-icon {
+			font-size: calc(1rem / 10 * 6);
+		}
+
+		&:hover {
+			.svg-icon.hover {
+				display: inline-block;
+			}
+		}
+
+		&.banner {
+			padding: 0.6rem;
+			position: relative;
+		}
+	}
+
+	.alert-close {
+		flex: 0 1 auto;
+		margin: 0;
+	}
+
+	.alert-content {
+		flex: 1 1 auto;
+		margin: 0;
+		padding: 1em;
+
+		&.banner {
+			padding: 0.5em 1em;
+		}
+	}
+
+	.alert-content p {
+		margin: 0;
+	}
+
+	&.mod-sm {
+		font-size: 1.3rem;
+	}
+
+	&.mod-lg {
+		font-size: 2rem;
+	}
+
+	&.mod-no-radius {
+		border-radius: 0;
+	}
+}
+
+.alert.mod-error {
+	@extend %alert;
+	background-color: $app-red;
+	color: $white;
+}
+
+.alert.mod-info {
+	@extend %alert;
+	background-color: $app-blue;
+	color: $white;
+}
+
+.alert.mod-success {
+	@extend %alert;
+	background-color: $app-green;
+	color: $white;
+}
+
+.alert.mod-warning {
+	@extend %alert;
+	background-color: $app-yellow;
+	color: $text-color;
+	a {
+		color: $text-color;
+	}
+}
+
+.alert-content-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.alert-announcement-dialog {
+	position: fixed;
+	top: $nav-height + $page-padding;
+	width: calc(100% - #{$gutter});
+	z-index: 1001;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}

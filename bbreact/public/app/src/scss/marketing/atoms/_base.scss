@@ -1,0 +1,118 @@
+/*********************************************************
+ *
+ *********************************************************/
+
+body {
+	font-size: 1.6rem;
+
+	&.marketing-styles {
+		&.lang-global {
+			@include geo-light;
+		}
+
+		&.lang-jp {
+			@include jp-light;
+		}
+
+		line-height: 1.5;
+		font-size: 1.9rem;
+	}
+}
+
+a {
+	color: $blue-link;
+
+	.lang-global & {
+		@include geo-regular;
+	}
+
+	.lang-jp & {
+		@include jp-regular;
+	}
+}
+
+p {
+	margin-top: 0;
+}
+
+main * + *,
+footer * + *,
+.modal-body * + * {
+	margin-top: 1.2rem;
+	@include media-min-sm {
+		margin-top: 2.4rem;
+	}
+}
+
+/* Fix bug firefox adding margins to text lines following br */
+main br + * {
+	margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include marketing-override {
+		&.lang-global {
+			@include geo-light;
+		}
+
+		&.lang-jp {
+			@include jp-light;
+		}
+	}
+}
+
+h1 {
+	text-transform: initial;
+}
+
+b,
+strong {
+	@include marketing-override {
+		font-weight: 500;
+	}
+}
+
+sub,
+sup {
+	@include marketing-override {
+		font-weight: 500;
+	}
+}
+
+dl dt {
+	@include marketing-override {
+		font-weight: 500;
+	}
+}
+
+#page-container {
+	body:not(.force-body-flex-ie) & {
+		@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+			/**
+			* This query will only target IE10 & IE11
+			* We need to override since one some pages flexes weird
+			* because how height is calculated and causes larges white
+			* section between content and footer
+			**/
+			flex-grow: 0;
+		}
+	}
+
+	@include marketing-override {
+		padding-top: 0rem;
+
+		&.has-banner {
+			padding-top: $nav-height + 3.6rem;
+
+			&.on-xs {
+				padding-top: $nav-height + 5.5rem;
+			}
+		}
+
+	}
+}

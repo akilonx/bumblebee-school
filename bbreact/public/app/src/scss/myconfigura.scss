@@ -1,0 +1,77 @@
+/*********************************************************
+* MyConfigura styles
+*
+* Styles that are specific to all new MyConfigura Phoenix pages.
+*********************************************************/
+
+/**
+* Atoms
+**/
+
+@import "common/atoms/variables";
+@import "common/atoms/mixins";
+@import "common/atoms/fonts";
+@import "common/atoms/panoramaviewer";
+@import "common/atoms/grid/variables";
+@import "common/atoms/grid/mixins";
+@import "common/atoms/popover";
+@import "myconfigura/atoms/icons";
+@import "myconfigura/atoms/typography";
+@import "myconfigura/atoms/utilities";
+@import "myconfigura/atoms/tooltipbutton";
+
+/**
+* Molecules
+**/
+
+@import "myconfigura/molecules/activity_log";
+@import "myconfigura/molecules/input-suffix";
+@import "myconfigura/molecules/sidebar";
+@import "myconfigura/molecules/sorttable";
+@import "myconfigura/molecules/title-bar";
+@import "myconfigura/molecules/tools";
+@import "myconfigura/molecules/user_card_popup";
+@import "myconfigura/molecules/user-card";
+
+/**
+* Organisms
+**/
+
+@import "myconfigura/organisms/tab";
+@import "myconfigura/organisms/remove-confirm-section";
+@import "myconfigura/organisms/recent-search";
+/**
+* Templates
+**/
+
+/**
+* Pages
+**/
+
+@import "myconfigura/pages/agreements";
+@import "myconfigura/pages/awards";
+@import "myconfigura/pages/briefcases";
+@import "myconfigura/pages/buildcenter";
+@import "myconfigura/pages/campaign";
+@import "myconfigura/pages/catalogues";
+@import "myconfigura/pages/stage-browser";
+@import "myconfigura/pages/cet-designer-discount";
+@import "myconfigura/pages/forum-landing-page";
+@import "myconfigura/pages/license";
+@import "myconfigura/pages/projects";
+@import "myconfigura/pages/release-testing-form";
+@import "myconfigura/pages/siteadmin";
+@import "myconfigura/pages/stage-admin";
+@import "myconfigura/pages/sharepoint";
+@import "myconfigura/pages/subscription";
+@import "myconfigura/pages/training";
+@import "common/pages/login";
+
+/**
+* Utilities
+*
+* This one always need to be last for the overrides to work properly.
+**/
+
+@import "common/atoms/utilities";
+@import "common/atoms/grid/utilities";

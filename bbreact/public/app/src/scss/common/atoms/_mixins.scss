@@ -1,0 +1,188 @@
+/*********************************************************
+ * Marketing override class
+ *********************************************************/
+
+@mixin marketing-override {
+	body.marketing-styles & {
+		@content;
+	}
+}
+
+@mixin marketing-override-global {
+	body.marketing-styles.lang-global & {
+		@content;
+	}
+}
+
+@mixin marketing-override-jp {
+	body.marketing-styles.lang-jp & {
+		@content;
+	}
+}
+
+/**
+ * Arrow
+ */
+
+@mixin arrow($direction, $size, $color) {
+	height: 0;
+	width: 0;
+	@if ($direction==up or $direction==down) {
+		border-right: $size solid transparent;
+		border-left: $size solid transparent;
+		@if ($direction==up) {
+			border-bottom: $size solid $color;
+		} @else {
+			border-top: $size solid $color;
+		}
+	}
+	@if ($direction==left or $direction==right) {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		@if ($direction==left) {
+			border-right: $size solid $color;
+		} @else {
+			border-left: $size solid $color;
+		}
+	}
+}
+
+/**
+* Pseudo Element
+**/
+
+@mixin pseudo-element($top: unset, $left: unset, $right: unset, $bottom: unset) {
+	content: "";
+	position: absolute;
+	@if $top !=unset {
+		top: $top;
+	}
+	@if $right !=unset {
+		right: $right;
+	}
+	@if $bottom !=unset {
+		bottom: $bottom;
+	}
+	@if $left !=unset {
+		left: $left;
+	}
+}
+
+/**
+ * String Replace
+ */
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+	@return $string;
+}
+
+/**
+ * SVG background
+ */
+
+@mixin svg-bg($svgUrl, $posX: 0, $posY: 0) {
+	$pngUrl: $svgUrl;
+	$pngUrl: str-replace($pngUrl, ".svg", ".png");
+	background: url($pngUrl) no-repeat scroll $posX $posY;
+	background-image: url($svgUrl), none;
+	background-size: 100%;
+}
+
+/**
+ * Sprite background position
+ * Index starts with 1
+ */
+
+@mixin sprite-bg-pos($indexX: 1, $indexY: 1, $width: 0, $height: 0, $hasSpace: 0) {
+	@if $hasSpace {
+		$indexX: ($indexX * 2) - 2;
+		$indexY: ($indexY * 2) - 2;
+	} @else {
+		$indexX: $indexX - 1;
+		$indexY: $indexY - 1;
+	}
+	$xPos: -$indexX * $width;
+	$yPos: -$indexY * $height;
+	background-position: $xPos $yPos;
+}
+
+@mixin button-color(
+	$base,
+	$text-color,
+	$hover,
+	$hover-border: $hover,
+	$hover-text-color: $text-color,
+	$border-color: $base,
+	$black-spinner: false
+) {
+	background-color: $base;
+	border-color: $border-color;
+	color: $text-color;
+
+	&:hover {
+		background-color: $hover;
+		border-color: $hover-border;
+		color: $hover-text-color;
+	}
+	&.disabled,
+	&:disabled {
+		background-color: lighten($hover, 20%);
+		border-color: lighten($hover-border, 20%);
+		color: $hover-text-color;
+		cursor: not-allowed;
+	}
+	&.is-loading {
+		background-color: $hover;
+		border-color: $hover-border;
+		color: $hover;
+	}
+	&.is-loading:after {
+		content: "";
+		position: absolute;
+		background-color: $hover;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	@if $black-spinner {
+		&.is-loading:before {
+			@extend .load-spinner, .mod-black;
+			@extend .load-spinner, .mod-sm;
+		}
+	} @else {
+		&.is-loading:before {
+			@extend .load-spinner, .mod-sm;
+		}
+	}
+}
+
+@mixin elevateLevel($elevation) {
+	@if $elevation == 0 {
+		box-shadow: 0;
+	} @else if $elevation == 1 {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+	} @else if $elevation == 2 {
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+	} @else if $elevation == 3 {
+		box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+	} @else if $elevation == 4 {
+		box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+	} @else if $elevation == 5 {
+		box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+	} @else if $elevation == 10 {
+		box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+	}
+}
+
+@mixin supports-safe-area-insets {
+	@supports (padding-top: env(safe-area-inset-top)) {
+		@content;
+	}
+}

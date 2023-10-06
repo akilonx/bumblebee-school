@@ -1,0 +1,93 @@
+body.catalogues {
+	.stageChair {
+		height: 25rem;
+		z-index: 1;
+
+		@include media-min-md {
+			height: 50rem;
+		}
+	}
+
+	.stageSignUp {
+		@include media-max-lg {
+			margin-top: 2rem;
+		}
+	}
+
+	.stageLogo {
+		margin-left: -2rem;
+		width: 20rem;
+	}
+
+	.table.access-tokens {
+		width: 100%;
+	}
+
+	.table.selected-domains {
+		th:first-child {
+			width: 100%;
+		}
+	}
+
+	.table.selected-catalogues {
+		@include media-min-lg {
+			td:last-child {
+				width: 12rem;
+			}
+		}
+
+		@include media-max-lg {
+			.form-field {
+				width: 100%;
+			}
+		}
+	}
+
+	@include media-max-lg {
+		.token-catalog-filter {
+			.form-select {
+				margin-bottom: 1.6rem;
+			}
+		}
+	}
+
+	.code-highlight-container {
+		position: relative;
+
+		.code-hightlight-bar {
+			font-size: 1.2rem;
+			font-weight: 500;
+			min-height: 2.9rem;
+			overflow: hidden;
+			padding: 0.5rem 1rem;
+			position: relative;
+			text-transform: uppercase;
+
+			.button {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+
+		& > .language-tsx {
+			background-color: $white;
+			border-radius: $border-radius;
+			font-size: 1.8rem;
+			overflow: hidden;
+			position: relative;
+			border: 2px solid $gray-lighter;
+			padding: 1em;
+			overflow: auto;
+			border-radius: 0.3em;
+			text-align: center;
+		}
+	}
+
+	&.catalogues-new-access-token,
+	&.catalogues-edit-access-token {
+		form {
+			margin-top: 0;
+		}
+	}
+}

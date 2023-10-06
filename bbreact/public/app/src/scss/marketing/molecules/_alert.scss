@@ -1,0 +1,23 @@
+/*********************************************************
+ * Alert
+ *
+ * Special marketing verions of Common Alert Molecule
+ *********************************************************/
+
+.alert.mod-yellow-light {
+	@extend %alert;
+	background-color: $yellow-light;
+	color: $text-color;
+	font-family: $geoFont;
+	font-weight: 300;
+
+	a {
+		font-family: $geoFont;
+		font-weight: 500;
+		color: $text-color;
+	}
+
+	.alert-content {
+		padding: 0.5em;
+	}
+}

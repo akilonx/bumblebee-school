@@ -1,0 +1,99 @@
+/*********************************************************
+ * Dropdown
+ *********************************************************/
+
+.dropdown-container {
+	display: inline-block;
+	position: relative;
+
+	button {
+		align-items: center;
+		background-color: transparent;
+		border-radius: 0;
+		border: none;
+		display: flex;
+		height: 100%;
+		padding: 0;
+
+		&:hover {
+			background-color: transparent;
+			cursor: pointer;
+		}
+
+		&:hover,
+		&:focus {
+			outline: none;
+			text-decoration: none;
+		}
+
+		.svg-icon.mod-down,
+		.svg-icon.mod-up {
+			font-size: calc(1rem / 2.5);
+			margin-left: 0.8rem;
+		}
+	}
+
+	.dropdown {
+		background-color: $white;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+		margin: 0;
+
+		position: absolute;
+		top: 100%;
+		z-index: $z-index;
+
+		&.mod-left {
+			left: 0;
+		}
+
+		&.mod-right {
+			right: 0;
+		}
+
+		&.mod-fixed {
+			position: fixed;
+		}
+	}
+
+	.dropdown-header,
+	.dropdown-item {
+		align-items: center;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		display: flex;
+		margin: 0;
+		max-width: 32rem;
+		min-width: 100%;
+		padding: 0.8rem 2.4rem;
+		text-align: left;
+		white-space: nowrap;
+
+		.svg-icon {
+			margin: 0 1.2rem 0 0;
+		}
+	}
+
+	.dropdown-header {
+		color: $gray;
+		font-weight: 500;
+		font-size: 1.36rem;
+		padding-bottom: 0;
+		text-transform: uppercase;
+
+		@include marketing-override {
+			font-size: 1.5rem;
+			letter-spacing: 1px;
+		}
+	}
+
+	.dropdown-item {
+		&:hover {
+			border-left-color: $blue;
+			background-color: $gray-lighter;
+		}
+	}
+
+	.dropdown-fake-radio {
+		margin-right: 1em;
+	}
+}

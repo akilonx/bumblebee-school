@@ -1,0 +1,15 @@
+/*********************************************************
+ * Remove confirm section
+ *********************************************************/
+
+.remove-confirm-section {
+	border-radius: $border-radius;
+	border: 1px solid $app-red;
+	margin-top: 4.8rem;
+	padding: 2rem;
+}
+
+.remove-confirm-section-title {
+	color: $app-red;
+	margin-top: 0;
+}

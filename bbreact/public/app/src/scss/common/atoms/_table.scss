@@ -1,0 +1,27 @@
+.table {
+  tbody tr {
+    border-bottom-width: 1px;
+  }
+
+  tbody td {
+    /* color: rgb(17 24 39 / 1); */
+    /* font-weight: 300; */
+    // font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: left;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-right-width: 1px;
+    white-space: nowrap;
+
+    &.p-0 {
+      padding: 0;
+    }
+
+    &.pl-1 {
+      padding-left: 1rem;
+    }
+  }
+}

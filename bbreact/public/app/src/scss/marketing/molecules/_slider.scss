@@ -1,0 +1,27 @@
+.slider-navigation-button {
+	align-self: center;
+	margin: 0px;
+	background-color: white;
+	border: none;
+	outline-color: lightgray;
+	cursor: pointer;
+}
+
+.tab-buttons {
+	width: 100%;
+	background-color: white;
+	outline: none;
+	text-align: left;
+	color: $gray-light;
+	font-family: Geogrotesque;
+	font-weight: 600;
+	cursor: pointer;
+
+	&.active {
+		color: #6ad2e2;
+	}
+}
+
+.tab-buttons:hover {
+	color: #6ad2e2;
+}

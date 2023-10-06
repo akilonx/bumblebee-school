@@ -1,0 +1,48 @@
+/*********************************************************
+ * List
+ *********************************************************/
+
+ul.graph-legend {
+	list-style: none;
+	> li {
+		margin-top: 0;
+		padding-left: 2.4rem;
+		position: relative;
+		&:before {
+			@include pseudo-element($top: 0, $left: 0, $bottom: 0.3rem);
+			background: $gray;
+			height: 1.2rem;
+			margin: auto;
+			width: 1.2rem;
+		}
+		@each $class, $color in $primary-colors {
+			&.mod-#{$class}:before {
+				background-color: $color;
+			}
+		}
+
+		@each $class, $color in $secondary-colors {
+			&.mod-#{$class}:before {
+				background-color: $color;
+			}
+		}
+
+		@each $class, $color in $gray-colors {
+			&.mod-#{$class}:before {
+				background-color: $color;
+			}
+		}
+	}
+	&.mod-no-box {
+		margin-left: 0;
+		& > li {
+			padding-left: 0;
+			&:before {
+				content: none;
+			}
+		}
+	}
+}
+li.list-box {
+	display: inline-flex;
+}

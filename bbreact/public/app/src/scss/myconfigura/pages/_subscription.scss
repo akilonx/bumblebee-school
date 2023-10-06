@@ -1,0 +1,39 @@
+.renew-count-input {
+	width: 60px;
+	padding: 0.4rem;
+	border-radius: 2px;
+	border: 1px solid lightgray;
+	text-align: center;
+	font-weight: 400;
+}
+
+.license-icon-wrapper {
+	line-height: 0.9;
+}
+
+img.license-icon {
+	height: 16px;
+	width: 16px;
+}
+
+.select-all-header {
+	font-weight: 700;
+}
+
+.product-thumb {
+	width: 40px;
+	height: 40px;
+}
+
+.table.subscription-summary {
+	td,
+	th {
+		&:nth-child(n + 3) {
+			text-align: right;
+		}
+	}
+}
+
+a.button.active-all {
+	margin-right: 1.2rem;
+}

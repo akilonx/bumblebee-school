@@ -1,0 +1,45 @@
+/*********************************************************
+ * Expand List
+ *********************************************************/
+
+// Expand bar
+.expand-bar {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	margin: 0;
+
+	&:hover {
+		color: $gray;
+	}
+}
+
+.expand-bar-icon {
+	display: flex;
+	flex: 0 0 auto;
+	margin: 0 0.5rem 0 0;
+	padding: 0.5rem 0.5rem 0.5rem 0;
+
+	.svg-icon {
+		font-size: calc(1rem / 10 * 5);
+	}
+}
+
+.expand-bar-content {
+	flex: 1 1 auto;
+	margin: 0;
+}
+
+// Expand content
+.expand-content {
+	margin: 0 0 0 2.5rem;
+
+	&.mod-hide {
+		display: none;
+	}
+}
+
+// Expand Item
+.expand-item {
+	margin: 1rem 0 0;
+}

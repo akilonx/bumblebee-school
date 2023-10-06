@@ -1,0 +1,165 @@
+.table {
+	border-spacing: 0;
+	overflow: auto;
+	width: 100%;
+
+	tbody tr {
+		background-color: $white;
+	}
+
+	&.mod-striped tbody {
+		tr:nth-of-type(even) {
+			background-color: $white;
+		}
+
+		tr:nth-of-type(odd) {
+			background-color: $gray-lightest;
+		}
+	}
+
+	&.mod-condensed {
+		th,
+		td {
+			padding: 0.4rem 0.8rem;
+		}
+	}
+
+	&.mod-fixed {
+		table-layout: fixed;
+	}
+
+	@include marketing-override {
+		&.lang-global {
+			@include geo-regular;
+		}
+
+		&.lang-jp {
+			@include jp-regular;
+		}
+		font-size: 1.6rem;
+		&.mod-striped tbody tr:nth-of-type(odd) {
+			background-color: $white;
+		}
+		&.mod-striped tbody tr:nth-of-type(even) {
+			background-color: $gray-lighter;
+		}
+	}
+
+	th {
+		border-bottom: 1px solid darken($gray-lightest, 12.5%);
+		font-weight: bold;
+		text-align: left;
+		@include marketing-override {
+			&.lang-global {
+				@include geo-semibold;
+			}
+
+			&.lang-jp {
+				@include jp-semibold;
+			}
+		}
+	}
+
+	tr {
+		&.mod-selected {
+			background-color: lighten($app-yellow, 30%);
+		}
+	}
+
+	th,
+	td {
+		padding: 0.8rem 1.2rem;
+
+		&.mod-checkbox {
+			width: 3rem;
+			input.form-checkbox {
+				margin-right: 0;
+			}
+		}
+	}
+
+	tbody {
+		td,
+		th {
+			border-bottom: 1px solid darken($gray-lightest, 7.5%);
+		}
+	}
+
+	&.mod-stacked {
+		@include media-max-lg {
+			border: 0;
+			thead {
+				display: none;
+			}
+			tr {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 3.2rem;
+			}
+			td {
+				border: none;
+				display: flex;
+				margin: 0;
+				word-break: break-all;
+				&:first-child {
+					background-color: $gray-lighter;
+				}
+			}
+			td[data-label]::before {
+				/*
+				* aria-label has no advantage, it won't be read inside a table
+				content: attr(aria-label);
+				*/
+				content: attr(data-label);
+				.lang-global & {
+					@include geo-semibold;
+				}
+
+				.lang-jp & {
+					@include jp-semibold;
+				}
+				display: block;
+				flex: 0 0 100%;
+				max-width: 50%;
+				padding-right: 1.2rem;
+			}
+			td:last-child {
+				border-bottom: 0;
+			}
+			&.mod-striped tbody tr:nth-of-type(odd) {
+				background-color: white;
+				@include marketing-override {
+					background-color: white;
+				}
+			}
+		}
+	}
+
+	&.mod-sortable {
+		thead th {
+			cursor: pointer;
+
+			.svg-icon {
+				margin-left: 0.5rem;
+			}
+		}
+	}
+
+	&.mod-highlight {
+		tr {
+			cursor: pointer;
+		}
+		tr:hover {
+			background: #d9e4f4 !important;
+		}
+	}
+}
+
+.table_overflow {
+	display: block;
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+	white-space: nowrap;
+}

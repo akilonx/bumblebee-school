@@ -1,0 +1,35 @@
+/*********************************************************
+ * Awards
+ *********************************************************/
+
+body.awards {
+	@include media-min-lg {
+		.award-votes-table {
+			table-layout: fixed;
+			width: 100%;
+
+			th:nth-child(2),
+			th:nth-child(3),
+			th:nth-child(4),
+			th:nth-child(5),
+			th:nth-child(6) {
+				width: 15%;
+			}
+		}
+	}
+
+	.award-submissions-table {
+		& th:nth-child(1) {
+			width: 10rem;
+		}
+
+		& th:nth-child(2) {
+			width: 10rem;
+		}
+
+		/* Name column, match alignment with the NavLink items */
+		& th:last-child {
+			padding-left: 2.8rem;
+		}
+	}
+}

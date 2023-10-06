@@ -1,0 +1,63 @@
+/*********************************************************
+ * Login
+ *********************************************************/
+
+body.mod-page-login,
+body.mod-page-login #page-container,
+.page-login {
+	display: flex;
+	height: 100%;
+	max-width: 100%;
+
+	.container {
+		width: 100vw;
+	}
+
+	.logo img {
+		height: 4.4rem;
+		width: auto;
+	}
+
+	> main {
+		padding: 2rem 0;
+		margin: auto;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.login-header {
+	margin-top: 0;
+
+	.myconfigura-part {
+		display: block;
+		@include geo-semibold;
+		color: $blue;
+		font-size: 3.9rem;
+	}
+}
+
+.login-wrapper {
+	padding: 3.2rem;
+	position: relative;
+	font-size: 1.6rem;
+
+	.modal-close {
+		color: $gray-darker;
+		position: absolute;
+		right: 1.6rem;
+		top: 0;
+	}
+}
+
+@include media-min-sm {
+	body.mod-page-login,
+	.page-login {
+		.login-wrapper {
+			height: auto;
+			padding: 4.8rem;
+			max-width: 50rem;
+			width: 100%;
+		}
+	}
+}

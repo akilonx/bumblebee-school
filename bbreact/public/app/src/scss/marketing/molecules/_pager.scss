@@ -1,0 +1,22 @@
+/*********************************************************
+ * Pager
+ *********************************************************/
+
+.pager {
+	list-style: none;
+	margin-left: 0;
+	li {
+		border-left: 1px solid darken($gray-lightest, 10%);
+		display: inline-block;
+		&.mod-no-link {
+			padding: 0.8rem 1.6rem;
+		}
+		&:last-child {
+			border-right: 1px solid darken($gray-lightest, 10%);
+		}
+		a {
+			display: block;
+			padding: 0.8rem 1.6rem;
+		}
+	}
+}

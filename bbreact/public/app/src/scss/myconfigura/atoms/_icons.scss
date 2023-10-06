@@ -1,0 +1,465 @@
+.svg-icon {
+	background-image: url($staticURL + "/web/icons/myconfigura_icons_v15.svg");
+	background-size: 48 / $iconBase + em 13668 / $iconBase + em;
+}
+
+.svg-icon.mod-thumbs-up {
+	background-position: 0 0;
+}
+
+.svg-icon.mod-thumbs-down {
+	background-position: 0 (-(60 / $iconBase) + em);
+}
+
+.svg-icon.mod-thumbs-down.mod-active {
+	background-position: 0 (-(120 / $iconBase) + em);
+}
+
+.svg-icon.mod-thumbs-up.mod-active {
+	background-position: 0 (-(180 / $iconBase) + em);
+}
+
+.svg-icon.mod-download.mod-grey {
+	background-position: 0 (-(240 / $iconBase) + em);
+}
+
+.svg-icon.mod-ui {
+	background-position: 0 (-(300 / $iconBase) + em);
+}
+
+.svg-icon.mod-statistics {
+	@include svg-bg($staticURL + "/web/icons/statistics.svg");
+}
+
+.svg-icon.mod-feedback.mod-grey {
+	background-position: 0 (-(360 / $iconBase) + em);
+}
+
+.svg-icon.mod-china {
+	background-position: 0 (-(420 / $iconBase) + em);
+}
+
+.svg-icon.mod-plus {
+	background-position: 0 (-(480 / $iconBase) + em);
+}
+
+.svg-icon.mod-minus {
+	background-position: 0 (-(540 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross {
+	background-position: 0 (-(600 / $iconBase) + em);
+}
+
+.svg-icon.mod-folder {
+	background-position: 0 (-(660 / $iconBase) + em);
+}
+
+.svg-icon.mod-file {
+	background-position: 0 (-(720 / $iconBase) + em);
+}
+
+.svg-icon.mod-warning {
+	background-position: 0 (-(780 / $iconBase) + em);
+}
+
+.svg-icon.mod-success {
+	background-position: 0 (-(840 / $iconBase) + em);
+}
+
+.svg-icon.mod-info {
+	background-position: 0 (-(900 / $iconBase) + em);
+}
+
+.svg-icon.mod-error,
+.svg-icon.mod-cross.mod-white {
+	background-position: 0 (-(960 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow-left {
+	background-position: 0 (-(1020 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow-right {
+	background-position: 0 (-(1080 / $iconBase) + em);
+}
+
+.svg-icon.mod-offsite {
+	background-position: 0 (-(1140 / $iconBase) + em);
+}
+
+.svg-icon.mod-sort-up {
+	background-position: 0 (-(1200 / $iconBase) + em);
+}
+
+.svg-icon.mod-sort-down {
+	background-position: 0 (-(1260 / $iconBase) + em);
+}
+
+.svg-icon.mod-p1 {
+	background-position: 0 (-(1320 / $iconBase) + em);
+}
+
+.svg-icon.mod-p2 {
+	background-position: 0 (-(1380 / $iconBase) + em);
+}
+
+.svg-icon.mod-p3 {
+	background-position: 0 (-(1440 / $iconBase) + em);
+}
+
+.svg-icon.mod-p4 {
+	background-position: 0 (-(1500 / $iconBase) + em);
+}
+
+.svg-icon.mod-p5 {
+	background-position: 0 (-(1560 / $iconBase) + em);
+}
+
+.svg-icon.mod-new-prospect {
+	background-position: 0 (-(1620 / $iconBase) + em);
+}
+
+.svg-icon.mod-expand {
+	background-position: 0 (-(1680 / $iconBase) + em);
+}
+
+.svg-icon.mod-collapse {
+	background-position: 0 (-(1740 / $iconBase) + em);
+}
+
+.svg-icon.mod-suspects {
+	background-position: 0 (-(1800 / $iconBase) + em);
+}
+
+.svg-icon.mod-prospects {
+	background-position: 0 (-(1860 / $iconBase) + em);
+}
+
+.svg-icon.mod-cold {
+	background-position: 0 (-(1920 / $iconBase) + em);
+}
+
+.svg-icon.mod-sales {
+	background-position: 0 (-(1980 / $iconBase) + em);
+}
+
+.svg-icon.mod-party {
+	background-position: 0 (-(2040 / $iconBase) + em);
+}
+
+.svg-icon.mod-facebook {
+	background-position: 0 (-(2100 / $iconBase) + em);
+}
+
+.svg-icon.mod-facebook.mod-inactive {
+	background-position: 0 (-(2160 / $iconBase) + em);
+}
+
+.svg-icon.mod-instagram {
+	background-position: 0 (-(2220 / $iconBase) + em);
+}
+
+.svg-icon.mod-instagram.mod-inactive {
+	background-position: 0 (-(2280 / $iconBase) + em);
+}
+
+.svg-icon.mod-linkedin {
+	background-position: 0 (-(2340 / $iconBase) + em);
+}
+
+.svg-icon.mod-linkedin.mod-inactive {
+	background-position: 0 (-(2400 / $iconBase) + em);
+}
+
+.svg-icon.mod-pinterest {
+	background-position: 0 (-(2460 / $iconBase) + em);
+}
+
+.svg-icon.mod-pinterest.mod-inactive {
+	background-position: 0 (-(2520 / $iconBase) + em);
+}
+
+.svg-icon.mod-twitter {
+	background-position: 0 (-(2580 / $iconBase) + em);
+}
+
+.svg-icon.mod-twitter.mod-inactive {
+	background-position: 0 (-(2640 / $iconBase) + em);
+}
+
+.svg-icon.mod-vimeo {
+	background-position: 0 (-(2700 / $iconBase) + em);
+}
+
+.svg-icon.mod-vimeo.mod-inactive {
+	background-position: 0 (-(2760 / $iconBase) + em);
+}
+
+.svg-icon.mod-youtube {
+	background-position: 0 (-(2820 / $iconBase) + em);
+}
+
+.svg-icon.mod-youtube.mod-inactive {
+	background-position: 0 (-(2880 / $iconBase) + em);
+}
+
+.svg-icon.mod-resources.mod-grey {
+	background-position: 0 (-(2940 / $iconBase) + em);
+}
+
+.svg-icon.mod-china.mod-grey {
+	background-position: 0 (-(3000 / $iconBase) + em);
+}
+
+.svg-icon.mod-cet.mod-white {
+	background-position: 0 (-(3060 / $iconBase) + em);
+}
+
+.svg-icon.mod-cet {
+	background-position: 0 (-(3120 / $iconBase) + em);
+}
+
+.svg-icon.mod-back {
+	background-position: 0 (-(3180 / $iconBase) + em);
+}
+
+.svg-icon.mod-save {
+	background-position: 0 (-(3240 / $iconBase) + em);
+}
+
+.svg-icon.mod-share {
+	background-position: 0 (-(3300 / $iconBase) + em);
+}
+
+.svg-icon.mod-toggle.mod-off {
+	background-position: 0 (-(3360 / $iconBase) + em);
+}
+
+.svg-icon.mod-toggle.mod-on {
+	background-position: 0 (-(3420 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart.mod-inactive {
+	background-position: 0 (-(3480 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart {
+	background-position: 0 (-(3540 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-blue {
+	background-position: 0 (-(3600 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-light {
+	background-position: 0 (-(3660 / $iconBase) + em);
+}
+
+.svg-icon.mod-new {
+	background-position: 0 (-(3720 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-red {
+	background-position: 0 (-(3780 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-red.mod-active {
+	background-position: 0 (-(3840 / $iconBase) + em);
+}
+
+.svg-icon.mod-requests {
+	background-position: 0 (-(3900 / $iconBase) + em);
+}
+
+.svg-icon.mod-users {
+	background-position: 0 (-(3960 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow.mod-right.mod-grey {
+	background-position: 0 (-(4020 / $iconBase) + em);
+}
+
+.svg-icon.mod-filters {
+	background-position: 0 (-(4080 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-left {
+	background-position: 0 (-(4140 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-right {
+	background-position: 0 (-(4200 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-left.mod-light {
+	background-position: 0 (-(4260 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-right.mod-light {
+	background-position: 0 (-(4320 / $iconBase) + em);
+}
+
+.svg-icon.mod-learning {
+	background-position: 0 (-(4380 / $iconBase) + em);
+}
+
+.svg-icon.mod-royalty {
+	background-position: 0 (-(4440 / $iconBase) + em);
+}
+
+.svg-icon.mod-dead {
+	background-position: 0 (-(4500 / $iconBase) + em);
+}
+
+.svg-icon.mod-trash.mod-red {
+	background-position: 0 (-(4560 / $iconBase) + em);
+}
+
+.svg-icon.mod-trash.mod-light {
+	background-position: 0 (-(4620 / $iconBase) + em);
+}
+
+.svg-icon.mod-upload {
+	background-position: 0 (-(4680 / $iconBase) + em);
+}
+
+.svg-icon.mod-edit {
+	background-position: 0 (-(4740 / $iconBase) + em);
+}
+
+.svg-icon.mod-plus.mod-blue {
+	background-position: 0 (-(4800 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow.mod-white {
+	background-position: 0 (-(4860 / $iconBase) + em);
+}
+
+.svg-icon.mod-grid.mod-inactive {
+	background-position: 0 (-(4920 / $iconBase) + em);
+}
+
+.svg-icon.mod-grid {
+	background-position: 0 (-(4980 / $iconBase) + em);
+}
+
+.svg-icon.mod-list.mod-inactive {
+	background-position: 0 (-(5040 / $iconBase) + em);
+}
+
+.svg-icon.mod-list {
+	background-position: 0 (-(5100 / $iconBase) + em);
+}
+
+.svg-icon.mod-appendix {
+	background-position: 0 (-(5160 / $iconBase) + em);
+}
+
+.svg-icon.mod-expand.mod-blue {
+	background-position: 0 (-(5220 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-right.mod-blue {
+	background-position: 0 (-(5280 / $iconBase) + em);
+}
+
+.svg-icon.mod-upload2 {
+	background-position: 0 (-(5340 / $iconBase) + em);
+}
+
+.svg-icon.mod-star.mod-active {
+	background-position: 0 (-(5400 / $iconBase) + em);
+}
+
+.svg-icon.mod-star {
+	background-position: 0 (-(5460 / $iconBase) + em);
+}
+
+.svg-icon.mod-plus.mod-white {
+	background-position: 0 (-(5520 / $iconBase) + em);
+}
+
+.svg-icon.mod-more {
+	background-position: 0 (-(5580 / $iconBase) + em);
+}
+
+.svg-icon.mod-info.mod-blue {
+	background-position: 0 (-(5640 / $iconBase) + em);
+}
+
+.svg-icon.mod-pdf {
+	background-position: 0 (-(5700 / $iconBase) + em);
+}
+
+.svg-icon.mod-play {
+	background-position: 0 (-(5880 / $iconBase) + em);
+}
+
+.svg-icon.mod-play.mod-black {
+	@include svg-bg($staticURL + "/web/icons/play_black.svg");
+}
+
+.svg-icon.mod-ribbon.mod-active {
+	background-position: 0 (-(5940 / $iconBase) + em);
+}
+
+.svg-icon.mod-ribbon.mod-inactive {
+	background-position: 0 (-(6000 / $iconBase) + em);
+}
+
+.svg-icon.mod-vr {
+	background-position: 0 (-(6060 / $iconBase) + em);
+}
+
+.svg-icon.mod-fullscreen.mod-on {
+	background-position: 0 (-(6120 / $iconBase) + em);
+}
+
+.svg-icon.mod-fullscreen.mod-off {
+	background-position: 0 (-(6180 / $iconBase) + em);
+}
+
+.svg-icon.mod-sticky {
+	background-position: 0 (-(6240 / $iconBase) + em);
+}
+
+.svg-icon.mod-verified-employee {
+	background-position: 0 (-(6300 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-success {
+	background-position: 0 (-(6360 / $iconBase) + em);
+}
+
+.svg-icon.mod-pause {
+	background-position: 0 (-(6420 / $iconBase) + em);
+}
+
+.svg-icon.mod-pause.mod-black {
+	@include svg-bg($staticURL + "/web/icons/pause_black.svg");
+}
+
+.svg-icon.mod-wechat.mod-inactive {
+	background-position: 0 (-(6480 / $iconBase) + em);
+}
+
+.svg-icon.mod-wechat {
+	background-position: 0 (-(6540 / $iconBase) + em);
+}
+
+.svg-icon.mod-qq.mod-inactive {
+	background-position: 0 (-(6600 / $iconBase) + em);
+}
+
+.svg-icon.mod-qq {
+	background-position: 0 (-(6660 / $iconBase) + em);
+}
+
+.svg-icon.mod-xing.mod-inactive {
+	background-position: 0 (-(6720 / $iconBase) + em);
+}
+
+.svg-icon.mod-xing {
+	background-position: 0 (-(6780 / $iconBase) + em);
+}

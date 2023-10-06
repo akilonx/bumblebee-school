@@ -1,0 +1,15 @@
+/*********************************************************
+ * Checkmark list
+ *********************************************************/
+
+.checkmark-list {
+	list-style: none;
+	margin-left: 3.52rem;
+	text-indent: -3.52rem;
+	i.mod-check {
+		margin-right: 0.8rem;
+	}
+	* + * {
+		margin-top: 1.6rem;
+	}
+}

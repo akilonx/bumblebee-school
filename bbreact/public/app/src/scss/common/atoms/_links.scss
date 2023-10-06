@@ -1,0 +1,55 @@
+.link {
+	color: $blue-link;
+	cursor: pointer;
+	font-weight: 500;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	&--border-link {
+		border-bottom: 1px solid $blue;
+		&:hover {
+			border-bottom: none;
+			text-decoration: none;
+		}
+	}
+	&--border-link--white {
+		border-bottom: 1px solid $white;
+		&:hover {
+			border-bottom: none;
+			text-decoration: none;
+		}
+	}
+	&--border-link--black {
+		border-bottom: 1px solid $black;
+		&:hover {
+			border-bottom: none;
+			text-decoration: none;
+		}
+	}
+	&--black {
+		color: $black;
+		border-color: $black;
+	}
+	&--white {
+		color: $white;
+		border-color: $white;
+	}
+	&--bold {
+		font-weight: 700;
+	}
+	&--extra-line-height {
+		line-height: 2.6rem;
+	}
+	&--gray {
+		color: $gray-dark;
+	}
+	&--gray-darker {
+		color: $gray-darker;
+	}
+	&--hover:hover {
+		text-decoration: underline;
+	}
+	&--uppercase {
+		text-transform: uppercase;
+	}
+}

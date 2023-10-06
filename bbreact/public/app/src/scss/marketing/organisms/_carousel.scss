@@ -1,0 +1,308 @@
+/*********************************************************
+ * Carousel
+ *********************************************************/
+
+$click: 4rem;
+.carousel {
+	position: relative;
+	&.mod-no-gutter .carousel-content {
+		padding: 0;
+	}
+	.carousel-content {
+		align-items: center;
+		display: none;
+		padding: 0 $click/2;
+		margin: 0;
+		position: relative;
+		transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+		width: 100%;
+	}
+
+	.carousel-content.is-active,
+	.carousel-content.is-next,
+	.carousel-content.is-prev {
+		display: flex;
+	}
+	.carousel-content.is-next,
+	.carousel-content.is-prev {
+		position: absolute;
+		top: 0;
+	}
+	.carousel-content-container {
+		margin: 0;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+	.carousel-indicators {
+		list-style: none;
+		margin: 0;
+		display: flex;
+		position: absolute;
+		bottom: 5%;
+		justify-content: center;
+		width: 100%;
+		z-index: $z-index;
+		li {
+			margin: 0 0.25em;
+			background-color: rgba($black, 0.4);
+			height: 0.5em;
+			width: 0.5em;
+			border-radius: 100%;
+			&.is-active {
+				background-color: $black;
+			}
+		}
+		&.mod-white li {
+			background-color: rgba($white, 0.4);
+			&.is-active {
+				background-color: $white;
+			}
+		}
+	}
+	.carousel-next,
+	.carousel-prev {
+		align-items: center;
+		background-color: rgba($white, 0.4);
+		display: flex;
+		height: $click;
+		justify-content: center;
+		margin: 0;
+		position: absolute;
+		top: 50%;
+		transform: translate3d(0, -50%, 0);
+		width: $click;
+		z-index: $z-index;
+
+		.svg-icon.mod-chevron {
+			font-size: 1.1rem;
+			opacity: 0.5;
+		}
+		.svg-icon.mod-chevron.mod-left {
+			margin-right: 0.5rem;
+		}
+		.svg-icon.mod-chevron.mod-right {
+			margin-left: 0.5rem;
+		}
+		&:hover .svg-icon.mod-chevron {
+			opacity: 1;
+		}
+	}
+	.carousel-next {
+		right: 0;
+	}
+	.carousel-prev {
+		left: 0;
+	}
+	.carousel-timeline {
+		position: relative;
+		.carousel-prev,
+		.carousel-next {
+			display: none;
+		}
+	}
+	.carousel-timeline ol {
+		align-items: center;
+		color: $white;
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		margin: 0 -1.6rem;
+		overflow: hidden;
+		position: relative;
+		&:before {
+			@include pseudo-element($top: 0, $left: 0);
+			background: linear-gradient(
+				to right,
+				rgba($turquoise-light, 1) 0%,
+				rgba($turquoise-light, 0) 100%
+			);
+			height: 100%;
+			width: 3.2rem;
+			z-index: 1;
+		}
+		&:after {
+			@include pseudo-element($top: 0, $right: 0);
+			background: linear-gradient(
+				to left,
+				rgba($turquoise-light, 1) 0%,
+				rgba($turquoise-light, 0) 100%
+			);
+			height: 100%;
+			width: 3.2rem;
+			z-index: 1;
+		}
+		li {
+			left: 50%;
+			transform: translateX(-50%);
+			position: relative;
+			transition: left 0.33s cubic-bezier(0, 0, 0.3, 1);
+		}
+		li a {
+			display: inline-block;
+			color: rgba(0, 0, 0, 0.4);
+			font-weight: bold;
+			font-size: 2rem;
+			position: relative;
+			text-align: center;
+			text-decoration: none;
+			width: 85px;
+			line-height: 85px;
+			@include marketing-override {
+				&.lang-global {
+					@include geo-semibold;
+				}
+
+				&.lang-jp {
+					@include jp-semibold;
+				}
+				font-weight: normal;
+			}
+		}
+		li.is-active {
+			a {
+				color: $white;
+				font-size: 3.2rem;
+			}
+			&:before {
+				@include arrow(up, 1.04rem, $white);
+				border-bottom-width: 2.08rem;
+				@include pseudo-element($bottom: 0, $left: 50%);
+				transform: translateX(-50%);
+			}
+		}
+		li:hover a {
+			color: $white;
+		}
+	}
+	.carousel-timeline ol.mod-no-transition li {
+		transition: none;
+	}
+	.chevron {
+		border-color: rgba($black, 0.4);
+		&.mod-left {
+			margin-left: 0.4rem;
+		}
+		&.mod-right {
+			margin-right: 0.4rem;
+		}
+	}
+	.is-next.to-right,
+	.is-prev.to-left {
+		transform: translate3d(0, 0, 0);
+	}
+	.is-next,
+	.to-left {
+		transform: translate3d(-100%, 0, 0);
+	}
+	.is-prev,
+	.to-right {
+		transform: translate3d(100%, 0, 0);
+	}
+	.mod-willchange {
+		will-change: transform;
+	}
+	.row {
+		// IE Fix when using grid inside carousel-content
+		min-width: 100%;
+	}
+	@keyframes slideInLeft {
+		from {
+			transform: translate3d(-100%, 0, 0);
+		}
+		to {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	@keyframes slideInRight {
+		from {
+			transform: translate3d(100%, 0, 0);
+		}
+		to {
+			transform: translate3d(0, 0, 0);
+		}
+	}
+	@keyframes slideOutLeft {
+		from {
+			transform: translate3d(0, 0, 0);
+		}
+		to {
+			transform: translate3d(-100%, 0, 0);
+		}
+	}
+	@keyframes slideOutRight {
+		from {
+			transform: translate3d(0, 0, 0);
+		}
+		to {
+			transform: translate3d(100%, 0, 0);
+		}
+	}
+	.in-left {
+		display: flex;
+		position: absolute;
+		top: 0;
+		animation: slideInLeft 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+	}
+	.in-right {
+		display: flex;
+		position: absolute;
+		top: 0;
+		animation: slideInRight 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+	}
+	.out-left {
+		animation: slideOutLeft 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+	}
+	.out-right {
+		animation: slideOutRight 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+	}
+}
+
+@include media-min-md {
+	$click: 6.4rem;
+	.carousel {
+		&.mod-no-gutter .carousel-content {
+			padding: 0;
+		}
+		.carousel-content {
+			padding: 0 $click;
+		}
+		.carousel-next,
+		.carousel-prev {
+			height: $click;
+			width: $click;
+		}
+		.carousel-timeline {
+			.carousel-prev,
+			.carousel-next {
+				background-color: transparent;
+				display: flex;
+			}
+			ol {
+				margin: 0 1.6rem;
+				li a {
+					font-size: 2.4rem;
+					width: 150px;
+					line-height: 150px;
+				}
+				li.is-active {
+					a {
+						font-size: 4.8rem;
+					}
+					&:before {
+						@include arrow(up, 1.6rem, $white);
+						border-bottom-width: 3.2rem;
+					}
+				}
+			}
+		}
+		.chevron {
+			&.mod-left {
+				margin-left: 0.6rem;
+			}
+			&.mod-right {
+				margin-right: 0.6rem;
+			}
+		}
+	}
+}

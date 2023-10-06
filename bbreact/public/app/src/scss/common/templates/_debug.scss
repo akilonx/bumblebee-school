@@ -1,0 +1,26 @@
+.debug {
+	textarea {
+		font-family: monospace;
+		width: 100%;
+	}
+	pre {
+		font-family: $monoFont;
+	}
+	pre.context {
+		width: 100%;
+		overflow-x: scroll;
+		border: 1px solid gray;
+		padding: 0.8rem;
+		strong {
+			background-color: $app-red;
+		}
+	}
+	.stackframe {
+		* + * {
+			margin-top: 0.8rem;
+			@include media-min-sm {
+				margin-top: 1.2rem;
+			}
+		}
+	}
+}

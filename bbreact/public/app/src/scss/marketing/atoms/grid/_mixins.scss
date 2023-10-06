@@ -1,0 +1,43 @@
+/*********************************************************
+ * IE 11 qualifier
+ *********************************************************/
+@mixin media-ie11 {
+	@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+@mixin media-ie11-min-xs {
+	@media screen and (min-width: map-get($breakpoints, "sm")) and (-ms-high-contrast: active),
+		screen and (min-width: map-get($breakpoints, "sm")) and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+@mixin media-ie11-min-sm {
+	@media screen and (min-width: map-get($breakpoints, "sm")) and (-ms-high-contrast: active),
+		screen and (min-width: map-get($breakpoints, "sm")) and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+@mixin media-ie11-min-md {
+	@media screen and (min-width: map-get($breakpoints, "md")) and (-ms-high-contrast: active),
+		screen and (min-width: map-get($breakpoints, "md")) and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+@mixin media-ie11-min-lg {
+	@media screen and (min-width: map-get($breakpoints, "lg")) and (-ms-high-contrast: active),
+		screen and (min-width: map-get($breakpoints, "lg")) and (-ms-high-contrast: none) {
+		@content;
+	}
+}
+
+@mixin media-ie11-min-xl {
+	@media screen and (min-width: map-get($breakpoints, "xl")) and (-ms-high-contrast: active),
+		screen and (min-width: map-get($breakpoints, "xl")) and (-ms-high-contrast: none) {
+		@content;
+	}
+}

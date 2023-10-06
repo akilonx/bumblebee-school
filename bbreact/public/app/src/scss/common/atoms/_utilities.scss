@@ -1,0 +1,607 @@
+/*********************************************************
+ * Background colors
+ *********************************************************/
+
+.ut-bg-white {
+	background-color: $white;
+}
+
+.ut-bg-light-gray {
+	background-color: $gray-lighter;
+}
+
+.ut-bg-gray-light {
+	background-color: $gray-light;
+}
+
+.ut-bg-blue {
+	background-color: $blue;
+}
+
+.ut-bg-black {
+	background-color: $black;
+}
+
+.ut-bg-transparent {
+	background-color: transparent;
+}
+
+/*********************************************************
+ * Border radius
+ *********************************************************/
+
+.ut-rounded-circle {
+	border-radius: 50%;
+}
+
+/*********************************************************
+ * Display
+ *********************************************************/
+
+.ut-block {
+	display: block;
+}
+
+.ut-inline-block {
+	display: inline-block;
+}
+
+.ut-inline-flex {
+	display: inline-flex;
+}
+
+.ut-flex {
+	display: flex;
+}
+
+.ut-flex-align-items-center {
+	align-items: center;
+}
+
+.ut-flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ut-flex-direction-column {
+	flex-direction: column;
+}
+.ut-flex-grow-1 {
+	flex-grow: 1;
+}
+
+.ur-flex-grow-0 {
+	flex-grow: 0;
+}
+
+.ut-flex-grow-1 {
+	flex-grow: 1;
+}
+
+.ur-flex-grow-0 {
+	flex-grow: 0;
+}
+
+.ut-flex-shrink-1 {
+	flex-shrink: 1;
+}
+
+.ut-flex-shrink-0 {
+	flex-shrink: 0;
+}
+
+/*********************************************************
+ * Height
+ *********************************************************/
+
+@for $i from 1 through 4 {
+	.ut-gap-#{$i} {
+		gap: #{$i * 0.5}rem;
+	}
+}
+
+/*********************************************************
+ * Height
+ *********************************************************/
+
+@for $i from 1 through 10 {
+	$height: percentage($i / 10);
+	.ut-height-#{10 * $i} {
+		height: $height;
+	}
+	.ut-min-height-#{10 * $i} {
+		height: $height;
+	}
+	.ut-max-height-#{10 * $i} {
+		height: $height;
+	}
+}
+
+/*********************************************************
+ * Hover
+ *********************************************************/
+
+.ut-hover-underline:hover {
+	text-decoration: underline;
+}
+
+.ut-hover-pointer:hover {
+	cursor: pointer;
+}
+
+.ut-hover-none:hover {
+	text-decoration: none;
+}
+
+/*********************************************************
+ * Image
+ *********************************************************/
+
+.ut-responsive-image {
+	height: auto;
+	max-width: 100%;
+}
+
+/**
+ * Hover toggle
+ */
+
+.ut-hover-toggle {
+	:last-child {
+		display: none;
+		margin: 0;
+	}
+	&:hover {
+		:first-child {
+			display: none;
+		}
+		:last-child {
+			display: inline-block;
+		}
+	}
+}
+
+/*********************************************************
+ * Lists
+ *********************************************************/
+
+.ut-list-style-none {
+	list-style: none;
+}
+
+.ut-list-style-lower-alpha {
+	list-style: lower-alpha;
+}
+
+.ut-list-style-lower-roman {
+	list-style: lower-roman;
+}
+
+.ut-list-style-disc {
+	list-style: disc;
+}
+
+.ut-list-style-dash {
+	list-style: none;
+	> li:before {
+		content: "-";
+	}
+}
+
+/*********************************************************
+ * Margins
+ *********************************************************/
+
+@for $i from 0 through 4 {
+	.ut-margin-#{$i} {
+		margin: #{$i * 1.6}rem;
+	}
+	.ut-margin-bottom-#{$i} {
+		margin-bottom: #{$i * 1.6}rem;
+	}
+	.ut-margin-top-#{$i} {
+		margin-top: #{$i * 1.6}rem;
+	}
+	.ut-margin-left-#{$i} {
+		margin-left: #{$i * 1.6}rem;
+	}
+	.ut-margin-right-#{$i} {
+		margin-right: #{$i * 1.6}rem;
+	}
+	.ut-margin-horizontal-#{$i} {
+		margin-left: #{$i * 1.6}rem;
+		margin-right: #{$i * 1.6}rem;
+	}
+	.ut-margin-vertical-#{$i} {
+		margin-top: #{$i * 1.6}rem;
+		margin-bottom: #{$i * 1.6}rem;
+	}
+	@include media-sm-only {
+		.ut-margin-#{$i}-on-sm {
+			margin: $i rem;
+		}
+		.ut-margin-bottom-#{$i}-on-sm {
+			margin-bottom: #{$i * 1.6}rem;
+		}
+		.ut-margin-top-#{$i}-on-sm {
+			margin-top: #{$i * 1.6}rem;
+		}
+		.ut-margin-left-#{$i}-on-sm {
+			margin-left: #{$i * 1.6}rem;
+		}
+		.ut-margin-right-#{$i}-on-sm {
+			margin-right: #{$i * 1.6}rem;
+		}
+	}
+	@include media-md-only {
+		.ut-margin-#{$i}-on-md {
+			margin: $i rem;
+		}
+		.ut-margin-bottom-#{$i}-on-md {
+			margin-bottom: #{$i * 1.6}rem;
+		}
+		.ut-margin-top-#{$i}-on-md {
+			margin-top: #{$i * 1.6}rem;
+		}
+		.ut-margin-left-#{$i}-on-md {
+			margin-left: #{$i * 1.6}rem;
+		}
+		.ut-margin-right-#{$i}-on-md {
+			margin-right: #{$i * 1.6}rem;
+		}
+	}
+	@include media-lg-only {
+		.ut-margin-#{$i}-on-lg {
+			margin: $i rem;
+		}
+		.ut-margin-bottom-#{$i}-on-lg {
+			margin-bottom: #{$i * 1.6}rem;
+		}
+		.ut-margin-top-#{$i}-on-lg {
+			margin-top: #{$i * 1.6}rem;
+		}
+		.ut-margin-left-#{$i}-on-lg {
+			margin-left: #{$i * 1.6}rem;
+		}
+		.ut-margin-right-#{$i}-on-lg {
+			margin-right: #{$i * 1.6}rem;
+		}
+	}
+	@include media-xl-only {
+		.ut-margin-#{$i}-on-xl {
+			margin: $i rem;
+		}
+		.ut-margin-bottom-#{$i}-on-xl {
+			margin-bottom: #{$i * 1.6}rem;
+		}
+		.ut-margin-top-#{$i}-on-xl {
+			margin-top: #{$i * 1.6}rem;
+		}
+		.ut-margin-left-#{$i}-on-xl {
+			margin-left: #{$i * 1.6}rem;
+		}
+		.ut-margin-right-#{$i}-on-xl {
+			margin-right: #{$i * 1.6}rem;
+		}
+	}
+}
+
+.ut-margin-center-horizontal {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*********************************************************
+ * Overflow
+ *********************************************************/
+
+.ut-overflow-hidden {
+	overflow: hidden;
+}
+
+/*********************************************************
+ * Overflow Wrap
+ *********************************************************/
+.ut-bw-overflow-wrap {
+	overflow-wrap: break-word;
+}
+
+/*********************************************************
+ * Paddings
+ *********************************************************/
+
+@for $i from 0 through 4 {
+	.ut-padding-#{$i} {
+		padding: #{$i * 1.6}rem;
+	}
+	.ut-padding-bottom-#{$i} {
+		padding-bottom: #{$i * 1.6}rem;
+	}
+	.ut-padding-top-#{$i} {
+		padding-top: #{$i * 1.6}rem;
+	}
+	.ut-padding-left-#{$i} {
+		padding-left: #{$i * 1.6}rem;
+	}
+	.ut-padding-right-#{$i} {
+		padding-right: #{$i * 1.6}rem;
+	}
+	.ut-padding-horizontal-#{$i} {
+		padding-left: #{$i * 1.6}rem;
+		padding-right: #{$i * 1.6}rem;
+	}
+	.ut-padding-vertical-#{$i} {
+		padding-top: #{$i * 1.6}rem;
+		padding-bottom: #{$i * 1.6}rem;
+	}
+}
+
+/*********************************************************
+ * Typography
+ *********************************************************/
+
+.ut-text-uppercase {
+	text-transform: uppercase;
+}
+
+.ut-text-capitalize {
+	text-transform: capitalize;
+}
+
+.ut-text-center {
+	text-align: center;
+}
+
+.ut-text-left {
+	text-align: left;
+}
+
+.ut-text-right {
+	text-align: right;
+}
+
+.ut-text-italic {
+	font-style: italic;
+}
+
+.ut-text-light {
+	font-weight: lighter;
+}
+
+.ut-text-medium {
+	font-weight: 500;
+}
+
+.ut-text-semi-bold {
+	font-weight: 600;
+}
+
+.ut-text-blue {
+	color: $blue;
+}
+
+.ut-text-green {
+	color: $app-green;
+}
+
+.ut-text-red {
+	color: $app-red;
+}
+
+.ut-text-gray-light {
+	color: $gray-light;
+}
+
+.ut-font-family-code {
+	font-family: $monoFont;
+}
+
+.ut-2xs-size {
+	font-size: 9px;
+}
+
+.ut-xs-size {
+	font-size: 10px;
+}
+
+.ut-small-size {
+	font-size: 11px;
+}
+.ut-normal-size {
+	font-size: 12px;
+}
+.ut-medium-size {
+	font-size: 14px;
+}
+
+/*********************************************************
+ * Vertical alignment
+ *********************************************************/
+
+.ut-valign-base {
+	vertical-align: baseline;
+}
+
+.ut-valign-middle {
+	vertical-align: middle;
+}
+
+.ut-valign-top {
+	vertical-align: top;
+}
+
+.ut-valign-super {
+	vertical-align: super;
+}
+
+.ut-valign-bottom {
+	vertical-align: bottom;
+}
+
+/*********************************************************
+ * Video
+ *********************************************************/
+
+.ut-embed-responsive {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+	&:before {
+		display: block;
+		content: "";
+	}
+	&.mod-16by9:before {
+		padding-top: percentage(1 / (16 / 9));
+	}
+	&.mod-1by1:before {
+		padding-top: 100%;
+	}
+	.embed-responsive-item,
+	embed,
+	iframe,
+	object,
+	video {
+		border: 0;
+		bottom: 0;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+
+		&.mod-full-height,
+		&.mod-full-width {
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%, -50%, 0);
+		}
+
+		&.mod-full-height {
+			height: auto;
+		}
+
+		&.mod-full-width {
+			width: auto;
+		}
+	}
+}
+
+/*********************************************************
+ * Visibility
+ *********************************************************/
+
+.hide, /* Legacy*/
+.ut-hide {
+	display: none;
+}
+
+.ut-visible {
+	visibility: visible;
+}
+
+.ut-invisible {
+	visibility: hidden;
+}
+
+/*********************************************************
+ * White-space
+ *********************************************************/
+.ut-white-space-normal {
+	white-space: normal;
+}
+
+ .ut-white-space-pre-line {
+	white-space: pre-line;
+}
+
+/*********************************************************
+ * Width
+ *********************************************************/
+
+@for $i from 1 through 10 {
+	$width: percentage($i / 10);
+	.ut-width-#{10 * $i} {
+		width: $width;
+	}
+	.ut-min-width-#{10 * $i} {
+		min-width: $width;
+	}
+	.ut-max-width-#{10 * $i} {
+		max-width: $width;
+	}
+	.ut-max-width-fit-content {
+		max-width: fit-content;
+	}
+
+	@include media-min-lg {
+		.ut-width-#{10 * $i}-lg {
+			width: $width;
+		}
+	}
+}
+
+/*********************************************************
+ * Hide/Show between two elements when hovering parent
+ *********************************************************/
+
+.hover-hide-show {
+	:last-child {
+		display: none;
+	}
+	&:hover {
+		:first-child {
+			display: none;
+		}
+		:last-child {
+			margin-top: 0;
+			display: inline-block;
+		}
+	}
+}
+
+/*********************************************************
+ * Same width, auto adjust height
+ *********************************************************/
+
+.ut-fixed-width {
+	width: 10rem;
+	height: auto;
+}
+
+.ut-fixed-width-3 {
+	width: 3rem;
+	height: auto;
+}
+
+/*********************************************************
+ * Float
+ *********************************************************/
+
+.ut-right {
+	float: right;
+}
+.ut-left {
+	float: left;
+}
+.ut-sink {
+	float: none;
+}
+
+/*********************************************************
+ * Optimize image
+ *********************************************************/
+
+.optimize-image {
+	image-rendering: -webkit-optimize-contrast; // Chrome, Edge, Safari
+}
+
+// Others
+
+.ut-disabled {
+	color: $gray;
+	cursor: not-allowed;
+}

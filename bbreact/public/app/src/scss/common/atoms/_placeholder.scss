@@ -1,0 +1,73 @@
+/*********************************************************
+ * Placeholder
+ *********************************************************/
+
+$baseHeight: 4.8rem;
+$baseWidth: 8rem;
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.33;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.p-div {
+	animation: pulse 2s infinite;
+	background-color: $gray-lighter;
+	display: inline-block;
+	height: $baseHeight;
+	vertical-align: middle;
+	width: 100%;
+	@for $i from 2 through 5 {
+		&.mod-#{$i} {
+			height: $i * $baseHeight;
+		}
+	}
+	&.mod-text {
+		height: 1em;
+	}
+	&.mod-dark {
+		background-color: $gray-light;
+	}
+	&.mod-white {
+		background-color: $white;
+	}
+	&.mod-thin {
+		height: $baseHeight / 5;
+	}
+}
+
+.p-button {
+	animation: pulse 2s infinite;
+	display: inline-block;
+	height: $baseHeight;
+	vertical-align: middle;
+	width: $baseWidth;
+	/**
+	 * Pages style
+	**/
+	@each $class, $color in $primary-colors {
+		.page-#{$class} & {
+			background-color: $color;
+		}
+	}
+	/**
+	 * Direct styles
+	**/
+	@each $class, $color in $primary-colors {
+		&.mod-#{$class} {
+			background-color: $color;
+		}
+	}
+	&.mod-gray {
+		background-color: $gray;
+	}
+	&.mod-expand {
+		width: 100%;
+	}
+}

@@ -1,0 +1,141 @@
+/*********************************************************
+ * Buttons
+ *********************************************************/
+
+a.button,
+button.button,
+label.button,
+input[type="submit"].button,
+input[type="button"].button,
+input[type="reset"].button {
+	border-radius: 0;
+	border-width: 2px;
+	font-size: 1.6rem;
+	line-height: 1.4;
+	padding: 0.45em 1.5em;
+
+	.lang-global & {
+		@include geo-medium;
+	}
+
+	.lang-jp & {
+		@include jp-medium;
+	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+
+	&.mod-expand {
+		width: 100%;
+	}
+
+	/**
+	* Pages style
+	**/
+	@each $class, $color in $primary-colors {
+		.page-#{$class} & {
+			@include button-color($color, $white, map-get($secondary-colors, $class + "-light"));
+		}
+
+		.page-#{$class} &.mod-ghost {
+			background-color: transparent;
+			color: $color;
+
+			&:hover {
+				background-color: map-get($secondary-colors, $class + "-light");
+				color: $white;
+			}
+		}
+
+		.page-#{$class} &.mod-factbox {
+			@include button-color($white, $color, transparent, $white, $white, $white);
+		}
+
+		.page-#{$class} &.mod-slider {
+			font-size: inherit;
+			padding-left: 0px;
+			font-weight: 600;
+			text-align: left;
+			@include button-color($white, $gray-light, transparent, $white, $white, $white);
+
+			&:hover {
+				color: $color;
+			}
+
+			&.active {
+				box-shadow: none;
+				color: $color;
+			}
+		}
+	}
+
+	/**
+	* Direct styles
+	**/
+	@each $class, $color in $primary-colors {
+		&.mod-#{$class} {
+			@include button-color($color, $white, map-get($secondary-colors, $class + "-light"));
+		}
+
+		&.mod-#{$class}.mod-factbox {
+			@include button-color($white, $color, transparent, $white, $white, $white);
+		}
+
+		&.mod-#{$class}.mod-ghost {
+			background-color: transparent;
+			color: $color;
+
+			&:hover {
+				background-color: map-get($secondary-colors, $class + "-light");
+				color: $white;
+			}
+		}
+	}
+
+	&.mod-gray {
+		@include button-color($gray, $white, $gray-light);
+	}
+
+	&.mod-danger {
+		@include button-color($app-red, $white, lighten($app-red, 10%));
+	}
+
+	&.mod-link {
+		font-weight: 400;
+		line-height: inherit;
+		font-size: inherit;
+		text-transform: inherit;
+		background-color: transparent;
+		color: $blue-link;
+
+		&:hover,
+		:focus {
+			color: $blue-link;
+			background-color: transparent;
+			text-decoration: none;
+		}
+	}
+
+	.svg-icon {
+		font-size: 6px;
+		margin-right: 1em;
+	}
+}
+
+@include media-min-md {
+	a.button,
+	button.button,
+	input[type="submit"].button,
+	input[type="button"].button,
+	input[type="reset"].button {
+		font-size: 1.8rem;
+
+		.svg-icon {
+			font-size: 7px;
+			margin-right: 1em;
+		}
+	}
+}

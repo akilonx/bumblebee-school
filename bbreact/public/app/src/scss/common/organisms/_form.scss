@@ -1,0 +1,762 @@
+/*********************************************************
+ * Form styles
+ *********************************************************/
+
+form {
+	margin-top: 0rem;
+}
+
+.form-group,
+.form-field + .form-field {
+	margin-top: 1rem;
+}
+
+.form-field + .form-label,
+.form-field + .form-label-standalone {
+	margin-top: 1.2rem;
+}
+
+.form-field {
+	small,
+	.help-text {
+		color: lighten($black, 20%);
+		display: block;
+		margin-left: 1.6rem;
+		font-size: 1.4rem;
+		margin-top: 0.4rem;
+
+		&.form-checkbox-help-text {
+			margin-left: 2.3rem;
+		}
+	}
+	&.mod-error {
+		.form-input,
+		.form-select {
+			border-color: $app-red;
+		}
+		.form-message {
+			color: $app-red;
+		}
+	}
+
+	&.mod-disabled {
+		.form-label {
+			color: $gray;
+			cursor: not-allowed;
+		}
+	}
+}
+
+.modal-body .form-field * + *,
+.form-field * + * {
+	margin-top: 0;
+}
+
+.form-title:not(:first-child) {
+	display: inline-block;
+	margin-top: 2.4rem;
+}
+
+.form-title + .form-field {
+	margin-top: 0.8rem;
+}
+
+.form-controls {
+	text-align: right;
+}
+
+.form-label {
+	display: block;
+
+	&:hover {
+		cursor: pointer;
+		color: $gray;
+	}
+
+	@include marketing-override {
+		font-size: 1.6rem;
+		font-weight: normal;
+
+		&::placeholder {
+		}
+		@include media-min-md {
+			font-size: 1.8rem;
+		}
+	}
+}
+
+.form-label-standalone {
+	color: $gray;
+	display: inline-block;
+	font-weight: 500;
+}
+
+.form-label-standalone + * {
+	margin-top: 0.6rem;
+}
+
+.form-input-wrapper,
+.form-select-wrapper,
+.form-textarea-wrapper {
+	position: relative;
+
+	.form-label {
+		color: $gray;
+		font-weight: 500;
+		left: 0.6rem;
+		position: absolute;
+		top: 25%;
+		transition: transform 200ms;
+
+		@include marketing-override {
+			margin-top: -0.2rem;
+			text-transform: uppercase;
+		}
+	}
+
+	&.has-data,
+	&.is-active {
+		.form-label {
+			transform: translateY(-50%) translateX(-10%) scale(80%);
+
+			@include marketing-override {
+				font-size: 1.2rem;
+				margin-top: 0;
+				top: 0.4rem;
+			}
+		}
+	}
+
+	&.has-data .form-label {
+		color: $gray;
+	}
+
+	&.is-active .form-label {
+		color: $blue;
+	}
+
+	&.has-error {
+		.form-input {
+			border-color: $app-red;
+		}
+	}
+}
+
+.form-input-wrapper.mod-icon {
+	.svg-icon {
+		font-size: calc(1rem / 10 * 8);
+		left: 1.6rem;
+		opacity: 0.5;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: opacity 0.33s ease;
+	}
+	.form-label {
+		left: 5.2rem;
+	}
+	.form-input {
+		padding-left: 5.2rem;
+	}
+
+	&.is-active .svg-icon {
+		opacity: 1;
+	}
+}
+
+.form-textarea-wrapper .form-label {
+	top: 1.4rem;
+	transform: translateY(0);
+}
+
+.form-select-wrapper {
+	.form-select {
+		background-position: calc(100% - 21px) calc(50%), calc(100% - 14px) calc(50%);
+		background-repeat: no-repeat;
+		background-size: 16px 16px, 16px 16px;
+		line-height: 1.5;
+	}
+}
+
+.form-input-xs {
+	appearance: none;
+	background-color: $white;
+	border-radius: $border-radius;
+	border: 1px solid $gray-light;
+	color: $black;
+	/* font-size: 1.6rem; */
+	font-weight: 500;
+	height: 80%;
+	margin-top: 0;
+	outline: none;
+	padding: 1rem 0 0 0.6rem;
+	width: 30%;
+}
+
+.form-input,
+.form-optgroup,
+.form-select,
+.form-textarea {
+	appearance: none;
+	background-color: $white;
+	border-radius: $border-radius;
+	border: 1px solid $gray-light;
+	color: $black;
+	/* font-size: 1.6rem; */
+	font-weight: 500;
+	height: 100%;
+	margin-top: 0;
+	outline: none;
+	padding: 1rem 0 0 0.6rem;
+	width: 100%;
+
+	&:focus {
+		border-color: $blue;
+	}
+
+	&::-ms-expand {
+		display: none;
+	}
+
+	&:disabled,
+	&[readonly] {
+		color: $gray-dark;
+		background-color: $gray-lightest;
+		opacity: 1;
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+
+	&:required {
+		box-shadow: none;
+	}
+
+	&:not([type="password"]) {
+		font-weight: normal;
+	}
+	&::placeholder {
+		color: transparent;
+	}
+
+	@include marketing-override {
+		border-radius: 0;
+		font-size: 1.8rem;
+	}
+
+	&[type="range"] {
+		$trackHeight: 0.5rem;
+		$trackColor: $gray-light;
+		$thumbDiameter: 1.5rem;
+		$thumbColor: $blue;
+
+		@mixin slider-track {
+			box-sizing: border-box;
+			border: none;
+			height: $trackHeight;
+			background: $trackColor;
+			border-radius: $trackHeight/4;
+		}
+
+		@mixin slider-thumb {
+			box-sizing: border-box;
+			border: none;
+			width: $thumbDiameter;
+			height: $thumbDiameter;
+			border-radius: 50%;
+			background: $thumbColor;
+			@include elevateLevel(1);
+		}
+
+		&,
+		&::-webkit-slider-thumb {
+			-webkit-appearance: none;
+		}
+
+		padding-top: 2.8rem;
+		padding-bottom: 0.9rem;
+
+		&::-webkit-slider-runnable-track {
+			@include slider-track;
+		}
+		&::-moz-range-track {
+			@include slider-track;
+		}
+		&::-ms-track {
+			@include slider-track;
+		}
+
+		&::-webkit-slider-thumb {
+			margin-top: 0.5 * ($trackHeight - $thumbDiameter);
+			@include slider-thumb;
+		}
+		&::-moz-range-thumb {
+			@include slider-thumb;
+		}
+		&::-ms-thumb {
+			margin-top: 0;
+			@include slider-thumb;
+		}
+
+		&::-ms-tooltip {
+			display: none;
+		}
+	}
+}
+
+// Hack for webkit autofill
+@keyframes onAutoFillEnd {
+	from {
+		width: auto;
+	}
+	to {
+		width: auto;
+	}
+}
+
+@keyframes onAutoFillStart {
+	from {
+		height: auto;
+	}
+	to {
+		height: auto;
+	}
+}
+
+.form-input,
+.form-textarea {
+	&:not(:-webkit-autofill) {
+		// Expose a hook for JavaScript animationstart with onAutoFillEnd name
+		animation-name: onAutoFillEnd;
+	}
+
+	&:-webkit-autofill {
+		// Expose a hook for JavaScript animationstart with onAutoFillStart name
+		animation-name: onAutoFillStart;
+
+		// Make the background color become yellow really slowly
+		transition: background-color 50000s ease-in-out 0s;
+	}
+}
+
+.form-textarea {
+	display: block;
+	resize: vertical;
+	&.mod-no-resize {
+		resize: none;
+	}
+	&.mod-overflow-hidden {
+		overflow: hidden;
+	}
+}
+
+.form-input-group {
+	display: flex;
+
+	.button {
+		border-width: 1px;
+		margin: 0;
+	}
+
+	> :first-child,
+	> :first-child .form-input,
+	> :first-child .form-select {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-right: -1px;
+	}
+
+	> :last-child,
+	> :last-child .form-input,
+	> :last-child .form-select {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		margin-left: -1px;
+	}
+
+	.form-field {
+		flex: 1 0 auto;
+		margin-top: 0;
+	}
+
+	&.mod-xs {
+		.form-input-wrapper,
+		.form-select-wrapper,
+		.form-textarea-wrapper {
+			.form-label {
+				font-size: 1.2rem;
+				font-weight: 600;
+			}
+		}
+		.form-input {
+			font-size: 1.2rem;
+			padding-top: 1.2rem;
+			padding-bottom: 0.2rem;
+		}
+		.button {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+.form-checkbox-wrapper {
+	.form-label {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+	}
+	.form-checkbox {
+		margin-bottom: 0.2rem;
+	}
+}
+
+.form-checkbox,
+.form-radio,
+.form-button,
+.form-range {
+	outline: none;
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.form-label {
+	.form-checkbox,
+	.form-radio {
+		/* margin-right: 0.8rem; */
+	}
+}
+
+.form-checkbox + .form-label,
+.form-radio + .form-label {
+	display: inline-block;
+	margin-left: 0.4rem;
+}
+
+.form-checkbox:disabled + .form-label,
+.form-radio:disabled + .form-label {
+	color: $gray;
+	cursor: not-allowed;
+}
+
+.form-toggle {
+	.toggle {
+		background: $gray-light;
+		border-radius: 2.5rem;
+		cursor: pointer;
+		display: inline-block;
+		height: 2.5rem;
+		outline: 0;
+		padding: 2px;
+		margin-right: 0.8rem;
+		position: relative;
+		vertical-align: middle;
+		transition: background-color 0.33s;
+		user-select: none;
+		width: 4.6rem;
+		will-change: transition;
+
+		&:after {
+			background: $white;
+			border-radius: 50%;
+			content: "";
+			display: inline-block;
+			height: 100%;
+			left: 0;
+			position: relative;
+			transition: left 0.33s;
+			width: 50%;
+			will-change: transition;
+		}
+	}
+
+	&.form-checked .toggle {
+		background: $blue;
+
+		&:after {
+			left: 50%;
+		}
+	}
+
+	.form-checkbox {
+		display: none;
+	}
+}
+
+/**
+* Use this for when you have a two column form on MD
+* and you want one column to stretch like the other one
+**/
+
+.form-flex {
+	@include media-min-md {
+		display: flex;
+		height: 100%;
+
+		.form-field {
+			display: flex;
+			flex-basis: auto;
+			flex-direction: column;
+			flex-grow: 1;
+			flex-shrink: 0;
+
+			.form-textarea-wrapper,
+			.form-textarea {
+				height: 100%;
+			}
+		}
+
+		.alert {
+			flex-grow: 0;
+		}
+	}
+}
+
+.s3-upload {
+	background: $gray-lightest;
+	border: 2px dashed $gray-light;
+	padding-bottom: 1.6rem;
+	position: relative;
+	text-align: center;
+	width: 100%;
+
+	&.is-dragging {
+		border-color: $blue-light;
+	}
+
+	.form-input-file {
+		appearance: none;
+		cursor: pointer;
+		height: 100%;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+.s3-uploads {
+	margin-left: 0;
+
+	> li {
+		display: flex;
+
+		* + * {
+			margin-top: 0;
+		}
+
+		.s3-name {
+			flex-grow: 1;
+			margin-right: 1.6rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+
+		.s3-progress-bar {
+			background: $gray-lightest;
+			flex-grow: 0;
+			flex-shrink: 0;
+			height: 2.4rem;
+			width: 40%;
+
+			&.is-finished {
+				display: none;
+			}
+		}
+
+		.s3-progress {
+			background: $app-green;
+			flex-grow: 0;
+			flex-shrink: 0;
+			height: 100%;
+		}
+
+		.s3-size {
+			flex-grow: 0;
+			flex-shrink: 0;
+			text-align: right;
+			width: 8rem;
+		}
+
+		.s3-remove {
+			cursor: pointer;
+			flex-grow: 0;
+			flex-shrink: 0;
+			text-align: right;
+			width: 3.2rem;
+
+			&:hover .svg-icon {
+				margin-top: -0.48rem;
+			}
+		}
+	}
+}
+
+.form-upload {
+	align-items: center;
+	background-color: $white;
+	border: 2px dashed $gray;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 3.2rem;
+	position: relative;
+	text-align: center;
+
+	&.dragging {
+		background-color: $gray-lightest;
+	}
+
+	&.disabled {
+		opacity: 0.5;
+	}
+
+	.dragging {
+		z-index: $z-index;
+	}
+
+	* + * {
+		margin-top: 1rem;
+	}
+
+	input {
+		height: 100%;
+		left: 0;
+		opacity: 0.001;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+.form-upload-progress {
+	display: flex;
+}
+
+.form-upload-progress-name {
+	align-items: center;
+	display: flex;
+	flex: 1 1 50%;
+	max-width: 50%;
+}
+
+.form-upload-progress-name-inner {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.form-upload-progress-bar {
+	display: flex;
+	flex: 1 1 50%;
+	justify-content: flex-end;
+	margin: 0;
+
+	.progress-container {
+		margin: 0;
+		width: 100%;
+	}
+
+	.progress-text {
+		align-items: center;
+		display: flex;
+		flex: 0 0 auto;
+		margin-top: 0;
+		padding-left: 1rem;
+	}
+
+	.button {
+		margin: 0;
+
+		.svg-icon {
+			margin-right: 0;
+		}
+	}
+}
+
+@keyframes chip-animation {
+	0% {
+		opacity: 0;
+		transform: scale(0.7);
+	}
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+.form-multiselect {
+	select {
+		display: none;
+	}
+
+	textarea {
+		height: 2.4rem;
+		padding-top: 0.4rem;
+		flex-basis: 200px;
+		flex-grow: 1;
+		resize: none;
+		outline: none;
+	}
+
+	.form-select {
+		padding-right: 40px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+
+		&:focus-within {
+			border-color: $blue;
+		}
+	}
+
+	&.mod-disabled {
+		.form-select,
+		textarea {
+			background-color: $gray-lightest;
+			cursor: not-allowed;
+		}
+	}
+
+	.btn-chip {
+		flex-grow: 0;
+		margin-top: 0.4rem;
+		margin-right: 0.4rem;
+		animation: chip-animation 0.3s 1;
+	}
+
+	.button.btn-chip + .button.btn-chip {
+		margin-left: 0;
+	}
+}
+
+.form-multiselect-dropdown {
+	position: fixed;
+	background-color: $white;
+	border-radius: $border-radius;
+	border: 1px solid $gray-light;
+	overflow: auto;
+	z-index: $z-index-select-dropdown;
+
+	ul {
+		padding-top: 0;
+		padding-bottom: 0;
+		border-bottom: 0;
+		border-top: 0;
+		margin: 0;
+	}
+
+	li {
+		list-style: none;
+		padding: 0.4rem 1rem;
+		cursor: pointer;
+
+		&.mod-highlighted {
+			background-color: $gray-lighter;
+		}
+	}
+}

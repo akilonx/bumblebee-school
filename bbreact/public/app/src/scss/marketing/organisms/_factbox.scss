@@ -1,0 +1,14 @@
+/*********************************************************
+ * Factbox
+ *********************************************************/
+
+.factbox {
+	font-size: 1.8rem;
+
+	.lang-global & {
+		@include geo-regular;
+	}
+	.lang-jp & {
+		@include jp-regular;
+	}
+}

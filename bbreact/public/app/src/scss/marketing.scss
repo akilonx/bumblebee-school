@@ -1,0 +1,72 @@
+/*********************************************************
+* Marketing styles
+*
+* Styles that are specific to all new Marketing Phoenix pages.
+*********************************************************/
+
+/**
+* Atoms
+**/
+
+@import "marketing/atoms/variables";
+@import "common/atoms/variables";
+@import "common/atoms/fonts";
+@import "common/atoms/mixins";
+@import "common/atoms/grid/variables";
+@import "common/atoms/grid/mixins";
+@import "common/atoms/base";
+@import "common/atoms/links";
+@import "common/atoms/icons";
+@import "common/atoms/panoramaviewer";
+
+@import "marketing/atoms/base";
+@import "marketing/atoms/button";
+@import "marketing/atoms/grid/variables";
+@import "marketing/atoms/grid/mixins";
+@import "marketing/atoms/grid/grid";
+@import "marketing/atoms/icons";
+@import "marketing/atoms/list";
+@import "marketing/atoms/section";
+@import "marketing/atoms/typography";
+
+/**
+* Molecules
+**/
+
+@import "common/molecules/alert";
+@import "marketing/molecules/alert";
+@import "marketing/molecules/bubble";
+@import "marketing/molecules/pager";
+@import "marketing/molecules/slider";
+
+/**
+* Organisms
+**/
+
+@import "marketing/organisms/carousel";
+@import "marketing/organisms/checkmark-list";
+@import "marketing/organisms/factbox";
+@import "marketing/organisms/header";
+@import "marketing/organisms/tab";
+
+/**
+* Templates
+**/
+
+/**
+* Pages
+**/
+
+@import "marketing/pages/awards";
+@import "marketing/pages/campaign";
+@import "marketing/pages/chat";
+
+/**
+* Utilities
+*
+* This one always need to be last for the overrides to work properly.
+**/
+
+@import "common/atoms/utilities";
+@import "common/atoms/grid/utilities";
+@import "marketing/atoms/utilities";

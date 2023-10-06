@@ -1,0 +1,71 @@
+/*********************************************************
+ * Academy
+ *********************************************************/
+
+body.academy {
+	.marketing-header {
+		background-image: url($staticURL + "/web/img/academy/academy/academy.jpg");
+		background-position: 40% bottom;
+	}
+	.marketing-header-education {
+		background-image: url($staticURL + "/web/img/academy/education-program/education.jpg");
+		background-position: 40% bottom;
+	}
+	.class-info {
+		border-bottom: 1px solid $gray-light;
+		.class-info-inner {
+			display: none;
+		}
+		&.is-active .class-info-inner {
+			display: block;
+		}
+	}
+	.class-info-title {
+		cursor: pointer;
+		position: relative;
+		&.is-active {
+			.svg-icon.mod-minus {
+				display: inline-block;
+			}
+			.svg-icon.mod-plus {
+				display: none;
+			}
+		}
+		.svg-icon.mod-plus,
+		.svg-icon.mod-minus {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			@include media-min-md {
+				right: 8rem;
+			}
+		}
+	}
+	.prerequisite-classes {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-left: 0;
+
+		.prerequisite-classes-item + .prerequisite-classes-item {
+			margin-top: 0.75rem;
+		}
+	}
+	@include media-min-lg {
+		table.table tr td:last-child {
+			text-align: right;
+		}
+	}
+
+	.banner {
+		position: fixed;
+		z-index: 1010;
+		width: 100%;
+		margin-top: -3.6rem;
+
+		&.on-xs {
+			margin-top: -5.5rem;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+/**
+ * Extra padding for sections
+ **/
+
+section.mod-featurette-sm {
+	padding-top: 1.2rem;
+	padding-bottom: 1.2rem;
+	@include media-min-sm {
+		padding-top: 2.4rem;
+		padding-bottom: 2.4rem;
+	}
+}
+
+section.mod-featurette {
+	padding-top: 1.6rem;
+	padding-bottom: 1.6rem;
+	@include media-min-sm {
+		padding-top: 3.2rem;
+		padding-bottom: 3.2rem;
+	}
+}

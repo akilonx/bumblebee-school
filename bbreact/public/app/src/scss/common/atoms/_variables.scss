@@ -1,0 +1,108 @@
+/*********************************************************
+ * Colors
+ *********************************************************/
+$black: #000 !default;
+$white: #fff !default;
+
+$gray-darker: #596164 !default;
+$gray-dark: #6a7175 !default;
+$gray: #9ca3af !default;
+$gray-light: #d1d5db !default;
+$gray-lighter: #e7eef3 !default;
+$gray-lightest: #f5f5f5 !default;
+
+$blue: #1d4ed8 !default;
+$blue-light: #4a9bd2 !default;
+$blue-link: #026cb4 !default;
+
+$orange: #ec7c28 !default;
+
+/**
+ * App colors: Used for components like forms, alerts etc.
+**/
+$app-blue: $blue-light !default;
+$app-green: #3abc58 !default;
+$app-orange: #f4993f !default;
+$app-red: #e44141 !default;
+$app-yellow: #f1cc5d !default;
+
+/**
+* Specific color
+**/
+$body-background: $gray-lightest !default;
+$footer-background: #2e3033 !default;
+$text-color: #222 !default;
+$gray-text-color: #757575 !default;
+
+$primary-colors: (
+	"blue": $app-blue,
+	"green": $app-green,
+	"orange": $app-orange,
+	"red": $app-red,
+	"yellow": $app-yellow,
+) !default;
+
+$gray-colors: (
+	"gray-darker": $gray-darker,
+	"gray-dark": $gray-dark,
+	"gray": $gray,
+	"gray-light": $gray-light,
+	"gray-lighter": $gray-lighter,
+	"gray-lightest": $gray-lightest,
+) !default;
+
+/*********************************************************
+ * Fonts
+ *********************************************************/
+$font: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+	"Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", "Microsoft YaHei", "微软雅黑",
+	"STXihei", "华文细黑", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !default;
+$geoFont: "Geogrotesque", $font !default;
+$jpFont: "Geogrotesque", "BlinkMacSystemFont", -apple-system, "Segoe UI", "Roboto", "Oxygen",
+	"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica,Arial",
+	"游ゴシック", "Yu Gothic", "Meiryo UI", "メイリオ", "Meiryo", "ＭＳ ゴシック", "MS Gothic",
+	sans-serif !default;
+$robotoFont: "Roboto", "Arial", BlinkMacSystemFont, -apple-system, "Segoe UI", "Oxygen", "Ubuntu",
+	"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Microsoft YaHei",
+	"微软雅黑", "STXihei", "华文细黑", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+	sans-serif !default;
+
+// Monospace only used for code
+$monoFont: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro",
+	monospace !default;
+
+$render-mode: optimizeSpeed !default;
+$ligatures: none !default;
+
+// Sizes
+$html-font-size: 100% !default;
+$font-size-base: 1.6rem !default;
+
+$font-size-h1: 3.3rem !default;
+$font-size-h2: 2.7rem !default;
+$font-size-h3: 2.3rem !default;
+$font-size-h4: 2rem !default;
+$font-size-h5: 1.8rem !default;
+$font-size-h6: 1.6rem !default;
+
+$nav-height: 6.4rem !default;
+$page-padding: 3rem !default;
+
+$iconBase: 16;
+
+$border-radius: 0.3rem;
+
+// Screen sizes
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+/*********************************************************
+ * Z-INDEX
+ *********************************************************/
+$z-index: 1000 !default;
+$z-index-nav: 1020 !default;
+$z-index-nav-content: 1010 !default;
+$z-index-nav-mobile: 1030 !default;
+$z-index-search: 1040 !default;
+$z-index-modal: 1050 !default;
+$z-index-select-dropdown: 1060 !default;

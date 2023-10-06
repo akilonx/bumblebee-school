@@ -1,0 +1,200 @@
+/*********************************************************
+ * Site Admin
+ *********************************************************/
+
+body.siteadmin {
+	.last-finished {
+		width: 15%;
+	}
+
+	.last-exec-time {
+		width: 10%;
+	}
+
+	.show-tooltip {
+		position: relative;
+		display: inline-block;
+	}
+
+	/* Tooltip text */
+	.show-tooltip .tooltip-text {
+		visibility: hidden;
+		width: 250px;
+		background-color: $gray-darker;
+		color: $white;
+		padding: 5px;
+		border-radius: 6px;
+
+		position: absolute;
+		z-index: 1;
+		bottom: 125%;
+		left: 50%;
+		margin-left: -60px;
+
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+
+	.show-tooltip .tooltip-text::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 25%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: $gray-darker transparent transparent transparent;
+	}
+
+	.show-tooltip:hover .tooltip-text {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	.code-highlight-container {
+		border-radius: $border-radius;
+		margin-bottom: 2.4rem;
+
+		.code-hightlight-bar {
+			font-size: 1.2rem;
+			font-weight: 500;
+			min-height: 2.9rem;
+			overflow: hidden;
+			padding: 0.5rem 1rem;
+			position: relative;
+			text-transform: uppercase;
+
+			button {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
+
+	/**
+	* Okaidia theme for prismjs
+	**/
+
+	code[class*="language-"],
+	pre[class*="language-"] {
+		color: #f8f8f2;
+		background: none;
+		text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+		text-align: left;
+		white-space: pre;
+		word-spacing: normal;
+		word-break: normal;
+		word-wrap: normal;
+		line-height: 1.5;
+
+		-moz-tab-size: 4;
+		-o-tab-size: 4;
+		tab-size: 4;
+
+		-webkit-hyphens: none;
+		-moz-hyphens: none;
+		-ms-hyphens: none;
+		hyphens: none;
+	}
+
+	/* Code blocks */
+	pre[class*="language-"] {
+		padding: 1em;
+		overflow: auto;
+		border-radius: 0.3em;
+	}
+
+	:not(pre) > code[class*="language-"],
+	pre[class*="language-"] {
+		background: #272822;
+	}
+
+	/* Inline code */
+	:not(pre) > code[class*="language-"] {
+		padding: 0.1em;
+		border-radius: 0.3em;
+		white-space: normal;
+	}
+
+	.token.comment,
+	.token.prolog,
+	.token.doctype,
+	.token.cdata {
+		color: slategray;
+	}
+
+	.token.punctuation {
+		color: #f8f8f2;
+	}
+
+	.namespace {
+		opacity: 0.7;
+	}
+
+	.token.tag {
+		align-items: 0;
+		display: inline;
+		justify-content: 0;
+		margin: 0;
+	}
+
+	.token.property,
+	.token.tag,
+	.token.constant,
+	.token.symbol,
+	.token.deleted {
+		color: #f92672;
+	}
+
+	.token.boolean,
+	.token.number {
+		color: #ae81ff;
+	}
+
+	.token.selector,
+	.token.attr-name,
+	.token.string,
+	.token.char,
+	.token.builtin,
+	.token.inserted {
+		color: #a6e22e;
+	}
+
+	.token.operator,
+	.token.entity,
+	.token.url,
+	.language-css .token.string,
+	.style .token.string,
+	.token.variable {
+		color: #f8f8f2;
+	}
+
+	.token.atrule,
+	.token.attr-value,
+	.token.function,
+	.token.class-name {
+		color: #e6db74;
+	}
+
+	.token.keyword {
+		color: #66d9ef;
+	}
+
+	.token.regex,
+	.token.important {
+		color: #fd971f;
+	}
+
+	.token.important,
+	.token.bold {
+		font-weight: bold;
+	}
+	.token.italic {
+		font-style: italic;
+	}
+
+	.token.entity {
+		cursor: help;
+	}
+}

@@ -1,0 +1,215 @@
+/*********************************************************
+ * Placeholders
+ *********************************************************/
+
+%no-margin {
+	margin: 0;
+}
+
+%no-padding {
+	padding: 0;
+}
+
+%column {
+	margin-top: 0;
+	min-height: 1px; // Prevent columns from collapsing when empty
+	position: relative;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	width: 100%;
+}
+
+/*********************************************************
+ * Container
+ *********************************************************/
+
+.container {
+	/**
+	* New container  behavior much more responsive and fluid instead of fixed widths
+	* at certain breakpoints. The breakpoints are of course still in play for using
+	* the settings column width.
+	**/
+	display: block;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: $gutter;
+	padding-right: $gutter;
+	max-width: 125.6rem;
+	width: 100%;
+
+	@include supports-safe-area-insets {
+		padding-left: calc(env(safe-area-inset-left, 0) + #{$gutter});
+		padding-right: calc(env(safe-area-inset-right, 0) + #{$gutter});
+	}
+
+	@include media-min-sm {
+		padding-left: $gutter * 3.5;
+		padding-right: $gutter * 3.5;
+
+		@include supports-safe-area-insets {
+			padding-left: calc(env(safe-area-inset-left, 0) + #{$gutter * 3.5});
+			padding-right: calc(env(safe-area-inset-right, 0) + #{$gutter * 3.5});
+		}
+	}
+}
+
+.container.mod-fluid {
+	max-width: none;
+	width: auto;
+	/**
+	* With the new container behavior this is needed
+	**/
+	@include media-min-sm {
+		padding-left: $gutter;
+		padding-right: $gutter;
+	}
+}
+
+/*********************************************************
+ * Row
+ *********************************************************/
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: -$gutter;
+	margin-right: -$gutter;
+}
+
+.row.mod-no-gutter {
+	@extend %no-margin;
+	> .col,
+	> [class*="col-"] {
+		@extend %no-padding;
+	}
+}
+
+.row.mod-no-margin {
+	@extend %no-margin;
+}
+
+.row.mod-wrap-reverse {
+	flex-wrap: wrap-reverse;
+}
+
+/*********************************************************
+ * Columns
+ *********************************************************/
+
+.col {
+	@extend %column;
+	display: inline-block;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	max-width: 100%;
+
+	&.mod-auto {
+		flex-grow: 0;
+		flex-shrink: 0;
+		flex-basis: auto;
+		width: auto;
+	}
+	/**
+	* is-X and is-X-on-sm is the same since mobile first
+	**/
+	@for $i from 1 through $columns {
+		$percentage: percentage($i / $columns);
+		&.is-#{$i} {
+			@include set-col-width($percentage);
+		}
+		&.is-offset-#{$i} {
+			margin-left: $percentage;
+		}
+		&.push-#{$i} {
+			left: $percentage;
+		}
+		&.pull-#{$i} {
+			right: $percentage;
+		}
+		&.is-#{$i}-on-xs {
+			@include set-col-width($percentage);
+		}
+		&.is-offset-#{$i}-on-xs {
+			margin-left: $percentage;
+		}
+		&.push-#{$i}-on-xs {
+			left: $percentage;
+		}
+		&.pull-#{$i}-on-xs {
+			right: $percentage;
+		}
+	}
+	/**
+	* Then query viewport and override for sm, md, lg and xl
+	**/
+	@include media-min-sm {
+		@for $i from 1 through $columns {
+			$percentage: percentage($i / $columns);
+			&.is-#{$i}-on-sm {
+				@include set-col-width($percentage);
+			}
+			&.is-offset-#{$i}-on-sm {
+				margin-left: $percentage;
+			}
+			&.push-#{$i}-on-sm {
+				left: $percentage;
+			}
+			&.pull-#{$i}-on-sm {
+				right: $percentage;
+			}
+		}
+	}
+	@include media-min-md {
+		@for $i from 1 through $columns {
+			$percentage: percentage($i / $columns);
+			&.is-#{$i}-on-md {
+				@include set-col-width($percentage);
+			}
+			&.is-offset-#{$i}-on-md {
+				margin-left: $percentage;
+			}
+			&.push-#{$i}-on-md {
+				left: $percentage;
+			}
+			&.pull-#{$i}-on-md {
+				right: $percentage;
+			}
+		}
+	}
+	@include media-min-lg {
+		@for $i from 1 through $columns {
+			$percentage: percentage($i / $columns);
+			&.is-#{$i}-on-lg {
+				@include set-col-width($percentage);
+			}
+			&.is-offset-#{$i}-on-lg {
+				margin-left: $percentage;
+			}
+			&.push-#{$i}-on-lg {
+				left: $percentage;
+			}
+			&.pull-#{$i}-on-lg {
+				right: $percentage;
+			}
+		}
+	}
+	@include media-min-xl {
+		@for $i from 1 through $columns {
+			$percentage: percentage($i / $columns);
+			&.is-#{$i}-on-xl {
+				@include set-col-width($percentage);
+			}
+			&.is-offset-#{$i}-on-xl {
+				margin-left: $percentage;
+			}
+			&.push-#{$i}-on-xl {
+				left: $percentage;
+			}
+			&.pull-#{$i}-on-xl {
+				right: $percentage;
+			}
+		}
+	}
+}

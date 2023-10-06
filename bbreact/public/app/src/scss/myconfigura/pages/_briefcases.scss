@@ -1,0 +1,726 @@
+/*********************************************************
+ * Briefcases
+ *********************************************************/
+
+body.briefcases {
+	.briefcase-card {
+		margin-top: 1.6rem;
+		height: 13rem;
+		width: auto;
+		white-space: normal;
+
+		a {
+			text-decoration: none;
+		}
+	}
+	@include media-max-sm {
+		.briefcase-card {
+			padding-left: 1.5rem;
+		}
+	}
+
+	.briefcase-card-more {
+		position: absolute;
+		padding-right: 1.4rem;
+		height: 3rem;
+		font-size: 1.2rem;
+		top: 1rem;
+		right: 0;
+		z-index: 1;
+	}
+
+	.briefcase-card-img {
+		object-fit: contain;
+		min-height: 13rem;
+		width: 14rem;
+		min-width: 14rem;
+	}
+
+	.briefcase-card-header {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		margin-left: 1.5rem;
+	}
+
+	@include media-max-sm {
+		.briefcase-card-header {
+			max-height: 6.5rem;
+			margin-left: 0;
+		}
+	}
+
+	.briefcase-card-footer {
+		margin: 1rem 0.4rem 0.6rem 1.5rem;
+		position: absolute;
+		display: flex;
+		bottom: 0;
+		right: 0;
+	}
+
+	.briefcase-date {
+		margin-bottom: 0.6rem;
+	}
+
+	.briefcase-card-link {
+		flex: 1;
+		&,
+		*.heading-3 {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		& > * {
+			white-space: normal;
+		}
+	}
+
+	.briefcase-grid-card {
+		margin-top: 1.6rem;
+		height: 25rem;
+		width: auto;
+		position: relative;
+	}
+
+	.briefcase-grid-text {
+		font-size: 6px;
+		margin-left: 1rem;
+	}
+
+	.briefcase-grid-title {
+		font-size: 1.5rem;
+	}
+
+	.briefcase-grid-img {
+		object-fit: contain;
+		height: 13rem;
+		width: 16rem;
+		padding-right: 1rem;
+		margin-left: 3rem;
+	}
+
+	.briefcase-grid-img-compact {
+		object-fit: contain;
+		height: 10rem;
+		width: 10rem;
+		padding-right: 1rem;
+		margin-left: 3rem;
+	}
+
+	.briefcase-post-more {
+		margin-bottom: 1rem;
+		@include media-xs-only {
+			font-size: 0.8rem;
+		}
+	}
+
+	.briefcase-post-buttons {
+		font-size: 3rem;
+		height: 3rem;
+		margin-right: 4rem;
+		padding-bottom: 2rem;
+		position: absolute;
+		right: 2rem;
+		text-align: center;
+	}
+
+	.briefcase-post-like {
+		display: inherit;
+		font-size: 3rem;
+		height: 2rem;
+		left: 0;
+		margin-right: 3rem;
+		padding-top: 2rem;
+	}
+
+	.briefcase-logo-thumb {
+		width: 155px;
+		height: 55px;
+	}
+
+	.briefcase-more {
+		font-size: 0.5rem;
+		@include media-min-xl {
+			font-size: 0.8rem;
+		}
+	}
+
+	.briefcase-invite-list {
+		margin-top: 1rem;
+		margin-left: 0;
+	}
+
+	.briefcase-invite-name {
+		float: left;
+		width: 80%;
+	}
+
+	.briefcase-invite-button-group {
+		right: 0;
+		padding: 0;
+	}
+
+	.briefcase-comment-like {
+		padding-left: 0.9rem;
+		font-size: 1.2rem;
+	}
+
+	.briefcase-like {
+		font-size: 1.2rem;
+	}
+
+	.briefcase-like-comment {
+		font-size: calc(1rem / 10 * 7);
+	}
+
+	.briefcase-like-post {
+		font-size: calc(1rem / 10 * 9);
+	}
+
+	.briefcase-ribbon-size {
+		font-size: calc(1rem / 10 * 12);
+		margin-left: 1px;
+	}
+
+	.briefcase-favorite-size {
+		font-size: calc(1rem / 10 * 10);
+	}
+
+	.briefcase-more-size {
+		font-size: calc(1rem / 10 * 6);
+	}
+
+	.briefcase-grid-header {
+		margin: 1rem 1.5rem 0 1.5rem;
+		position: top;
+		display: flex;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	.briefcase-grid-card-title {
+		font-size: 2rem;
+		margin: 1rem 1.5rem 0 1.5rem;
+		text-align: center;
+	}
+
+	.briefcase-card-tool-link {
+		display: inline-block;
+		font-size: 1.3rem;
+		font-weight: 600;
+		letter-spacing: 1.5px;
+		margin: 1rem 0.5rem 1rem 1.5rem;
+		text-transform: uppercase;
+	}
+
+	.attachment-card {
+		height: 7rem;
+		width: 7rem;
+		object-fit: cover;
+		border: 0;
+		margin-right: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.attachment-card-image {
+		display: flex;
+		position: contain;
+		width: 5rem;
+		height: auto;
+		image-rendering: crisp-edges;
+	}
+
+	.attachment-cards-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.attachment-icon-padding {
+		padding-left: 0;
+	}
+
+	.mod-chevron-margin {
+		margin-right: 1em;
+	}
+
+	.bc-mod-down {
+		transform: rotate(90deg);
+	}
+
+	.modal-image {
+		width: 100%;
+		height: auto;
+	}
+
+	.position-absolute {
+		position: absolute;
+	}
+
+	.image-resize {
+		width: 25%;
+		height: auto;
+	}
+
+	.file-logo {
+		width: 10rem;
+		height: auto;
+	}
+
+	.bc-mobile-font-size {
+		font-size: 1.4rem;
+	}
+
+	.bc-align-text {
+		align-items: baseline;
+	}
+
+	.bc-button-width {
+		width: 38px; //IE fix
+	}
+
+	.bc-comment-text {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		background-color: #f4f4f4;
+		border: 1px solid #d9d9d9;
+		flex-basis: 90%;
+	}
+
+	.bc-padding-top {
+		padding-top: 1.3em;
+	}
+
+	.bc-likes-font {
+		font-size: 12px;
+		font-weight: 500;
+		margin: 0;
+	}
+
+	.bc-likes-padding {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+
+	.bc-profile-container {
+		background-color: $white;
+		flex-wrap: wrap;
+	}
+
+	@include media-xs-only {
+		.bc-img-wrapper {
+			width: 100%;
+		}
+	}
+
+	.bc-img-wrapper-img {
+		max-width: 100%;
+	}
+
+	.bc-overflow-wrap {
+		overflow-wrap: break-word;
+		white-space: normal;
+		word-break: break-word;
+		word-wrap: break-word;
+	}
+
+	.bc-tools {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		@include media-min-md {
+			justify-content: flex-start;
+		}
+
+		a {
+			border-right: 2px solid #f5f5f5;
+			letter-spacing: 1.5px;
+			padding: 1rem 0;
+
+			@include media-min-md {
+				width: 25%;
+			}
+		}
+	}
+
+	.bc-info-card {
+		background-color: $white;
+		border-radius: $border-radius;
+		font-size: 1.8rem;
+		overflow: hidden;
+		position: relative;
+		width: 20rem;
+		height: 20rem;
+		margin: 1rem;
+		margin-left: 0rem;
+	}
+
+	.bc-info-card-image {
+		margin: 1rem;
+		width: 18rem;
+		height: 10rem;
+	}
+
+	.bc-video-button {
+		background-color: gray;
+	}
+
+	.bc-favorite-button {
+		background-position-x: 1px;
+	}
+
+	.bc-show-more-div-mobile {
+		padding-left: 0.6rem;
+		padding-top: 1rem;
+	}
+
+	.bc-no-background-button {
+		background: none;
+		border: none;
+		outline: none;
+		padding: 0;
+		&:disabled {
+			background: none;
+		}
+	}
+
+	.bc-ribbon-position {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	.bc-white-space-pre {
+		white-space: pre-line;
+	}
+
+	.bc-dashboard-alert {
+		font-family: $geoFont;
+		font-weight: 300;
+		margin-top: -3rem;
+
+		.link {
+			font-family: $geoFont;
+			font-weight: 500;
+			color: $text-color;
+		}
+
+		.alert-content {
+			padding: 0.5em;
+		}
+	}
+
+	.bc-display-inline {
+		display: inline;
+	}
+
+	.bc-verified-badge {
+		margin: 0 2px;
+	}
+
+	.bc-dashboard-alert + .container {
+		margin-top: 2rem;
+	}
+
+	&.logged-in-bar-present {
+		.bc-dashboard-alert {
+			display: none;
+			margin: 0;
+		}
+	}
+
+	.briefcase-extensions-list {
+		@include media-max-sm {
+			display: none;
+		}
+	}
+
+	.briefcase-files-min-width {
+		min-width: 12rem;
+	}
+
+	.briefcase-files-thumb {
+		border-radius: 50%;
+		height: 4rem;
+		object-fit: cover;
+		width: 4rem;
+		background-color: $gray-lighter;
+	}
+
+	.briefcase-vertical-flex {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 1rem;
+	}
+
+	.briefcase-write-a-comment-btn {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		padding-bottom: 1.6rem;
+		width: 100%;
+		&--opened {
+			@extend .briefcase-write-a-comment-btn;
+			align-items: start;
+		}
+	}
+
+	.briefcase-add-comment-form {
+		display: flex;
+		flex-direction: column;
+		margin-top: 0;
+		padding-left: 1rem;
+		width: 100%;
+
+		&--editor-section {
+			width: 100%;
+		}
+
+		&--buttons-section {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			margin: 0.5rem;
+		}
+
+		&--edit {
+			display: flex;
+			flex-direction: column;
+			margin-top: 0;
+			width: 100%;
+			padding: 0;
+		}
+	}
+
+	.briefcase-comment-attachment {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0.5rem;
+		margin-top: 0.5rem;
+
+		&--remove-button {
+			border-radius: 50%;
+		}
+	}
+
+	.briefcase-like-direction {
+		&--column {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		&--row {
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+		}
+	}
+
+	.briefcase-heart-button {
+		display: flex;
+		justify-content: center;
+	}
+
+	.briefcase-write-comment-section {
+		align-items: center;
+		background-color: #f4f4f4;
+		border-radius: 1rem;
+		display: flex;
+		justify-content: space-between;
+		margin-left: 1rem;
+		width: 100%;
+		padding: 0.5rem 0;
+
+		&--attachment-button {
+			border-radius: 50%;
+			background-color: white;
+			margin-right: 0.5rem;
+		}
+	}
+
+	.briefcase-post-content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.briefcase-post-card {
+		display: flex;
+		width: 100%;
+
+		&--title-section {
+			flex-grow: 1;
+			padding: 0 1.6rem;
+			width: 100%;
+		}
+
+		&--divider {
+			margin: 1.6rem 0;
+			width: 100%;
+		}
+
+		&--buttons-section {
+			width: 8.6rem;
+			flex-shrink: 0;
+
+			@include media-max-md {
+				width: 7.6rem;
+				flex-shrink: 0;
+			}
+		}
+
+		&--buttons {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+		}
+
+		&--mobile {
+			&--top {
+				display: flex;
+				width: 100%;
+			}
+
+			&--header-container {
+				display: flex;
+				width: 100%;
+				flex-direction: column;
+			}
+
+			&--header {
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+			}
+
+			&--avatar-section {
+				display: flex;
+				width: 7.6rem;
+			}
+
+			&--icon {
+				font-size: 0.8rem;
+			}
+
+			&--ribbon-icon {
+				font-size: 0.8rem;
+				margin-left: 1px;
+			}
+
+			&--content {
+				display: flex;
+				flex-direction: column;
+				padding: 0 1.6rem;
+				width: 100%;
+			}
+
+			&--title {
+				display: flex;
+				flex-direction: column;
+				padding: 0 1.6rem;
+			}
+		}
+	}
+
+	.briefcase-comment {
+		align-items: flex-start;
+		display: flex;
+		width: 100%;
+
+		&--avatar {
+			margin-right: 1rem;
+			width: 10%;
+			flex-shrink: 0;
+		}
+
+		&--text {
+			@extend .bc-comment-text;
+			border: none;
+			padding: 1rem;
+			border-radius: 0 1rem 1rem 1rem;
+		}
+
+		&--user {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		&--content {
+			display: flex;
+			flex-direction: column;
+			width: 100%;
+		}
+
+		&--like-button {
+			padding-left: 1rem;
+		}
+
+		&--editor-container {
+			border: none;
+			border-radius: 0 1rem 1rem 1rem;
+		}
+
+		&--time-and-settings {
+			display: flex;
+			> div {
+				padding-right: 0.5rem;
+			}
+		}
+
+		&--verified-employee {
+			padding-left: 2px;
+		}
+	}
+
+	.briefcase-members {
+		&--remove-button {
+			padding-right: 1rem;
+			padding-top: 0.5rem;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		&--invitation-item {
+			align-items: center;
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+
+			&:first-child {
+				margin-top: 1rem;
+			}
+		}
+
+		&--alignment-row {
+			display: flex;
+			align-items: center;
+		}
+
+		&--alignment-column {
+			align-items: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		&--card {
+			@include elevateLevel(1);
+			background-color: $white;
+			border-radius: $border-radius * 3;
+			position: relative;
+			margin-top: 1.6rem;
+
+			.link.link--hover,
+			.text {
+				padding: 1.5rem 2rem;
+			}
+		}
+	}
+}

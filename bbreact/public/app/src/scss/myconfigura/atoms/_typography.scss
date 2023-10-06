@@ -1,0 +1,131 @@
+/*
+	* Typography for Myconfigura
+*/
+@mixin base-heading {
+	.lang-global & {
+		font-family: $geoFont;
+		font-style: normal;
+	}
+
+	.lang-jp & {
+		@include jp-light;
+	}
+
+	line-height: 1.125;
+	word-wrap: break-word;
+	margin-top: 0.8em;
+	&--uppercase {
+		text-transform: uppercase;
+	}
+}
+
+.heading-1 {
+	font-size: 3rem;
+	font-weight: 600;
+	@include base-heading;
+	@include media-min-xl {
+		font-size: 3.3rem;
+	}
+	&--light {
+		font-weight: 300;
+	}
+	&--uppercase {
+		text-transform: uppercase;
+	}
+}
+
+.heading-2 {
+	font-size: 2.3rem;
+	font-weight: 500;
+	@include base-heading;
+	@include media-min-xl {
+		font-size: 2.7rem;
+	}
+}
+
+.heading-3 {
+	font-size: 2rem;
+	font-weight: 500;
+	@include base-heading;
+	@include media-min-xl {
+		font-size: 2.5rem;
+	}
+}
+
+.heading-4 {
+	font-size: 1.8rem;
+	font-weight: 500;
+	@include base-heading;
+	@include media-min-xl {
+		font-size: 2rem;
+	}
+}
+
+.heading-5 {
+	font-size: 1.6rem;
+	font-weight: 500;
+	@include base-heading;
+	@include media-min-xl {
+		font-size: 2rem;
+	}
+}
+
+.heading-6 {
+	@include base-heading;
+}
+
+/* p tag */
+
+.paragraph-1 {
+	font-size: 1.3rem;
+	font-weight: 400;
+	line-height: 1.5;
+	margin-top: 1.6rem;
+	@include media-min-xl {
+		font-size: 1.4rem;
+		line-height: 1.6;
+	}
+	&--gray {
+		color: $gray-dark;
+	}
+	&--italic {
+		font-style: italic;
+	}
+	&--no-margin {
+		margin: 0;
+	}
+	&--uppercase {
+		text-transform: uppercase;
+	}
+}
+
+.paragraph-2 {
+	font-size: 1.2rem;
+	font-weight: 400;
+	margin-top: 1.6rem;
+	@include media-min-xl {
+		font-size: 1.3rem;
+	}
+
+	&--no-margin {
+		margin: 0;
+	}
+}
+
+.link {
+	font-size: 1.3rem;
+	@include media-min-xl {
+		font-size: 1.4rem;
+	}
+	&--medium {
+		font-size: 1.5rem;
+	}
+	&--small {
+		font-size: 1.2rem;
+	}
+}
+
+.ul-list {
+	margin: 0;
+	list-style-type: none;
+}

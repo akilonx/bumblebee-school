@@ -1,0 +1,135 @@
+/*********************************************************
+ * Modal
+ *********************************************************/
+
+.modal-close {
+	background-color: transparent;
+	display: inline-block;
+	line-height: 0;
+	margin: 0;
+	padding: 1rem;
+	position: absolute;
+	right: 0;
+	top: 0;
+	cursor: pointer;
+	.svg-icon.mod-cross {
+		font-size: calc(1rem / 10 * 8);
+	}
+}
+
+.col.mod-modal {
+	padding: 3.2rem 0;
+	max-height: 100%;
+}
+
+.modal {
+	background-color: rgba(0, 0, 0, 0.36);
+	display: none;
+	height: 100vh;
+	max-height: 100vh;
+	left: 0;
+	margin-top: 0;
+	opacity: 0;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: $z-index-modal;
+	-webkit-overflow-scrolling: touch;
+
+	&.is-visible {
+		animation: fade-in 0.2s linear forwards;
+		display: flex;
+	}
+}
+
+.modal-body {
+	margin-top: 0;
+	padding: 1.6rem;
+}
+
+.modal-content {
+	@include elevateLevel(10);
+	background: $white;
+	border-radius: $border-radius;
+	width: 100%;
+	@include marketing-override {
+		border-radius: 0;
+	}
+}
+
+.modal-image {
+	width: 100%;
+	height: auto;
+}
+
+.modal-footer {
+	background: $gray-lighter;
+	margin-top: 0;
+	padding: 0.8rem;
+	> * {
+		margin: 0.8rem;
+	}
+}
+
+.modal-header {
+	font-size: 2.8rem;
+	padding: 1.6rem 5.6rem 0 1.6rem;
+	position: relative;
+	min-height: 4.8rem;
+	@include geo-medium;
+	& + .modal-body {
+		padding-top: 0.8rem;
+	}
+}
+
+.modal.mod-video {
+	.col.mod-modal {
+		padding: 0;
+	}
+
+	.modal-header {
+		padding: 0;
+	}
+
+	.modal-body {
+		padding: 0 1.6rem 1.6rem;
+	}
+}
+
+.no-padding {
+	.modal-body {
+		padding: 0;
+	}
+	.modal-close {
+		top: 2rem;
+		z-index: 1;
+		font-size: 4.8rem;
+		line-height: 1;
+		position: absolute;
+		text-decoration: none;
+		padding: 0 1rem;
+		small {
+			font-size: 1rem;
+		}
+		&:hover {
+			color: $gray;
+			text-decoration: none;
+		}
+
+		@include marketing-override {
+			font-family: $font;
+			text-decoration: none;
+			color: $text-color;
+		}
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}

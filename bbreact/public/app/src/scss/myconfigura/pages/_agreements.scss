@@ -1,0 +1,61 @@
+.search-container {
+	position: relative;
+}
+
+.search-container.mod-suggestions .form-field small {
+	display: none;
+}
+
+.form-suggestion {
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1), 0px 2px 5px rgba(0, 0, 0, 0.18);
+	display: block;
+	max-height: 29rem;
+	overflow-x: hidden;
+	overflow: scroll;
+	padding: 0.1rem;
+	position: absolute;
+	width: 100%;
+	z-index: 1;
+}
+
+.form-suggestion .dropdown-item-a {
+	align-items: center;
+	border-bottom: 1px solid $gray-lighter;
+	cursor: pointer;
+	display: flex;
+	height: 5.5rem;
+	padding-left: 16px;
+}
+
+.form-suggestion .dropdown-item-a:hover {
+	background-color: $app-blue;
+	color: #fff;
+	text-decoration: none;
+}
+
+.suggestion-item-description-1 {
+	color: $gray;
+	font-style: italic;
+}
+
+.suggestion-item-description-2 {
+	color: $gray;
+	font-size: 1.3rem;
+}
+
+.avatar {
+	border-radius: 50%;
+	height: 4rem;
+	width: 4rem;
+}
+
+.item-image {
+	padding-right: 1rem;
+}
+
+.preview-agreement {
+	overflow-y: scroll;
+	height: 50rem;
+}

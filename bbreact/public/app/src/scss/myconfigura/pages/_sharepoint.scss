@@ -1,0 +1,93 @@
+body.sharepoint {
+	.sharePointJiraContainer {
+		background-color: #fff;
+		color: #323130;
+		font-family: $font;
+		overflow: hidden;
+	}
+
+	.jiraTitle {
+		align-items: center;
+		display: flex;
+	}
+
+	.jiraTitle__heading {
+		flex: 1 1 auto;
+		font-size: 2rem;
+	}
+
+	.jiraTitle__link {
+		color: #026d70;
+		font-size: 1.4rem;
+
+		&:hover {
+			color: #014446;
+			text-decoration: underline;
+		}
+	}
+
+	.sharePointJiraCards {
+		margin-top: 1.5rem;
+	}
+
+	.sharePointJiraCard {
+		align-items: center;
+		border-bottom: 1px solid #edebe9;
+		display: flex;
+		padding: 1rem 0;
+	}
+
+	.sharePointJiraCard__left {
+		flex: 1 1 auto;
+	}
+
+	.sharePointJiraCard__summary {
+		font-size: 1.4rem;
+		font-weight: 600;
+	}
+
+	.sharePointJiraCard__items {
+		display: flex;
+		margin-top: 0.5rem;
+	}
+
+	.sharePointJiraCard__link {
+		align-items: center;
+		display: flex;
+		height: 5rem;
+		justify-content: flex-end;
+		width: 5rem;
+	}
+
+	.sharePointJiraCard__text {
+		font-size: 1.4rem;
+		margin: 0;
+	}
+
+	.sharePointJiraCard__label {
+		font-size: 1rem;
+		font-weight: 700;
+		margin-right: 1rem;
+		padding: 0.4rem 1.5rem;
+	}
+
+	.sharePointJiraCard__label--cet {
+		background-color: #e6f6ff;
+		color: #0967d2;
+	}
+
+	.sharePointJiraCard__label--kf {
+		background-color: #e3f9e5;
+		color: #0e7817;
+	}
+
+	.sharePointJiraCard__label--web {
+		background-color: #fff3c4;
+		color: #b44d12;
+	}
+
+	.sharePointJiraCard__label--webrnd {
+		background-color: #f0fcf9;
+		color: #048271;
+	}
+}

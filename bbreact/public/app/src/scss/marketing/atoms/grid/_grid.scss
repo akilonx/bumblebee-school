@@ -1,0 +1,11 @@
+/*********************************************************
+ * Columns
+ *********************************************************/
+
+.col {
+	padding-top: $gutter-sm;
+	padding-bottom: $gutter-sm;
+	@include media-min-sm {
+		padding: $gutter;
+	}
+}

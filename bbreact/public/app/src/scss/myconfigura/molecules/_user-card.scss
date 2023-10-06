@@ -1,0 +1,29 @@
+/*********************************************************
+ * User card
+ *********************************************************/
+
+.user-card {
+	&--alignment-row {
+		display: flex;
+		align-items: center;
+	}
+
+	&--alignment-column {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&--card {
+		@include elevateLevel(1);
+		background-color: $white;
+		border-radius: $border-radius * 3;
+		position: relative;
+		margin-top: 1.6rem;
+
+		.link.link--hover {
+			padding: 1.5rem 2rem;
+		}
+	}
+}

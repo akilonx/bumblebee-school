@@ -1,0 +1,15 @@
+/*********************************************************
+ * Sidebar
+ *********************************************************/
+
+.sidebar-container {
+	position: fixed;
+	top: $nav-height + $page-padding;
+	border-left: 2px solid $gray-lighter;
+	overflow-y: auto;
+	height: 100%;
+	.sidebar-title {
+		text-transform: uppercase;
+		font-size: 1.2rem;
+	}
+}

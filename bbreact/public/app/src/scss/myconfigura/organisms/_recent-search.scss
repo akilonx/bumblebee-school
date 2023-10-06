@@ -1,0 +1,55 @@
+@import "../../common/organisms/list";
+@import "../../common/atoms/mixins";
+
+.recent-search-list {
+	margin: 0;
+
+	.recent-search-list-item {
+		@extend .list-item;
+
+		.item-content-container {
+			display: flex;
+			align-items: center;
+			flex-grow: 1;
+
+			.item-icon {
+				margin-right: 1.6rem;
+				height: 5rem;
+				width: 5rem;
+			}
+
+			.item-icon-user {
+				@extend .ut-rounded-circle;
+			}
+
+			.item-description {
+				.item-description-primary {
+					@extend .ut-text-semi-bold;
+				}
+			}
+		}
+
+		.item-action-buttons-container {
+			display: flex;
+		}
+
+		@include media-max-md {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 1.6rem;
+
+			.item-content-container {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-start;
+				margin-bottom: 1.6rem;
+			}
+
+			.item-icon,
+			.item-icon-user {
+				margin-bottom: 1.6rem;
+			}
+		}
+	}
+}

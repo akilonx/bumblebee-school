@@ -1,0 +1,312 @@
+/*********************************************************
+ * Plus sign
+ *
+ * Deprecated: use icon in black svg instead
+ *********************************************************/
+
+.plus-sign {
+	display: inline-block;
+	font-size: 16px;
+	height: 0.875em;
+	position: relative;
+	width: 0.875em;
+	&:after,
+	&:before {
+		background-color: white;
+		content: "";
+		margin: auto;
+		pointer-events: none;
+		position: absolute;
+	}
+	&:before {
+		bottom: 0;
+		height: 0.125em;
+		left: 0;
+		top: 0;
+		width: 0.875em;
+	}
+	&:after {
+		height: 0.875em;
+		left: 0;
+		right: 0;
+		top: 0;
+		width: 0.125em;
+	}
+	&.mod-sm {
+		font-size: 12px;
+	}
+	&.mod-lg {
+		font-size: 22px;
+	}
+	&.is-active:after,
+	.is-active > &:after {
+		content: none;
+	}
+	/**
+	 * Pages style
+	**/
+	@each $class, $color in $primary-colors {
+		.page-#{$class} & {
+			&:after,
+			&:before {
+				background-color: $color;
+			}
+		}
+	}
+	/**
+	 * Direct styles
+	**/
+	@each $class, $color in $primary-colors {
+		&.mod-#{$class} {
+			&:after,
+			&:before {
+				background-color: $color;
+			}
+		}
+	}
+	&.mod-black {
+		&:before,
+		&:after {
+			background: $black;
+		}
+	}
+}
+
+/*********************************************************
+ * Loading
+ *********************************************************/
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.load-spinner {
+	animation-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1);
+	animation: spin 1.33s infinite;
+	border-bottom-color: rgba($white, 0.28);
+	border-left-color: rgba($white, 0.28);
+	border-radius: 50%;
+	border-right-color: rgba($white, 0.28);
+	border-style: solid;
+	border-top-color: $white;
+	border-width: 0.5rem;
+	display: inline-block;
+	height: 3.5rem;
+	width: 3.5rem;
+	will-change: transform;
+
+	&.mod-black {
+		border-top-color: $black;
+		border-left-color: rgba($black, 0.28);
+		border-right-color: rgba($black, 0.28);
+		border-bottom-color: rgba($black, 0.28);
+	}
+	&.mod-xs {
+		border-width: 0.2rem;
+		height: 1.5rem;
+		width: 1.5rem;
+	}
+	&.mod-sm {
+		border-width: 0.4rem;
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+	&.mod-lg {
+		border-width: 0.6rem;
+		height: 4.5rem;
+		width: 4.5rem;
+	}
+}
+
+.overlay-loading-spinner {
+	align-items: center;
+	background-color: $body-background;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	z-index: $z-index-nav - 1;
+}
+
+$loading: 16;
+.loading {
+	display: inline-block;
+	font-size: $loading + px;
+	background-image: url($staticURL + "/web/icons/spinner_white.svg");
+	background-repeat: no-repeat;
+	margin: 0;
+	vertical-align: middle;
+	background-size: (50 / $loading) + em;
+	animation: spin 1s infinite;
+	animation-timing-function: linear;
+	transform-origin: 50% 50%;
+	height: (50 / $loading) + em;
+	width: (50 / $loading) + em;
+	will-change: transform;
+}
+
+.loading.mod-black {
+	background-image: url($staticURL + "/web/icons/spinner_black.svg");
+}
+
+.loading.mod-xs {
+	font-size: $loading / 4 + px;
+}
+
+.loading.mod-sm {
+	font-size: $loading / 2 + px;
+}
+
+.loading.mod-lg {
+	font-size: $loading * 2 + px;
+}
+
+.loading.mod-xl {
+	font-size: $loading * 3 + px;
+}
+
+/*********************************************************
+ * SVG Sprite
+*********************************************************/
+
+/**
+* We use the i tag for icons. i was previously used for italic now em is prefered
+* i however sets the font-style to italic which causes italic font to be loaded.
+* Which is why we explicitly set font-style: normal; to reduce the numbers of fonts
+* needing to be downloaded.
+*/
+.svg-icon {
+	background-repeat: no-repeat;
+	display: inline-block;
+	font-size: $iconBase + px;
+	font-style: normal;
+	height: 3em;
+	margin: 0;
+	vertical-align: inherit;
+	width: 3em;
+}
+
+.svg-icon.mod-xs {
+	font-size: $iconBase / 4 + px;
+}
+
+.svg-icon.mod-sm {
+	font-size: $iconBase / 2 + px;
+}
+
+.svg-icon.mod-lg {
+	font-size: $iconBase * 1.5 + px;
+}
+
+.svg-icon.mod-xl {
+	font-size: $iconBase * 2 + px;
+}
+
+.svg-icon.mod-xxl {
+	font-size: $iconBase * 3 + px;
+}
+
+/**
+* Black icons
+**/
+
+.svg-icon.mod-black-svg {
+	background-image: url($staticURL + "/web/icons/black_icons_v3.svg");
+	background-size: 48 / $iconBase + em 1308 / $iconBase + em;
+}
+
+.svg-icon.mod-black-svg.mod-minus {
+	background-position: 0 (-(0 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-plus {
+	background-position: 0 (-(60 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-share {
+	background-position: 0 (-(120 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-customer {
+	background-position: 0 (-(180 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-clock {
+	background-position: 0 (-(240 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-alarm {
+	background-position: 0 (-(300 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-login {
+	background-position: 0 (-(360 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-cross {
+	background-position: 0 (-(420 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-menu {
+	background-position: 0 (-(480 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-down {
+	background-position: 0 (-(540 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-up {
+	background-position: 0 (-(600 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-location {
+	background-position: 0 (-(660 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-event-map {
+	background-position: 0 (-(720 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-offsite {
+	background-position: 0 (-(780 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-search {
+	background-position: 0 (-(840 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-cog-wheel {
+	background-position: 0 (-(900 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-prospects {
+	background-position: 0 (-(960 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-explore {
+	background-position: 0 (-(1020 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-extensions {
+	background-position: 0 (-(1080 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-marketplace {
+	background-position: 0 (-(1140 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-partner {
+	background-position: 0 (-(1200 / $iconBase) + em);
+}
+
+.svg-icon.mod-black-svg.mod-get-to-know {
+	background-position: 0 (-(1260 / $iconBase) + em);
+}

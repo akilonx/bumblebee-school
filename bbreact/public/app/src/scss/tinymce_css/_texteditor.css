@@ -1,0 +1,152 @@
+.title-1 {
+	line-height: 1.25;
+	font-size: calc(2.08rem + 4.6vw);
+	margin: initial;
+}
+
+.title-2 {
+	line-height: 1.25;
+	font-size: calc(2.72rem + 1.7vw);
+	margin: initial;
+}
+
+.title-3 {
+	line-height: 1.25;
+	font-size: calc(2.64rem + 0.5vw);
+	margin: initial;
+}
+
+.title-4 {
+	line-height: 1.25;
+	font-size: calc(2.08rem + 0.575vw);
+	margin: initial;
+}
+
+.title-5 {
+	line-height: 1.25;
+	font-size: calc(1.6rem + 0.5vw);
+	margin: initial;
+}
+
+.subtitle-1 {
+	line-height: 1.25;
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 500;
+	font-size: calc(1.84rem + 1.085vw);
+	margin-top: 0;
+}
+
+.ingress {
+	line-height: 1.25;
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 300;
+	font-size: calc(2.08rem + 0.9vw);
+}
+
+.factbox-title {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 600;
+	display: block;
+	font-size: 2rem;
+	line-height: 1.25;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.factbox-title-big {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 600;
+	display: block;
+	font-size: 10rem;
+	line-height: 1;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.geo-thin {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 100;
+}
+
+.geo-thin-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 100;
+}
+
+.geo-ultra-light {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 200;
+}
+
+.geo-ultra-light-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 200;
+}
+
+.geo-light {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 300;
+}
+
+.geo-light-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 300;
+}
+
+.geo-regular {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 400;
+}
+
+.geo-regular-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 400;
+}
+
+.geo-medium {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 500;
+}
+
+.geo-medium-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 500;
+}
+
+.geo-semibold {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 600;
+}
+
+.geo-semibold-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 600;
+}
+
+.geo-bold {
+	font-family: "Geogrotesque";
+	font-style: normal;
+	font-weight: 700;
+}
+
+.geo-bold-it {
+	font-family: "Geogrotesque";
+	font-style: italic;
+	font-weight: 700;
+}

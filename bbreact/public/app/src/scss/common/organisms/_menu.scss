@@ -1,0 +1,486 @@
+/*********************************************************
+ * Menu
+ *********************************************************/
+
+#react-menu {
+	background: $white;
+	height: $nav-height;
+	left: 0;
+	margin-top: 0;
+	position: fixed;
+	will-change: transform;
+	top: 0;
+	width: 100%;
+	z-index: $z-index-nav;
+}
+
+#react-menu {
+	.placeholder {
+		height: 100%;
+
+		.container,
+		.row {
+			height: 100%;
+		}
+
+		.logo {
+			max-width: 11.8rem;
+		}
+	}
+
+	.alert {
+		border-radius: 0;
+		left: 0;
+		margin: 0;
+		position: fixed;
+		top: $nav-height;
+		width: 100%;
+		z-index: $z-index-nav - 1;
+	}
+
+	&.mod-myconfigura .p-div.mod-thin {
+		margin-bottom: 1.6rem;
+	}
+}
+
+#react-menu-header {
+	height: $nav-height;
+
+	#menu-bar {
+		background: $white;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+		position: relative;
+		z-index: $z-index-nav;
+	}
+
+	#menu-bar-nav {
+		.lang-global & {
+			@include geo-medium;
+		}
+
+		.lang-jp & {
+			@include jp-medium;
+		}
+		text-transform: uppercase;
+
+		a {
+			.lang-global & {
+				@include geo-medium;
+			}
+
+			.lang-jp & {
+				@include jp-medium;
+			}
+		}
+
+		.nav-items-list {
+			display: flex;
+			flex-direction: row;
+			margin-top: 0;
+
+			.nav-item.dropdown-container {
+				padding: 0;
+			}
+
+			&.mod-hide {
+				display: none;
+			}
+		}
+
+		.nav-items-list .nav-item,
+		.nav-items-list .dropdown-container button,
+		.nav-item.mod-mobile-button {
+			padding: 1.36rem 1.2rem 0.8rem;
+		}
+	}
+
+	#configura-header-logo {
+		margin-left: -1.2rem;
+		margin-right: 1.6rem;
+
+		&:hover {
+			background-color: transparent;
+		}
+
+		img {
+			height: 2.8rem;
+			width: 11.8rem;
+		}
+	}
+
+	ul {
+		list-style: none;
+		margin-left: 0;
+	}
+
+	/**
+	* Options part
+	* The submenu that shows when clicking a menu option in the header menu
+	*/
+	#menu-foldout {
+		background-color: $white;
+		display: block;
+		overflow: hidden;
+		padding: 3.2rem 0 3.2rem;
+		transform: translateY(-100%);
+		transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+		visibility: hidden;
+		will-change: transform;
+
+		&.is-active {
+			box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+			transform: translateY(0%);
+			visibility: visible;
+		}
+
+		#menu-foldout-nav-primary {
+			display: flex;
+			flex-grow: 1;
+			flex-wrap: wrap;
+			flex-direction: column;
+			margin-left: 11.6rem;
+
+			ul.menu-suboptions {
+				margin-bottom: 1.6rem;
+				margin-left: 1.2rem;
+				margin-right: 1.2rem;
+
+				li:first-child {
+					// First child is bolder
+					font-size: 1.8rem;
+					overflow: hidden;
+
+					a {
+						.lang-global & {
+							@include geo-medium;
+						}
+
+						.lang-jp & {
+							@include jp-medium;
+						}
+						color: $text-color;
+					}
+				}
+
+				li {
+					font-size: 1.5rem;
+					margin: 0;
+					width: 100%;
+					line-height: 1.45;
+
+					a {
+						.lang-global & {
+							@include geo-medium;
+						}
+
+						.lang-jp & {
+							@include jp-medium;
+						}
+						color: $gray;
+						max-width: 100%;
+						padding-right: 1.6rem;
+					}
+				}
+			}
+		}
+
+		#menu-foldout-nav-static {
+			border-top: 1px solid rgba($gray, 0.2);
+			display: flex;
+			justify-content: space-between;
+			margin-left: 12.8rem;
+
+			.info-links {
+				.lang-global & {
+					@include geo-medium;
+				}
+
+				.lang-jp & {
+					@include jp-medium;
+				}
+				text-transform: uppercase;
+
+				li {
+					display: flex;
+					line-height: 1.5;
+					position: relative;
+
+					a {
+						.lang-global & {
+							@include geo-medium;
+						}
+
+						.lang-jp & {
+							@include jp-medium;
+						}
+						color: $gray;
+						font-size: 1.4rem;
+					}
+
+					i.svg-icon {
+						font-size: calc(1rem / 2);
+						margin-left: -0.1rem;
+						margin-right: 1rem;
+					}
+				}
+			}
+
+			.prio-links {
+				.lang-global & {
+					@include geo-medium;
+				}
+
+				.lang-jp & {
+					@include jp-medium;
+				}
+				font-size: 1.8rem;
+				line-height: 1.25;
+
+				a {
+					color: $blue;
+					.lang-global & {
+						@include geo-medium;
+					}
+
+					.lang-jp & {
+						@include jp-medium;
+					}
+				}
+			}
+
+			.info-links,
+			.prio-links {
+				margin-right: 3.2rem;
+			}
+
+			.social-links .svg-icon {
+				font-size: calc(1rem / 1.25);
+			}
+
+			.info-links,
+			.prio-links,
+			.social-links {
+				margin-top: 2.4rem;
+			}
+		}
+	}
+
+	#menu-foldout-nav-mobile {
+		background-color: $white;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+		display: block;
+		left: 0;
+		max-height: 100vh;
+		overflow-y: auto;
+		padding-bottom: 3.2rem;
+		padding-top: 1.36rem;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: $z-index-nav-mobile;
+
+		button.nav-item.mod-mobile-button {
+			position: absolute;
+			right: $gutter;
+			top: -1.36rem;
+		}
+
+		ul.mobile-columns {
+			display: flex;
+			flex-wrap: wrap;
+
+			li.mobile-group {
+				.lang-global & {
+					@include geo-medium;
+				}
+
+				.lang-jp & {
+					@include jp-medium;
+				}
+				color: $gray;
+				flex-basis: auto;
+				flex-grow: 1;
+				flex-shrink: 1;
+				font-size: 1.5rem;
+				letter-spacing: 1px;
+				line-height: 1;
+				margin-bottom: 2rem;
+				margin-top: 0.8rem;
+				padding: 0 0.4rem;
+				text-transform: uppercase;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				ul:first-child {
+					margin-top: -0.4rem;
+				}
+
+				ul > li {
+					text-transform: initial;
+					margin-top: 1.2rem;
+					line-height: 1.5;
+					letter-spacing: 0;
+					font-size: 1.8rem;
+
+					a {
+						.lang-global & {
+							@include geo-medium;
+						}
+
+						.lang-jp & {
+							@include jp-medium;
+						}
+						color: $text-color;
+					}
+				}
+
+				&.mod-one ul {
+					display: flex;
+					flex-wrap: wrap;
+
+					li {
+						flex-grow: 1;
+						flex-shrink: 0;
+						flex-basis: 50%;
+					}
+				}
+			}
+		}
+
+		ul.mobile-static {
+			border-top: 1px solid rgba($gray, 0.2);
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 2.4rem;
+			padding-top: 0.8rem;
+
+			li {
+				flex-basis: 50%;
+				flex-grow: 1;
+				flex-shrink: 1;
+				font-size: 1.6rem;
+				margin-top: 1.6rem;
+				text-transform: uppercase;
+
+				a {
+					.lang-global & {
+						@include geo-semibold;
+					}
+
+					.lang-jp & {
+						@include jp-semibold;
+					}
+				}
+			}
+		}
+
+		ul.mobile-social {
+			margin-top: 2.4rem;
+
+			.svg-icon {
+				font-size: 1.1rem;
+			}
+		}
+	}
+
+	button.nav-item.mod-mobile-button {
+		background-color: transparent;
+		border: none;
+
+		&:hover {
+			background: $gray-lightest;
+			cursor: pointer;
+		}
+	}
+
+	.nav-item {
+		.svg-icon.mod-login {
+			font-size: calc(1rem / 10 * 7);
+		}
+
+		.svg-icon.mod-menu {
+			font-size: calc(1rem / 1.25);
+		}
+
+		.svg-icon.mod-cross {
+			font-size: calc(1rem / 1.25);
+			margin-top: 0.4rem;
+		}
+
+		.svg-icon.mod-search {
+			font-size: calc(1rem / 10 * 6);
+		}
+	}
+
+	.nav-item.mod-myconfigura {
+		color: $blue;
+	}
+
+	.nav-item-inner {
+		padding: 0 0.4rem;
+	}
+
+	.dropdown-container button img {
+		background-color: $gray-lighter;
+		border-radius: 50%;
+		color: black;
+		font-size: 1.2rem;
+		height: 2.8rem;
+		width: 2.8rem;
+	}
+
+	@include media-min-sm {
+		#configura-header-logo {
+			margin-left: -4.24rem;
+		}
+
+		#menu-foldout-nav-mobile button.nav-item.mod-mobile-button {
+			right: $gutter * 3.5;
+		}
+	}
+	@include media-min-lg {
+		#menu-foldout {
+			#menu-foldout-nav {
+				display: flex;
+			}
+
+			#menu-foldout-nav-static {
+				border-left: 1px solid rgba($gray, 0.2);
+				border-top: 0;
+				display: block;
+				flex-basis: 24rem;
+				flex-grow: 0;
+				flex-shrink: 0;
+				margin-left: 0;
+				padding-left: 3.2rem;
+
+				.info-links,
+				.prio-links {
+					margin-bottom: 1.6rem;
+					margin-right: 0;
+				}
+
+				.prio-links {
+					margin-top: 0;
+				}
+
+				.info-links,
+				.social-links {
+					margin-top: 2.4rem;
+				}
+			}
+		}
+	}
+
+	.test-bar {
+		button {
+			z-index: $z-index-nav - 1;
+		}
+
+		.test-bar-settings {
+			padding: 1.6rem;
+		}
+	}
+}

@@ -1,0 +1,219 @@
+/*********************************************************
+ * Base styles (overrides) for marketing pages as they
+ * differ from regular base
+ *********************************************************/
+
+%title {
+	line-height: 1.25;
+	margin: initial;
+	font-weight: 300;
+
+	&.mod-grow,
+	.title-grow {
+		font-size: 1.1em;
+	}
+	&.mod-upper {
+		text-transform: uppercase;
+	}
+	* + & {
+		margin-top: 1.6rem;
+	}
+	p + &,
+	dl + &,
+	table + & {
+		margin-top: 4rem;
+	}
+}
+
+%global-title {
+	@extend %title;
+
+	&.mod-regular {
+		@include geo-regular;
+	}
+	&.mod-medium {
+		@include geo-medium;
+	}
+	&.mod-semibold {
+		@include geo-semibold;
+	}
+}
+
+%jp-title {
+	@extend %title;
+
+	&.mod-regular {
+		@include jp-regular;
+	}
+	&.mod-medium {
+		@include jp-medium;
+	}
+	&.mod-semibold {
+		@include jp-semibold;
+	}
+}
+
+.title-1 {
+	@include marketing-override-global {
+		@extend %global-title;
+	}
+
+	@include marketing-override-jp {
+		@extend %jp-title;
+	}
+
+	font-size: calc(2.08rem + 4.6vw); // ~36px on 320px
+	@include media-min-xl {
+		font-size: 8rem; // Max 80px
+	}
+}
+
+.title-2 {
+	@include marketing-override-global {
+		@extend %global-title;
+	}
+
+	@include marketing-override-jp {
+		@extend %jp-title;
+	}
+
+	font-size: calc(2.72rem + 1.7vw); // ~32px on 320px
+	@include media-min-xl {
+		font-size: 4.8rem; // 48px
+	}
+}
+
+.title-3 {
+	@include marketing-override-global {
+		@extend %global-title;
+	}
+
+	@include marketing-override-jp {
+		@extend %jp-title;
+	}
+	font-size: calc(2.64rem + 0.5vw); // ~28px on 320px
+	@include media-min-xl {
+		font-size: 3.2rem; // 32px
+	}
+	& + p {
+		margin-top: 1.2rem;
+		@include media-min-sm {
+			margin-top: 2rem;
+		}
+	}
+}
+
+.title-4 {
+	@include marketing-override-global {
+		@extend %global-title;
+		@include geo-regular;
+	}
+
+	@include marketing-override-jp {
+		@extend %jp-title;
+		@include jp-regular;
+	}
+	font-size: calc(2.08rem + 0.575vw); // ~22.5px on 320px
+
+	@include media-min-xl {
+		font-size: 2.8rem; // 28px
+	}
+	& + p {
+		margin-top: 1.2rem;
+	}
+}
+
+.title-5 {
+	@include marketing-override-global {
+		@extend %global-title;
+	}
+
+	@include marketing-override-jp {
+		@extend %jp-title;
+	}
+	font-size: calc(1.6rem + 0.5vw); // ~18px on 320px
+	@include media-min-xl {
+		font-size: 2.4rem; // 24px
+	}
+	& + p {
+		margin-top: 1.2rem;
+	}
+}
+
+.subtitle-1 {
+	.lang-global & {
+		@include geo-medium;
+	}
+
+	.lang-jp & {
+		@include jp-medium;
+	}
+
+	line-height: 1.25;
+
+	font-size: calc(1.84rem + 1.085vw); // ~25px on 320px
+	margin-top: 0;
+	@include media-min-sm {
+		margin-top: 0.8rem;
+	}
+	@include media-min-xl {
+		font-size: 3.2rem; // 32px
+	}
+}
+
+.ingress {
+	line-height: 1.25;
+
+	.lang-global & {
+		@include geo-light;
+	}
+
+	.lang-jp & {
+		@include jp-light;
+	}
+
+	font-size: calc(2.08rem + 0.9vw); // ~25px on 320px
+	@include media-min-xl {
+		font-size: 3.2rem; // 32px
+	}
+}
+
+.factbox-title {
+	.lang-global & {
+		@include geo-semibold;
+	}
+
+	.lang-jp & {
+		@include jp-semibold;
+	}
+	font-size: 2rem; // 20px;
+	display: block;
+	line-height: 1.25;
+	margin: 0;
+	text-transform: uppercase;
+	@include media-min-md {
+		font-size: 2.4rem;
+	}
+	& + p {
+		margin-top: 1.2rem;
+	}
+}
+
+.factbox-title-big {
+	display: block;
+
+	.lang-global & {
+		@include geo-semibold;
+	}
+
+	.lang-jp & {
+		@include jp-semibold;
+	}
+	font-size: 10rem; // 100px
+	line-height: 1;
+	margin: 0;
+	text-transform: uppercase;
+	@include media-min-md {
+		font-size: 12rem; // 120px
+	}
+}

@@ -1,0 +1,75 @@
+/*********************************************************
+ * Colors
+ *********************************************************/
+$gray-darker: #596164 !default;
+$gray-dark: #6a7175 !default;
+$gray: #81898f !default;
+$gray-light: #a5aeb5 !default;
+$gray-lighter: #e7eef3 !default;
+$gray-lightest: #f5f5f5 !default;
+
+$blue: #006ab3 !default;
+$blue-light: #4a9bd2 !default;
+
+$coral: #eb5d40 !default;
+$coral-light: #ee755c !default;
+
+$green: #007881 !default;
+$green-light: #609fa4 !default;
+
+$orange: #ec7c28 !default;
+$orange-light: #f4993f !default;
+
+$turquoise: #28b8ce !default;
+$turquoise-light: #6ad2e2 !default;
+
+$yellow: #ffd51e !default;
+$yellow-light: #ffdb4f !default;
+
+// Specific colors
+$body-background: #fff !default;
+$text-color: #000 !default;
+$instant: #32be53 !default;
+$instant-light: #4ac567 !default;
+$error: #e11500 !default;
+$error-light: #ff6757 !default;
+$blue-link: #007ccf !default;
+
+$primary-colors: (
+	"blue": $blue,
+	"coral": $coral,
+	"green": $green,
+	"orange": $orange,
+	"turquoise": $turquoise,
+	"yellow": $yellow,
+	"instant": $instant,
+) !default;
+
+$secondary-colors: (
+	"blue-light": $blue-light,
+	"coral-light": $coral-light,
+	"green-light": $green-light,
+	"orange-light": $orange-light,
+	"turquoise-light": $turquoise-light,
+	"yellow-light": $yellow-light,
+	"instant-light": $instant-light,
+) !default;
+
+$gray-colors: (
+	"gray-darker": $gray-darker,
+	"gray-dark": $gray-dark,
+	"gray": $gray,
+	"gray-light": $gray-light,
+	"gray-lighter": $gray-lighter,
+	"gray-lightest": $gray-lightest,
+) !default;
+
+// Sizes
+$font-size-base: 1.9rem !default;
+
+$font-size-h1: 3.6rem !default;
+$font-size-h2: 3.2rem !default;
+$font-size-h3: 2.8rem !default;
+$font-size-h4: 2.25rem !default;
+$font-size-h5: 1.8rem !default;
+$font-size-h6: 1.6rem !default;

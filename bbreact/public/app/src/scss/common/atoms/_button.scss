@@ -1,0 +1,174 @@
+/*********************************************************
+ * Buttons
+ *********************************************************/
+
+a.button,
+button.button,
+label.button,
+input[type="submit"].button,
+input[type="button"].button,
+input[type="reset"].button {
+	align-items: center;
+	border-radius: $border-radius;
+	border-style: solid;
+	border-width: 2px;
+	display: inline-flex;
+	font-size: 1.6rem;
+	font-weight: 500;
+	justify-content: center;
+	line-height: 1.4;
+	padding: 0.4em 1.15em;
+	position: relative;
+
+	& + & {
+		margin-left: 0.25em;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&:hover,
+	&:focus {
+		outline: none;
+		text-decoration: none;
+	}
+
+	&.mod-expand {
+		width: 100%;
+	}
+
+	&.is-loading:before {
+		@extend .load-spinner;
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+		z-index: $z-index;
+	}
+
+	&.mod-xs {
+		font-size: 1.2rem;
+		.svg-icon {
+			font-size: calc(1rem / 10 * 4);
+		}
+	}
+
+	&.mod-sm {
+		font-size: 1.4rem;
+		.svg-icon {
+			font-size: calc(1rem / 10 * 5);
+		}
+	}
+
+	&.mod-lg {
+		font-size: 1.8rem;
+		.svg-icon {
+			font-size: calc(1rem / 10 * 7);
+		}
+	}
+
+	&.mod-xl {
+		font-size: 2rem;
+		.svg-icon {
+			font-size: calc(1rem / 10 * 8);
+		}
+	}
+
+	&.mod-xxl {
+		font-size: 2.4rem;
+		.svg-icon {
+			font-size: calc(1rem / 10 * 10);
+		}
+	}
+
+	@include button-color($white, $blue, $gray-lightest, $blue-light, $blue-light, $blue, true);
+
+	&.mod-primary {
+		@include button-color($blue, $white, $blue-light);
+	}
+	&.mod-primary-red {
+		@include button-color($app-red, $white, lighten($app-red, 10%));
+	}
+	&.mod-normal-red {
+		@include button-color(
+			$white,
+			$app_red,
+			lighten($app-red, 10%),
+			lighten($app-red, 10%),
+			$white,
+			$app-red,
+			true
+		);
+	}
+	&.mod-danger {
+		@include button-color($app-red, $white, lighten($app-red, 10%));
+	}
+
+	&.mod-flat {
+		@include button-color(
+			transparent,
+			$gray-darker,
+			darken($gray-lightest, 5%),
+			darken($gray-lightest, 5%),
+			lighten($gray-darker, 10%)
+		);
+	}
+
+	&.mod-flat-gray {
+		@include button-color($gray-lightest, $blue, $gray-lightest, $blue-light, $blue-light);
+	}
+
+	&.mod-only-icon {
+		padding: 0.3em 0.3em;
+		box-shadow: none;
+
+		.svg-icon {
+			margin-right: 0;
+		}
+	}
+
+	&.mod-flat-only-icon {
+		@include button-color(transparent, transparent, transparent, transparent, transparent);
+
+		&:hover,
+		:focus {
+			@include button-color(transparent, transparent, transparent, transparent, transparent);
+			box-shadow: none;
+		}
+		&:hover:focus {
+			box-shadow: none;
+		}
+
+		&:focus {
+			box-shadow: none;
+		}
+	}
+
+	.svg-icon {
+		font-size: calc(1rem / 10 * 6);
+		margin-right: 1em;
+	}
+
+	&.mod-link {
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		text-decoration: none;
+		display: inline;
+		margin: 0;
+		padding: 0;
+
+		&:hover,
+		:focus {
+			text-decoration: underline;
+		}
+	}
+}
+
+.button--oneline {
+	white-space: nowrap;
+}

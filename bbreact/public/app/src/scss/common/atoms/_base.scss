@@ -1,0 +1,226 @@
+/*********************************************************
+ *
+ *********************************************************/
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	background-color: $body-background;
+	font-size: $html-font-size;
+	font-variant-ligatures: $ligatures;
+	text-rendering: $render-mode;
+}
+
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+br {
+	margin-top: 0;
+}
+
+body {
+	background-color: $body-background;
+	color: $text-color;
+	display: flex;
+	flex-direction: column;
+	font-family: $robotoFont;
+	font-size: $font-size-base;
+	min-height: 100vh;
+	line-height: 1.4;
+	position: relative;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: $robotoFont;
+}
+
+.heading {
+	color: $gray;
+	font-family: $robotoFont;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+b,
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
+em,
+b,
+strong,
+span {
+	font-size: inherit;
+}
+
+s {
+	text-decoration: line-through;
+}
+
+small {
+	display: inline-block;
+	font-size: 90%;
+}
+
+ul,
+ol {
+	margin-left: 1em;
+	li {
+		margin-top: 0;
+	}
+}
+
+q {
+	quotes: "\201C""\201D""\2018""\2019";
+}
+
+sub,
+sup {
+	font-size: 1rem;
+	position: relative;
+}
+
+sub {
+	vertical-align: bottom;
+	bottom: 0.65em;
+}
+
+sup {
+	vertical-align: top;
+	top: 0.65em;
+}
+
+dl {
+	dd {
+		margin-top: 0;
+	}
+	dt {
+		font-weight: bold;
+	}
+	* + dt {
+		margin-top: 0.8rem;
+	}
+}
+
+code {
+	font-family: $monoFont;
+}
+
+p {
+	margin-top: 1.6rem;
+}
+
+/**
+ * Page container
+ **/
+
+#page-container {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding-top: $nav-height + $page-padding;
+	position: relative;
+
+	&.has-test-bar {
+		padding-top: $nav-height + $page-padding + 3.4rem;
+	}
+}
+
+#page-container > main {
+	flex: 1;
+}
+
+.react-notification-container {
+	position: fixed;
+	top: $nav-height;
+	width: 100%;
+	z-index: $z-index-nav + 1;
+
+	& + * {
+		margin-top: 0;
+	}
+}
+
+.react-login-as {
+	background: #006ab3;
+	margin-top: -3rem;
+	margin-bottom: 2rem;
+	color: $white;
+	min-height: 4rem;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+
+	.left {
+		padding-right: 5%;
+	}
+
+	.right {
+		padding-left: 5%;
+	}
+
+	.has-test-bar & {
+		margin-top: -4rem;
+	}
+
+	.left,
+	.right {
+		display: inline-block;
+		max-width: 50%;
+		vertical-align: top;
+		padding-top: 0.6rem;
+	}
+
+	a {
+		color: $white;
+		font-weight: 700;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.left,
+		.right {
+			max-width: 100%;
+			width: 100%;
+		}
+
+		.left {
+			padding-right: 0;
+		}
+
+		.right {
+			padding-left: 0;
+		}
+	}
+}
+
+/**
+ * Logged in bar (hidden for now)
+ **/
+
+#logged-in-bar {
+	display: none !important;
+}

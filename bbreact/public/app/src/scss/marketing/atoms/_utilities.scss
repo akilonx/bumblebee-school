@@ -1,0 +1,52 @@
+/*********************************************************
+ * Background colors
+ *********************************************************/
+@each $class, $color in $primary-colors {
+	.ut-bg-#{$class} {
+		background-color: $color;
+	}
+}
+
+@each $class, $color in $secondary-colors {
+	.ut-bg-#{$class} {
+		background-color: $color;
+	}
+}
+
+@each $class, $color in $gray-colors {
+	.ut-bg-#{$class} {
+		background-color: $color;
+	}
+}
+
+/*********************************************************
+ * Typography
+ *********************************************************/
+.ut-text-default {
+	color: $text-color;
+}
+
+.ut-text-white {
+	color: $white;
+}
+
+.ut-text-red {
+	color: $app-red;
+}
+
+@each $class, $color in $primary-colors {
+	.ut-text-#{$class} {
+		color: $color;
+	}
+}
+@each $class, $color in $secondary-colors {
+	.ut-text-#{$class} {
+		color: $color;
+	}
+}
+
+@each $class, $color in $gray-colors {
+	.ut-text-#{$class} {
+		color: $color;
+	}
+}

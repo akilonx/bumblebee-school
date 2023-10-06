@@ -1,0 +1,721 @@
+/*********************************************************
+* Geogrotesque
+*********************************************************/
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Thin"), local("Geogrotesque-Thin"),
+		url($staticFontURL+"/Ge2003-Th.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-Th.woff") format("woff");
+	font-style: normal;
+	font-weight: 100;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Thin Italic"), local("Geogrotesque-ThinItalic"),
+		url($staticFontURL+"/Ge2003-ThIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-ThIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 100;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque UltraLight"), local("Geogrotesque-UltraLight"),
+		url($staticFontURL+"/Ge2003-UltLt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-UltLt.woff") format("woff");
+	font-style: normal;
+	font-weight: 200;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque UltraLight Italic"), local("Geogrotesque-UltraLightItalic"),
+		url($staticFontURL+"/Ge2003-UltLtIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-UltLtIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 200;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Light"), local("Geogrotesque-Light"),
+		url($staticFontURL+"/Ge2003-Lt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-Lt.woff") format("woff");
+	font-style: normal;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Light Italic"), local("Geogrotesque-LightItalic"),
+		url($staticFontURL+"/Ge2003-LtIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-LtIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Regular"), local("Geogrotesque-Regular"),
+		url($staticFontURL+"/Ge2003-Rg.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-Rg.woff") format("woff");
+	font-style: normal;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Regular Italic"), local("Geogrotesque-RegularItalic"),
+		url($staticFontURL+"/Ge2003-RgIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-RgIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Medium"), local("Geogrotesque-Medium"),
+		url($staticFontURL+"/Ge2003-Md.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-Md.woff") format("woff");
+	font-style: normal;
+	font-weight: 500;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Medium Italic"), local("Geogrotesque-MediumItalic"),
+		url($staticFontURL+"/Ge2003-MdIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-MdIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 500;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque SemiBold"), local("Geogrotesque-SemiBold"),
+		url($staticFontURL+"/Ge2003-SmBd.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-SmBd.woff") format("woff");
+	font-style: normal;
+	font-weight: 600;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque SemiBold Italic"), local("Geogrotesque-SemiBoldItalic"),
+		url($staticFontURL+"/Ge2003-SmBdIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-SmBdIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 600;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Bold"), local("Geogrotesque-Bold"),
+		url($staticFontURL+"/Ge2003-Bd.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-Bd.woff") format("woff");
+	font-style: normal;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Geogrotesque";
+	src: local("Geogrotesque Bold Italic"), local("Geogrotesque-BoldItalic"),
+		url($staticFontURL+"/Ge2003-BdIt.woff2") format("woff2"),
+		url($staticFontURL+"/Ge2003-BdIt.woff") format("woff");
+	font-style: italic;
+	font-weight: 700;
+	text-rendering: optimizeLegibility;
+}
+
+/**
+* Mixins
+*
+* We have mixin because sometimes you need to include a font in a media query
+* and it's not allowed to extend a placeholder or class within a media query
+* but mixin works.
+**/
+
+@mixin geo-thin {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 100;
+}
+
+@mixin geo-thin-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 100;
+}
+
+@mixin geo-ultra-light {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 200;
+}
+
+@mixin geo-ultra-light-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 200;
+}
+
+@mixin geo-light {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 300;
+}
+
+@mixin geo-light-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 300;
+}
+
+@mixin geo-regular {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 400;
+}
+
+@mixin geo-regular-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 400;
+}
+
+@mixin geo-medium {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@mixin geo-medium-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 500;
+}
+
+@mixin geo-semibold {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 600;
+}
+
+@mixin geo-semibold-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 600;
+}
+
+@mixin geo-bold {
+	font-family: $geoFont;
+	font-style: normal;
+	font-weight: 700;
+}
+
+@mixin geo-bold-it {
+	font-family: $geoFont;
+	font-style: italic;
+	font-weight: 700;
+}
+
+/**
+* Helper classes
+**/
+
+.geo-thin {
+	@include geo-thin;
+}
+
+.geo-thin-it {
+	@include geo-thin-it;
+}
+
+.geo-ultra-light {
+	@include geo-ultra-light;
+}
+
+.geo-ultra-light-it {
+	@include geo-ultra-light-it;
+}
+
+.geo-light {
+	@include geo-light;
+}
+
+.geo-light-it {
+	@include geo-light-it;
+}
+
+.geo-regular {
+	@include geo-regular;
+}
+
+.geo-regular-it {
+	@include geo-regular-it;
+}
+
+.geo-medium {
+	@include geo-medium;
+}
+
+.geo-medium-it {
+	@include geo-medium-it;
+}
+
+.geo-semibold {
+	@include geo-semibold;
+}
+
+.geo-semibold-it {
+	@include geo-semibold-it;
+}
+
+.geo-bold {
+	@include geo-bold;
+}
+
+.geo-bold-it {
+	@include geo-bold-it;
+}
+
+/*********************************************************
+* Roboto
+*********************************************************/
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 100;
+	src: local("Roboto Thin"), local("Roboto-Thin"),
+		url($staticFontURL+"/roboto-v18-latin-100.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-100.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 100;
+	src: local("Roboto Thin Italic"), local("Roboto-ThinItalic"),
+		url($staticFontURL+"/roboto-v18-latin-100italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-100italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 300;
+	src: local("Roboto Light"), local("Roboto-Light"),
+		url($staticFontURL+"/roboto-v18-latin-300.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-300.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 300;
+	src: local("Roboto Light Italic"), local("Roboto-LightItalic"),
+		url($staticFontURL+"/roboto-v18-latin-300italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-300italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 400;
+	src: local("Roboto"), local("Roboto-Regular"),
+		url($staticFontURL+"/roboto-v18-latin-regular.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-regular.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 400;
+	src: local("Roboto Italic"), local("Roboto-Italic"),
+		url($staticFontURL+"/roboto-v18-latin-italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 500;
+	src: local("Roboto Medium"), local("Roboto-Medium"),
+		url($staticFontURL+"/roboto-v18-latin-500.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-500.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 500;
+	src: local("Roboto Medium Italic"), local("Roboto-MediumItalic"),
+		url($staticFontURL+"/roboto-v18-latin-500italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-500italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 700;
+	src: local("Roboto Bold"), local("Roboto-Bold"),
+		url($staticFontURL+"/roboto-v18-latin-700.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-700.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 700;
+	src: local("Roboto Bold Italic"), local("Roboto-BoldItalic"),
+		url($staticFontURL+"/roboto-v18-latin-700italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-700italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: 900;
+	src: local("Roboto Black"), local("Roboto-Black"),
+		url($staticFontURL+"/roboto-v18-latin-900.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-900.woff") format("woff");
+}
+
+@font-face {
+	font-display: swap;
+	font-family: "Roboto";
+	font-style: italic;
+	font-weight: 900;
+	src: local("Roboto Black Italic"), local("Roboto-BlackItalic"),
+		url($staticFontURL+"/roboto-v18-latin-900italic.woff2") format("woff2"),
+		url($staticFontURL+"/roboto-v18-latin-900italic.woff") format("woff");
+}
+
+/**
+* Mixins
+*
+* We have mixin because sometimes you need to include a font in a media query
+* and it's not allowed to extend a placeholder or class within a media query
+* but mixin works.
+**/
+
+@mixin roboto-thin {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 100;
+}
+
+@mixin roboto-thin-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 100;
+}
+
+@mixin roboto-light {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 300;
+}
+
+@mixin roboto-light-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 300;
+}
+
+@mixin roboto-regular {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 400;
+}
+
+@mixin roboto-regular-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 400;
+}
+
+@mixin roboto-medium {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@mixin roboto-medium-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 500;
+}
+
+@mixin roboto-bold {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 700;
+}
+
+@mixin roboto-bold-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 700;
+}
+
+@mixin roboto-black {
+	font-family: $robotoFont;
+	font-style: normal;
+	font-weight: 900;
+}
+
+@mixin roboto-black-it {
+	font-family: $robotoFont;
+	font-style: italic;
+	font-weight: 900;
+}
+
+/**
+* Helper classes
+**/
+
+.roboto-thin {
+	@include roboto-thin;
+}
+
+.roboto-thin-it {
+	@include roboto-thin-it;
+}
+
+.roboto-light {
+	@include roboto-light;
+}
+
+.roboto-light-it {
+	@include roboto-light-it;
+}
+
+.roboto-regular {
+	@include roboto-regular;
+}
+
+.roboto-regular-it {
+	@include roboto-regular-it;
+}
+
+.roboto-medium {
+	@include roboto-medium;
+}
+
+.roboto-medium-it {
+	@include roboto-medium-it;
+}
+
+.roboto-bold {
+	@include roboto-bold;
+}
+
+.roboto-bold-it {
+	@include roboto-bold-it;
+}
+
+.roboto-black {
+	@include roboto-black;
+}
+
+.roboto-black-it {
+	@include roboto-black-it;
+}
+
+/*********************************************************
+* Japanese
+*********************************************************/
+
+/**
+* Mixins
+*
+* We have mixin because sometimes you need to include a font in a media query
+* and it's not allowed to extend a placeholder or class within a media query
+* but mixin works.
+**/
+
+@mixin jp-thin {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 100;
+}
+
+@mixin jp-thin-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 100;
+}
+
+@mixin jp-ultra-light {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 200;
+}
+
+@mixin jp-ultra-light-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 200;
+}
+
+@mixin jp-light {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 300;
+}
+
+@mixin jp-light-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 300;
+}
+
+@mixin jp-regular {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 400;
+}
+
+@mixin jp-regular-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 400;
+}
+
+@mixin jp-medium {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 500;
+}
+
+@mixin jp-medium-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 500;
+}
+
+@mixin jp-semibold {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 600;
+}
+
+@mixin jp-semibold-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 600;
+}
+
+@mixin jp-bold {
+	font-family: $jpFont;
+	font-style: normal;
+	font-weight: 700;
+}
+
+@mixin jp-bold-it {
+	font-family: $jpFont;
+	font-style: italic;
+	font-weight: 700;
+}
+
+/**
+* Helper classes
+**/
+
+.jp-thin {
+	@include jp-thin;
+}
+
+.jp-thin-it {
+	@include jp-thin-it;
+}
+
+.jp-ultra-light {
+	@include jp-ultra-light;
+}
+
+.jp-ultra-light-it {
+	@include jp-ultra-light-it;
+}
+
+.jp-light {
+	@include jp-light;
+}
+
+.jp-light-it {
+	@include jp-light-it;
+}
+
+.jp-regular {
+	@include jp-regular;
+}
+
+.jp-regular-it {
+	@include jp-regular-it;
+}
+
+.jp-medium {
+	@include jp-medium;
+}
+
+.jp-medium-it {
+	@include jp-medium-it;
+}
+
+.jp-semibold {
+	@include jp-semibold;
+}
+
+.jp-semibold-it {
+	@include jp-semibold-it;
+}
+
+.jp-bold {
+	@include jp-bold;
+}
+
+.jp-bold-it {
+	@include jp-bold-it;
+}

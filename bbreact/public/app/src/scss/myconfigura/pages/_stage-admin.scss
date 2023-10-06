@@ -1,0 +1,17 @@
+/*********************************************************
+ * Stage Admin
+ *********************************************************/
+
+body.stage-admin {
+	.summary-table {
+		margin-top: 1rem;
+
+		thead th:last-child,
+		tbody td:last-child {
+			text-align: right;
+		}
+		.distinct-border {
+			border-top: 1px solid $gray;
+		}
+	}
+}

@@ -1,0 +1,49 @@
+/*********************************************************
+ * User Card Popup
+ *********************************************************/
+
+.card-user {
+	position: relative;
+}
+
+.card-user-open {
+	@include elevateLevel(2);
+	background-color: $gray-lightest;
+	border-radius: $border-radius;
+	margin-left: -1rem;
+	margin-top: -5.1rem;
+	padding: 1rem 1rem 1rem;
+	position: absolute;
+	z-index: $z-index;
+}
+
+.card-user-button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	display: block;
+	line-height: 1.5;
+	margin: 0;
+	max-width: 100%;
+	padding: 0;
+	text-align: left;
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+	&:hover {
+		color: $gray;
+	}
+}
+
+.card-user-title-small {
+	color: $gray-dark;
+	font-size: 1.3rem;
+	font-weight: 500;
+	margin-top: 0.5rem;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}

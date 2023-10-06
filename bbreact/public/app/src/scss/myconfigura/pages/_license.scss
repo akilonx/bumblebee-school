@@ -1,0 +1,194 @@
+/*********************************************************
+ * License
+ *********************************************************/
+
+body.license {
+	.admins-list {
+		th:nth-child(1) {
+			width: 6rem;
+		}
+
+		th:nth-child(3) {
+			width: 8rem;
+			text-align: center;
+		}
+
+		.email {
+			color: $gray;
+		}
+	}
+
+	.active-users {
+		font-size: 1.4rem;
+		th:nth-child(2),
+		th:nth-child(3) {
+			min-width: 25rem;
+			width: 35%;
+		}
+
+		th:nth-child(4) {
+			min-width: 12rem;
+			width: 20%;
+		}
+
+		th:nth-child(5) {
+			min-width: 16rem;
+			width: 20%;
+		}
+
+		td:nth-child(2),
+		td:nth-child(3),
+		td:nth-child(5) {
+			word-break: break-all;
+			white-space: pre-wrap;
+			hyphens: auto;
+
+			.license-popup {
+				width: max-content;
+			}
+		}
+	}
+
+	.users-field {
+		background-color: white;
+		min-height: 150px;
+		flex-direction: row;
+		max-height: 200px;
+		overflow-y: auto;
+	}
+
+	.sub-license {
+		border-left: 1px solid lightgray;
+		float: left;
+		line-height: 13px;
+		padding: 0 5px;
+		position: relative;
+
+		&:first-child {
+			border-left: none;
+		}
+	}
+
+	.license-icon {
+		position: relative;
+		display: inline-flex;
+		border: lightgray;
+		border-style: solid;
+		border-radius: 2.5px;
+		border-width: 0.5px;
+		padding-left: 0.25rem;
+		padding-right: 0.25rem;
+		margin: 0.25rem;
+		font-size: 1.6rem;
+
+		&:hover {
+			background-color: $gray-lightest;
+		}
+	}
+
+	.license-icon-button {
+		background-color: transparent;
+		// border: none;
+		border: gray;
+		cursor: pointer;
+		display: block;
+		line-height: 1.5;
+		margin: 0;
+		max-width: 100%;
+		text-align: left;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		// padding-left: 0.5rem;
+		// padding-right: 0.5rem;
+
+		&:hover {
+			color: $gray;
+		}
+	}
+
+	.license-icon-open {
+		@include elevateLevel(2);
+		background-color: $gray-lightest;
+		border-radius: $border-radius;
+		margin-left: -1rem;
+		margin-top: -5.1rem;
+		padding: 1rem 1rem 1rem;
+		position: absolute;
+		z-index: $z-index;
+	}
+
+	.license-icon-sublicense {
+		font-size: xx-small;
+		vertical-align: text-top;
+		margin-left: 0.25rem;
+		color: $gray;
+		&:hover {
+			color: $gray-light;
+		}
+	}
+	.license-logo {
+		img {
+			width: 16px;
+			height: 16px;
+			margin-bottom: 0.4rem;
+		}
+		display: inline-block;
+	}
+
+	.license-popup {
+		font-size: x-small;
+	}
+
+	.status-circle {
+		width: 8px;
+		height: 8px;
+		border-radius: 4px;
+		position: absolute;
+		left: 16px;
+		bottom: 22px;
+
+		&.mod-billed,
+		&.mod-pending,
+		&.mod-expiring {
+			background: orange;
+		}
+
+		&.mod-denied,
+		&.mod-suspended {
+			background: $app-red;
+		}
+
+		&.mod-locked {
+			background: initial;
+			bottom: 20px;
+
+			&:before {
+				@include pseudo-element($bottom: 3px, $left: 0, $right: 0);
+				background-image: url($staticURL + "/web/img/old/icons-license-status.png");
+				background-repeat: no-repeat;
+				height: 8px;
+				margin: auto;
+				width: 10px;
+				background-position: -20px 0;
+			}
+		}
+	}
+
+	span.license-info {
+		font-size: small;
+		display: block;
+		word-wrap: break-word;
+
+		&.mod-pending,
+		&.mod-billed,
+		&.mod-expiring {
+			color: orange;
+		}
+
+		&.mod-denied,
+		&.mod-suspended {
+			color: $app-red;
+		}
+	}
+}

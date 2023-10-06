@@ -1,0 +1,347 @@
+/**
+* This file import the necessary files needed for the react
+* menu to display correctly on MyConfigura
+*
+**/
+
+/**
+* Atoms
+**/
+
+@import "common/atoms/variables";
+@import "common/atoms/mixins";
+@import "common/atoms/grid/variables";
+@import "common/atoms/grid/mixins";
+@import "common/atoms/grid/grid";
+@import "common/atoms/grid/utilities";
+@import "common/atoms/icons";
+@import "myconfigura/atoms/icons";
+@import "common/atoms/fonts";
+@import "common/atoms/links";
+@import "common/atoms/button";
+@import "common/atoms/placeholder";
+
+.phoenix-base {
+	background-color: $body-background;
+	color: $text-color;
+	font-family: $robotoFont;
+	font-size: $font-size-base;
+	line-height: 1.4;
+
+	*:before,
+	*:after {
+		box-sizing: inherit;
+	}
+
+	br {
+		margin-top: 0;
+	}
+
+	a {
+		color: $blue-link;
+		font-size: inherit;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		&:hover {
+			text-decoration: underline;
+		}
+		&.mod-border-link {
+			border-bottom: 1px solid $blue;
+			&:hover {
+				border-bottom: none;
+				text-decoration: none;
+			}
+		}
+		&.mod-white {
+			color: $white;
+			&.mod-border-link {
+				border-color: $white;
+			}
+		}
+		&.mod-black {
+			color: $black;
+			&.mod-border-link {
+				border-color: $black;
+			}
+		}
+	}
+
+	li {
+		margin-top: 0;
+	}
+
+	button,
+	input,
+	optgroup,
+	select,
+	textarea {
+		font-family: $robotoFont;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@include geo-medium;
+		line-height: 1.125;
+		word-wrap: break-word;
+		margin-bottom: 0.5em;
+
+		&.mod-uppercase {
+			text-transform: uppercase;
+		}
+	}
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin-top: 1.5em;
+	}
+
+	h1 {
+		font-size: $font-size-h1;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		font-size: $font-size-h2;
+	}
+
+	h3 {
+		font-size: $font-size-h3;
+	}
+
+	h4 {
+		font-size: $font-size-h4;
+	}
+
+	h5 {
+		font-size: $font-size-h5;
+	}
+
+	h6 {
+		font-size: $font-size-h6;
+	}
+
+	.heading {
+		font-family: $robotoFont;
+		color: $gray;
+		font-weight: 500;
+		font-size: 13px;
+		text-transform: uppercase;
+	}
+
+	b,
+	strong {
+		font-weight: bold;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	em,
+	b,
+	strong,
+	span {
+		font-size: inherit;
+	}
+
+	small {
+		display: inline-block;
+		font-size: 90%;
+	}
+
+	ul,
+	ol {
+		margin-left: 1em;
+	}
+
+	q {
+		quotes: "\201C""\201D""\2018""\2019";
+	}
+
+	sub,
+	sup {
+		font-size: 1rem;
+		position: relative;
+	}
+
+	sub {
+		vertical-align: bottom;
+		bottom: 0.65em;
+	}
+
+	sup {
+		vertical-align: top;
+		top: 0.65em;
+	}
+
+	dl {
+		dd {
+			margin-top: 0;
+		}
+		dt {
+			font-weight: bold;
+		}
+		* + dt {
+			margin-top: 0.8rem;
+		}
+	}
+
+	code {
+		font-family: $monoFont;
+	}
+
+	p {
+		margin-bottom: 2.4rem;
+	}
+}
+
+/**
+* Molecules
+**/
+
+@import "common/molecules/alert";
+
+.alert {
+	margin-bottom: 2.4rem;
+	margin-top: 2.4rem;
+}
+
+@import "common/molecules/card";
+@import "common/molecules/dropdown";
+@import "common/molecules/social-media";
+
+/**
+* Organisms
+**/
+
+@import "common/organisms/footer";
+@import "common/organisms/menu";
+@import "common/organisms/modal";
+@import "common/organisms/nav";
+@import "common/organisms/search";
+
+/** Namespace to prevent clashes */
+
+.react-search-myconfigura {
+	@import "common/atoms/grid/grid";
+	@import "common/atoms/icons";
+	@import "common/atoms/base";
+	@import "common/atoms/table";
+	@import "common/atoms/tag";
+	@import "common/atoms/reset";
+	@import "myconfigura/organisms/recent-search";
+	@import "myconfigura/pages/agreements";
+}
+
+.phoenix-forms {
+	@import "common/organisms/form";
+}
+
+/** Must be last to make overriding possible! **/
+
+@import "common/atoms/utilities";
+
+/**
+* Override certain styles when we bridge the gap of the new an old :)
+**/
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: $render-mode;
+	font-variant-ligatures: $ligatures;
+}
+
+$devBarHeight: 2;
+body {
+	// background-color: $white;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	height: 100%;
+	padding-top: $nav-height;
+	&.is-logged-in {
+		padding-top: $nav-height;
+		margin-top: 0;
+		&.logged-in-bar-present {
+			padding-top: $nav-height + 5.2rem;
+			#logged-in-bar {
+				top: 0;
+				&.show {
+					top: $nav-height;
+				}
+			}
+			&.developer-mode {
+				margin-top: 0;
+				padding-top: $nav-height + 5.2rem + $devBarHeight;
+				#logged-in-bar.show {
+					top: $nav-height + $devBarHeight;
+				}
+			}
+		}
+		&.developer-mode {
+			margin-top: 0;
+			padding-top: $nav-height + $devBarHeight;
+			#logged-in-bar.show {
+				top: $nav-height + $devBarHeight;
+			}
+		}
+	}
+	#configura-footer {
+		@include geo-regular;
+
+		.legal {
+			z-index: 1;
+		}
+		.beagle {
+			margin-bottom: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+	a {
+		&.mod-border-link {
+			border-bottom: 1px solid $blue;
+			&:hover {
+				border-bottom: none;
+				text-decoration: none;
+			}
+		}
+		&.mod-white {
+			color: $white;
+			&.mod-border-link {
+				border-color: $white;
+			}
+		}
+		&.mod-black {
+			color: $black;
+			&.mod-border-link {
+				border-color: $black;
+			}
+		}
+	}
+}
+
+.developer-bar {
+	top: $nav-height;
+}
+
+.test-bar-settings {
+	padding: 1.6rem;
+}
+
+.has-test-bar {
+	padding-top: 1.4rem;
+}

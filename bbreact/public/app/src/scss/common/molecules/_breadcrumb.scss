@@ -1,0 +1,29 @@
+/*********************************************************
+ * Breadcrumb
+ *********************************************************/
+
+.breadcrumb {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 1.2rem;
+	font-weight: 500;
+	text-transform: uppercase;
+
+	.path-denominator {
+		font-size: calc(1rem / 10 * 3);
+		margin: 0 0.5rem -1px;
+	}
+
+	.path-name:last-child {
+		color: $gray-text-color;
+	}
+
+	.logged-in-bar-present & {
+		padding-top: 2rem;
+
+		@media screen and (max-width: 480px) {
+			padding-top: 5rem;
+		}
+	}
+}

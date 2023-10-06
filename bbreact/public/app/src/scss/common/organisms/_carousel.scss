@@ -1,0 +1,188 @@
+/*********************************************************
+ * Carousel
+ *********************************************************/
+
+$click: 4rem;
+
+@keyframes slideInLeft {
+	from {
+		transform: translate3d(-100%, 0, 0);
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes slideInRight {
+	from {
+		transform: translate3d(100%, 0, 0);
+	}
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+}
+@keyframes slideOutLeft {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(-100%, 0, 0);
+	}
+}
+@keyframes slideOutRight {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+	to {
+		transform: translate3d(100%, 0, 0);
+	}
+}
+
+.carousel {
+	position: relative;
+}
+
+.carousel .row {
+	// IE Fix when using grid inside carousel-content
+	min-width: 100%;
+}
+
+.carousel--noGutter .carousel__Content {
+	padding: 0;
+}
+
+.carousel__Content {
+	align-items: center;
+	display: none;
+	padding: 0 $click/2;
+	margin: 0;
+	position: relative;
+	transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+	width: 100%;
+}
+
+.carousel__Content--willChange {
+	will-change: transform;
+}
+
+.carousel__Content--active,
+.carousel__Content--next,
+.carousel__Content--prev {
+	display: flex;
+}
+
+.carousel__Content--next,
+.carousel__Content--prev {
+	position: absolute;
+	top: 0;
+}
+
+.carousel__Content--inLeft {
+	display: flex;
+	position: absolute;
+	top: 0;
+	animation: slideInLeft 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+}
+
+.carousel__Content--inRight {
+	display: flex;
+	position: absolute;
+	top: 0;
+	animation: slideInRight 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+}
+
+.carousel__Content--outLeft {
+	animation: slideOutLeft 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+}
+
+.carousel__Content--outRight {
+	animation: slideOutRight 0.33s 1 cubic-bezier(0, 0, 0.3, 1);
+}
+
+.carousel__Container {
+	margin: 0;
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+}
+
+.carousel__Indicators {
+	list-style: none;
+	margin: 0;
+	display: flex;
+	position: absolute;
+	bottom: 5%;
+	justify-content: center;
+	width: 100%;
+	z-index: $z-index;
+}
+
+.carousel__Indicator {
+	margin: 0 0.25em;
+	background-color: rgba($black, 0.4);
+	height: 0.5em;
+	width: 0.5em;
+	border-radius: 100%;
+}
+
+.carousel__Indicator--active {
+	background-color: $black;
+}
+
+.carousel__Indicator--white {
+	background-color: rgba($white, 0.4);
+}
+
+.carousel__Indicator--white.carousel__Indicator--active {
+	background-color: $white;
+}
+
+.carousel__Next,
+.carousel__Prev {
+	align-items: center;
+	background-color: rgba($white, 0.4);
+	display: flex;
+	height: $click;
+	justify-content: center;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate3d(0, -50%, 0);
+	width: $click;
+	z-index: $z-index;
+
+	.svg-icon.mod-chevron {
+		font-size: 1.1rem;
+		opacity: 0.5;
+	}
+	.svg-icon.mod-chevron.mod-left {
+		margin-right: 0.5rem;
+	}
+	.svg-icon.mod-chevron.mod-right {
+		margin-left: 0.5rem;
+	}
+	&:hover .svg-icon.mod-chevron {
+		opacity: 1;
+	}
+}
+
+.carousel__Next {
+	right: 0;
+}
+
+.carousel__Prev {
+	left: 0;
+}
+
+@include media-min-md {
+	$click: 6.4rem;
+
+	.carousel__Content {
+		padding: 0 $click;
+	}
+
+	.carousel__Next,
+	.carousel__Prev {
+		height: $click;
+		width: $click;
+	}
+}

@@ -1,0 +1,80 @@
+@mixin icon-column-width {
+	width: 3.5rem;
+}
+
+body.buildcenter {
+	.indent-child-field {
+		margin-left: 2.1rem;
+		margin-top: 1rem;
+	}
+
+	.distributions-list {
+		// Align the 'active' column
+		th:nth-child(2) {
+			width: 40%;
+		}
+
+		th:nth-child(4) {
+			width: 12rem;
+		}
+
+		.mod-toggle {
+			margin-top: -1.5rem;
+			margin-bottom: -1rem;
+		}
+	}
+
+	.versions-list {
+		th:nth-child(2) {
+			width: 12rem;
+		}
+
+		.mod-toggle {
+			margin-top: -1.5rem;
+			margin-bottom: -1rem;
+		}
+	}
+
+	.extensions-list {
+		list-style: none;
+		margin: 0.5rem 0 0 0;
+	}
+
+	.add-builds-list {
+		th:first-child {
+			@include icon-column-width();
+		}
+	}
+
+	.comparison-list {
+		white-space: nowrap;
+
+		& > thead > tr > th:first-child {
+			@include icon-column-width();
+		}
+
+		.expanded-inner-row {
+			font-size: smaller;
+
+			& td,
+			& th {
+				@extend .ut-bg-light-gray;
+			}
+		}
+
+		.expanded-inner-cell {
+			padding: 0;
+		}
+	}
+
+	.alert.mod-info a {
+		color: $blue-link;
+		text-decoration: none;
+	}
+
+	.add-maintainer-field-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+}

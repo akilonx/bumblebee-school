@@ -1,0 +1,49 @@
+.light-grid [class~="container"] {
+	background-color: pink;
+}
+
+.light-grid [class~="row"] {
+	background-color: gold;
+}
+
+.light-grid [class~="col"] {
+	border: 1px solid $black;
+}
+
+.light-grid [class~="col"]:nth-child(even) {
+	background-color: rgba($black, 0.3) !important;
+}
+
+.light-grid [class~="col"]:nth-child(odd) {
+	background-color: rgba($black, 0.15) !important;
+}
+
+.light-grid .nested [class~="col"]:nth-child(even) {
+	background-color: rgba($black, 0.4) !important;
+}
+
+.light-grid .nested [class~="col"]:nth-child(even) {
+	background-color: rgba($black, 0.2) !important;
+}
+
+#overlay-light-grid {
+	display: block;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	z-index: $z-index * 2;
+	&.mod-underlay {
+		z-index: -1 !important;
+	}
+	.container,
+	.row,
+	.col {
+		height: 100%;
+		margin-top: 0;
+	}
+	&.light-grid [class~="col"] {
+		border: none;
+	}
+}

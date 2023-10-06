@@ -1,0 +1,154 @@
+/*********************************************************
+ * Tabs
+ *********************************************************/
+
+.tabs {
+	align-items: stretch;
+	display: flex;
+	justify-content: flex-start;
+	list-style: none;
+	margin-left: 0;
+	overflow: hidden;
+	position: relative;
+}
+
+.tabs.mod-overflow-left:before,
+.tabs.mod-overflow-right:after {
+	bottom: -1px;
+	box-shadow: 4px 0 54px 29px rgba($gray-lightest, 1);
+	content: "";
+	height: 100%;
+	position: absolute;
+	width: 2px;
+	z-index: $z-index;
+}
+
+.tabs.mod-overflow-left:before {
+	left: -2px;
+}
+
+.tabs.mod-overflow-right:after {
+	right: -2px;
+}
+
+.tabs li {
+	display: inline-block;
+	flex-basis: auto;
+	flex-grow: 0;
+	flex-shrink: 0;
+	left: 0px;
+	margin: 0;
+	position: relative;
+	white-space: nowrap;
+}
+
+.tabs li.mod-willchange {
+	will-change: transform;
+}
+
+.tabs:not(.scrolling) li {
+	transition: all 0.5s ease-in-out;
+}
+
+.tabs a {
+	border-bottom: 4px solid transparent;
+	color: $gray-light;
+	display: flex;
+	font-size: 1.6rem;
+	height: 100%;
+	padding: 0.25em 0.75em;
+	font-weight: 600;
+	cursor: pointer;
+
+	width: 100%;
+	&:hover,
+	&:focus,
+	&:active {
+		text-decoration: none;
+	}
+	&.is-active {
+		border-bottom-color: $blue;
+		color: $black;
+	}
+	&:not(.is-active):hover {
+		border-bottom-color: $gray-light;
+	}
+
+	@include marketing-override-global {
+		@include geo-regular;
+
+		&.is-active {
+			@include geo-semibold;
+		}
+	}
+	@include marketing-override-jp {
+		@include jp-regular;
+
+		&.is-active {
+			@include jp-semibold;
+		}
+	}
+	@include media-min-lg {
+		padding: 0.5em 2em 0.5em 1em;
+	}
+}
+
+.tabs.mod-big a {
+	@include media-min-lg {
+		font-size: 2.8rem;
+	}
+}
+
+/**
+ * Pages style
+**/
+
+@each $class, $color in $primary-colors {
+	.page-#{$class} .tabs a {
+		&.is-active:hover,
+		&.is-active {
+			border-bottom-color: $color;
+		}
+	}
+}
+
+/**
+  * Direct styles
+**/
+
+@each $class, $color in $primary-colors {
+	.tabs.mod-#{$class} a {
+		&.is-active:hover,
+		&.is-active {
+			border-bottom-color: $color;
+		}
+	}
+}
+
+.tab-panel {
+	margin-top: 0;
+}
+
+.tab-panel .next-tab {
+	font-size: 2.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	color: $text-color;
+	&:hover {
+		text-decoration: none;
+	}
+	.chevron {
+		font-size: 0.4em;
+		border-color: $blue;
+		margin-left: 0.5em;
+	}
+}
+
+.tab-panel-content > * {
+	display: none;
+}
+
+.tab-panel-content > .is-active {
+	display: block;
+}

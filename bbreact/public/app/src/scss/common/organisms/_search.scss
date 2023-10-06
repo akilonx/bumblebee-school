@@ -1,0 +1,142 @@
+/*********************************************************
+ * Search
+ *********************************************************/
+
+.react-search-myconfigura {
+	background-color: $body-background;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	left: 0;
+	min-height: 100%;
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: $z-index-search;
+
+	&.mod-hidden {
+		display: none;
+	}
+
+	.search-header {
+		align-items: center;
+		display: flex;
+
+		.search-title {
+			flex: 1 0 auto;
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+
+		.close-search {
+			display: inline-block;
+			flex: 0 1 auto;
+			margin-right: -0.75rem;
+			padding: 0.75rem;
+
+			.svg-icon {
+				display: block;
+				font-size: calc(1rem / 10 * 7);
+			}
+		}
+	}
+
+	.search-bar-container {
+		padding-bottom: 2rem;
+		padding-top: 1.25rem;
+
+		&.mod-elevated {
+			@include elevateLevel(2);
+			z-index: 1;
+		}
+	}
+
+	.search-info-container {
+		-webkit-overflow-scrolling: touch;
+		overflow-x: hidden;
+		overflow-y: auto;
+		padding-bottom: 1rem;
+
+		ul {
+			list-style-type: none;
+			margin-left: 0;
+			margin-bottom: 1em;
+		}
+	}
+
+	.search-info-container-title {
+		margin-top: 0;
+	}
+
+	.search-data-list {
+		list-style: none;
+		margin: 0;
+		width: 100%;
+	}
+
+	.search-data-item {
+		display: flex;
+		padding: 1rem 0 1.5rem;
+		width: 100%;
+
+		.avatar {
+			border-radius: 50%;
+			height: 4rem;
+			width: 4rem;
+		}
+
+		.item-actions {
+			margin-top: 0.75rem;
+		}
+
+		.item-container-left {
+			flex: 0 1 auto;
+			margin-right: 1rem;
+		}
+
+		.item-container-middle {
+			flex: 1 1 auto;
+		}
+
+		.item-info-extra {
+			display: none;
+		}
+
+		.item-info-second-line {
+			color: $gray-dark;
+			font-family: $robotoFont;
+			font-size: 1.6rem;
+			font-weight: 400;
+			margin: 0;
+		}
+
+		.item-info-titel {
+			font-family: $robotoFont;
+			font-size: 1.6rem;
+			font-weight: 500;
+			margin: 0;
+		}
+
+		@include media-min-md {
+			.item-actions {
+				flex: 0 1 auto;
+				margin-left: 1rem;
+				margin-top: 0;
+			}
+
+			.item-container-middle {
+				flex-direction: row;
+				display: flex;
+			}
+
+			.item-info {
+				flex: 1 1 60%;
+			}
+		}
+	}
+
+	.form-search {
+		margin-top: 1rem;
+	}
+}

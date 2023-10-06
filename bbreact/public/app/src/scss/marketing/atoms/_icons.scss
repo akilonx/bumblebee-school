@@ -1,0 +1,838 @@
+/*********************************************************
+ * Chevron
+ *********************************************************/
+
+.chevron {
+	font-size: 16px;
+	display: inline-block;
+	border-right: 0.25em solid $black;
+	border-bottom: 0.25em solid $black;
+	width: 1em;
+	height: 1em;
+	margin: 0 0 1px;
+	&.mod-xs {
+		font-size: 6px;
+	}
+	&.mod-xl {
+		font-size: 32px;
+	}
+	&.mod-top {
+		transform: rotate(225deg);
+	}
+	&.mod-left {
+		transform: rotate(-225deg);
+	}
+	&.mod-right {
+		transform: rotate(-45deg);
+		&.is-active {
+			transform: rotate(45deg);
+		}
+	}
+	&.mod-bottom {
+		transform: rotate(45deg);
+	}
+	/**
+	 * Pages style
+	**/
+	@each $class, $color in $primary-colors {
+		.page-#{$class} & {
+			border-color: $color;
+		}
+	}
+	/**
+	 * Direct styles
+	**/
+	@each $class, $color in $primary-colors {
+		&.mod-#{$class} {
+			border-color: $color;
+		}
+	}
+	&.mod-white {
+		border-color: $white;
+	}
+}
+
+@include media-min-md {
+	.chevron {
+		border-right-width: 0.35em;
+		border-bottom-width: 0.35em;
+		width: 1.5em;
+		height: 1.5em;
+	}
+}
+
+/*********************************************************
+ * SVG Sprite
+*********************************************************/
+
+.svg-icon {
+	background-image: url($staticURL + "/web/icons/marketing_icons_v17.svg");
+	background-size: 48 / $iconBase + em 10788 / $iconBase + em;
+}
+
+.svg-icon.mod-search {
+	background-position: 0 0;
+}
+
+.svg-icon.mod-download {
+	background-position: 0 (-(60 / $iconBase) + em);
+}
+
+.svg-icon.mod-chat {
+	background-position: 0 (-(120 / $iconBase) + em);
+}
+
+.svg-icon.mod-data {
+	background-position: 0 (-(180 / $iconBase) + em);
+}
+
+.svg-icon.mod-customer {
+	background-position: 0 (-(240 / $iconBase) + em);
+}
+
+.svg-icon.mod-order {
+	background-position: 0 (-(300 / $iconBase) + em);
+}
+
+.svg-icon.mod-calculate {
+	background-position: 0 (-(360 / $iconBase) + em);
+}
+
+.svg-icon.mod-design {
+	background-position: 0 (-(420 / $iconBase) + em);
+}
+
+.svg-icon.mod-code {
+	background-position: 0 (-(480 / $iconBase) + em);
+}
+
+.svg-icon.mod-downloads {
+	background-position: 0 (-(540 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow {
+	background-position: 0 (-(600 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrows {
+	background-position: 0 (-(660 / $iconBase) + em);
+}
+
+.svg-icon.mod-company {
+	background-position: 0 (-(720 / $iconBase) + em);
+}
+
+.svg-icon.mod-email {
+	background-position: 0 (-(780 / $iconBase) + em);
+}
+
+.svg-icon.mod-erp {
+	background-position: 0 (-(840 / $iconBase) + em);
+}
+
+.svg-icon.mod-factory {
+	background-position: 0 (-(900 / $iconBase) + em);
+}
+
+.svg-icon.mod-learning {
+	background-position: 0 (-(960 / $iconBase) + em);
+}
+
+.svg-icon.mod-network {
+	background-position: 0 (-(1020 / $iconBase) + em);
+}
+
+.svg-icon.mod-specify {
+	background-position: 0 (-(1080 / $iconBase) + em);
+}
+
+.svg-icon.mod-preperation {
+	background-position: 0 (-(1140 / $iconBase) + em);
+}
+
+.svg-icon.mod-phone {
+	background-position: 0 (-(1200 / $iconBase) + em);
+}
+
+.svg-icon.mod-revenue {
+	background-position: 0 (-(1260 / $iconBase) + em);
+}
+
+.svg-icon.mod-tools {
+	background-position: 0 (-(1320 / $iconBase) + em);
+}
+
+.svg-icon.mod-vr {
+	background-position: 0 (-(1380 / $iconBase) + em);
+}
+
+.svg-icon.mod-quote {
+	background-position: 0 (-(1440 / $iconBase) + em);
+}
+
+.svg-icon.mod-walktrough {
+	background-position: 0 (-(1500 / $iconBase) + em);
+}
+
+.svg-icon.mod-spinner {
+	background-position: 0 (-(1560 / $iconBase) + em);
+}
+
+.svg-icon.mod-share {
+	background-position: 0 (-(1620 / $iconBase) + em);
+}
+
+.svg-icon.mod-clock {
+	background-position: 0 (-(1680 / $iconBase) + em);
+}
+
+.svg-icon.mod-location {
+	background-position: 0 (-(1740 / $iconBase) + em);
+}
+
+.svg-icon.mod-check {
+	background-position: 0 (-(1800 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-yellow {
+	background-position: 0 (-(1860 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-blue {
+	background-position: 0 (-(1920 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-orange {
+	background-position: 0 (-(1980 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-pink {
+	background-position: 0 (-(2040 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-green {
+	background-position: 0 (-(2100 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-instant,
+.svg-icon.mod-check.mod-success {
+	background-position: 0 (-(2160 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross {
+	background-position: 0 (-(2220 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-red {
+	background-position: 0 (-(2280 / $iconBase) + em);
+}
+
+.svg-icon.mod-information {
+	background-position: 0 (-(2340 / $iconBase) + em);
+}
+
+.svg-icon.mod-information.mod-blue {
+	background-position: 0 (-(2400 / $iconBase) + em);
+}
+
+.svg-icon.mod-warning-triangle {
+	background-position: 0 (-(2460 / $iconBase) + em);
+}
+
+.svg-icon.mod-warning-triangle.mod-yellow {
+	background-position: 0 (-(2520 / $iconBase) + em);
+}
+
+.svg-icon.mod-offsite {
+	background-position: 0 (-(2580 / $iconBase) + em);
+}
+
+.svg-icon.mod-event-map {
+	background-position: 0 (-(2640 / $iconBase) + em);
+}
+
+.svg-icon.mod-message {
+	background-position: 0 (-(2700 / $iconBase) + em);
+}
+
+.svg-icon.mod-share-arrow {
+	background-position: 0 (-(2760 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart {
+	background-position: 0 (-(2820 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart-filled {
+	background-position: 0 (-(2880 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart.mod-red {
+	background-position: 0 (-(2940 / $iconBase) + em);
+}
+
+.svg-icon.mod-heart-filled.mod-red {
+	background-position: 0 (-(3000 / $iconBase) + em);
+}
+
+.svg-icon.mod-access {
+	background-position: 0 (-(3060 / $iconBase) + em);
+}
+
+.svg-icon.mod-royalty {
+	background-position: 0 (-(3120 / $iconBase) + em);
+}
+
+.svg-icon.mod-upload.mod-old {
+	background-position: 0 (-(3180 / $iconBase) + em);
+}
+
+.svg-icon.mod-feedback {
+	background-position: 0 (-(3240 / $iconBase) + em);
+}
+
+.svg-icon.mod-education {
+	background-position: 0 (-(3300 / $iconBase) + em);
+}
+
+.svg-icon.mod-partner.mod-grey {
+	background-position: 0 (-(3360 / $iconBase) + em);
+}
+
+.svg-icon.mod-resources.mod-grey {
+	background-position: 0 (-(3420 / $iconBase) + em);
+}
+
+.svg-icon.mod-download.mod-grey {
+	background-position: 0 (-(3480 / $iconBase) + em);
+}
+
+.svg-icon.mod-search.mod-grey {
+	background-position: 0 (-(3540 / $iconBase) + em);
+}
+
+.svg-icon.mod-consultancy {
+	background-position: 0 (-(3600 / $iconBase) + em);
+}
+
+.svg-icon.mod-save-time {
+	background-position: 0 (-(3660 / $iconBase) + em);
+}
+
+.svg-icon.mod-competence {
+	background-position: 0 (-(3720 / $iconBase) + em);
+}
+
+.svg-icon.mod-accelerate {
+	background-position: 0 (-(3780 / $iconBase) + em);
+}
+
+.svg-icon.mod-automate-quotations {
+	background-position: 0 (-(3840 / $iconBase) + em);
+}
+
+.svg-icon.mod-creativity {
+	background-position: 0 (-(3900 / $iconBase) + em);
+}
+
+.svg-icon.mod-eliminate-errors {
+	background-position: 0 (-(3960 / $iconBase) + em);
+}
+
+.svg-icon.mod-reduce-costs {
+	background-position: 0 (-(4020 / $iconBase) + em);
+}
+
+.svg-icon.mod-handshake {
+	background-position: 0 (-(4080 / $iconBase) + em);
+}
+
+.svg-icon.mod-win {
+	background-position: 0 (-(4140 / $iconBase) + em);
+}
+
+.svg-icon.mod-automate-process {
+	background-position: 0 (-(4200 / $iconBase) + em);
+}
+
+.svg-icon.mod-leaders {
+	background-position: 0 (-(4260 / $iconBase) + em);
+}
+
+.svg-icon.mod-offsite.mod-white {
+	background-position: 0 (-(4320 / $iconBase) + em);
+}
+
+.svg-icon.mod-play.mod-white {
+	background-position: 0 (-(4380 / $iconBase) + em);
+}
+
+.svg-icon.mod-play {
+	background-position: 0 (-(4440 / $iconBase) + em);
+}
+
+.svg-icon.mod-padlock.mod-white {
+	background-position: 0 (-(4500 / $iconBase) + em);
+}
+
+.svg-icon.mod-padlock {
+	background-position: 0 (-(4560 / $iconBase) + em);
+}
+
+.svg-icon.mod-send.mod-white {
+	background-position: 0 (-(4620 / $iconBase) + em);
+}
+
+.svg-icon.mod-send {
+	background-position: 0 (-(4680 / $iconBase) + em);
+}
+
+.svg-icon.mod-alert {
+	background-position: 0 (-(4740 / $iconBase) + em);
+}
+
+.svg-icon.mod-share.mod-purple {
+	background-position: 0 (-(4800 / $iconBase) + em);
+}
+
+.svg-icon.mod-attach.mod-white {
+	background-position: 0 (-(4860 / $iconBase) + em);
+}
+
+.svg-icon.mod-attach {
+	background-position: 0 (-(4920 / $iconBase) + em);
+}
+
+.svg-icon.mod-trash.mod-red {
+	background-position: 0 (-(4980 / $iconBase) + em);
+}
+
+.svg-icon.mod-trash {
+	background-position: 0 (-(5040 / $iconBase) + em);
+}
+
+.svg-icon.mod-location.mod-white {
+	background-position: 0 (-(5100 / $iconBase) + em);
+}
+
+.svg-icon.mod-clock.mod-white {
+	background-position: 0 (-(5160 / $iconBase) + em);
+}
+
+.svg-icon.mod-spinner.mod-white {
+	background-position: 0 (-(5220 / $iconBase) + em);
+}
+
+.svg-icon.mod-rss.mod-orange {
+	background-position: 0 (-(5280 / $iconBase) + em);
+}
+
+.svg-icon.mod-rss {
+	background-position: 0 (-(5340 / $iconBase) + em);
+}
+
+.svg-icon.mod-download.mod-white {
+	background-position: 0 (-(5400 / $iconBase) + em);
+}
+
+.svg-icon.mod-feedback.mod-grey {
+	background-position: 0 (-(5460 / $iconBase) + em);
+}
+
+.svg-icon.mod-handshake.mod-white {
+	background-position: 0 (-(5520 / $iconBase) + em);
+}
+
+.svg-icon.mod-leaders.mod-white {
+	background-position: 0 (-(5580 / $iconBase) + em);
+}
+
+.svg-icon.mod-competence.mod-white {
+	background-position: 0 (-(5640 / $iconBase) + em);
+}
+
+.svg-icon.mod-partner {
+	background-position: 0 (-(5700 / $iconBase) + em);
+}
+
+.svg-icon.mod-creativity.mod-white {
+	background-position: 0 (-(5760 / $iconBase) + em);
+}
+
+.svg-icon.mod-pause.mod-grey {
+	background-position: 0 (-(5820 / $iconBase) + em);
+}
+
+.svg-icon.mod-pause {
+	background-position: 0 (-(5880 / $iconBase) + em);
+}
+
+.svg-icon.mod-textures {
+	background-position: 0 (-(5940 / $iconBase) + em);
+}
+
+.svg-icon.mod-materials {
+	background-position: 0 (-(6000 / $iconBase) + em);
+}
+
+.svg-icon.mod-modeling {
+	background-position: 0 (-(6060 / $iconBase) + em);
+}
+
+.svg-icon.mod-core {
+	background-position: 0 (-(6120 / $iconBase) + em);
+}
+
+.svg-icon.mod-dashboard {
+	background-position: 0 (-(6180 / $iconBase) + em);
+}
+
+.svg-icon.mod-toolkit {
+	background-position: 0 (-(6240 / $iconBase) + em);
+}
+
+.svg-icon.mod-import {
+	background-position: 0 (-(6300 / $iconBase) + em);
+}
+
+.svg-icon.mod-magnet {
+	background-position: 0 (-(6360 / $iconBase) + em);
+}
+
+.svg-icon.mod-china.mod-grey {
+	background-position: 0 (-(6420 / $iconBase) + em);
+}
+
+.svg-icon.mod-china {
+	background-position: 0 (-(6480 / $iconBase) + em);
+}
+
+.svg-icon.mod-back-to-top {
+	background-position: 0 (-(6540 / $iconBase) + em);
+}
+
+.svg-icon.mod-back-to-top.mod-inactive {
+	background-position: 0 (-(6600 / $iconBase) + em);
+}
+
+.svg-icon.mod-minus {
+	background-position: 0 (-(6660 / $iconBase) + em);
+}
+
+.svg-icon.mod-plus {
+	background-position: 0 (-(6720 / $iconBase) + em);
+}
+
+.svg-icon.mod-ui {
+	background-position: 0 (-(6780 / $iconBase) + em);
+}
+
+.svg-icon.mod-pdf {
+	background-position: 0 (-(6840 / $iconBase) + em);
+}
+
+.svg-icon.mod-facebook {
+	background-position: 0 (-(6900 / $iconBase) + em);
+}
+
+.svg-icon.mod-facebook.mod-inactive {
+	background-position: 0 (-(6960 / $iconBase) + em);
+}
+
+.svg-icon.mod-instagram {
+	background-position: 0 (-(7020 / $iconBase) + em);
+}
+
+.svg-icon.mod-instagram.mod-inactive {
+	background-position: 0 (-(7080 / $iconBase) + em);
+}
+
+.svg-icon.mod-linkedin {
+	background-position: 0 (-(7140 / $iconBase) + em);
+}
+
+.svg-icon.mod-linkedin.mod-inactive {
+	background-position: 0 (-(7200 / $iconBase) + em);
+}
+
+.svg-icon.mod-pinterest {
+	background-position: 0 (-(7260 / $iconBase) + em);
+}
+
+.svg-icon.mod-pinterest.mod-inactive {
+	background-position: 0 (-(7320 / $iconBase) + em);
+}
+
+.svg-icon.mod-twitter {
+	background-position: 0 (-(7380 / $iconBase) + em);
+}
+
+.svg-icon.mod-twitter.mod-inactive {
+	background-position: 0 (-(7440 / $iconBase) + em);
+}
+
+.svg-icon.mod-vimeo {
+	background-position: 0 (-(7500 / $iconBase) + em);
+}
+
+.svg-icon.mod-vimeo.mod-inactive {
+	background-position: 0 (-(7560 / $iconBase) + em);
+}
+
+.svg-icon.mod-youtube {
+	background-position: 0 (-(7620 / $iconBase) + em);
+}
+
+.svg-icon.mod-youtube.mod-inactive {
+	background-position: 0 (-(7680 / $iconBase) + em);
+}
+
+.svg-icon.mod-visualize {
+	background-position: 0 (-(7740 / $iconBase) + em);
+}
+
+.svg-icon.mod-automate-quotations.mod-pink {
+	background-position: 0 (-(7800 / $iconBase) + em);
+}
+
+.svg-icon.mod-aio {
+	background-position: 0 (-(7860 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-light {
+	background-position: 0 (-(7920 / $iconBase) + em);
+}
+
+.svg-icon.mod-warning {
+	background-position: 0 (-(7980 / $iconBase) + em);
+}
+
+.svg-icon.mod-success {
+	background-position: 0 (-(8040 / $iconBase) + em);
+}
+
+.svg-icon.mod-info {
+	background-position: 0 (-(8100 / $iconBase) + em);
+}
+
+.svg-icon.mod-error,
+.svg-icon.mod-cross.mod-white {
+	background-position: 0 (-(8160 / $iconBase) + em);
+}
+
+.svg-icon.mod-cross.mod-red.mod-active {
+	background-position: 0 (-(8220 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-left {
+	background-position: 0 (-(8280 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-right {
+	background-position: 0 (-(8340 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-left.mod-light {
+	background-position: 0 (-(8400 / $iconBase) + em);
+}
+
+.svg-icon.mod-chevron.mod-right.mod-light {
+	background-position: 0 (-(8460 / $iconBase) + em);
+}
+
+.svg-icon.mod-expand.mod-blue {
+	background-position: 0 (-(8520 / $iconBase) + em);
+}
+
+.svg-icon.mod-collapse.mod-blue {
+	background-position: 0 (-(8580 / $iconBase) + em);
+}
+
+.svg-icon.mod-expand.mod-pink {
+	background-position: 0 (-(8640 / $iconBase) + em);
+}
+
+.svg-icon.mod-collapse.mod-pink {
+	background-position: 0 (-(8700 / $iconBase) + em);
+}
+
+.svg-icon.mod-offsite.mod-blue {
+	background-position: 0 (-(8760 / $iconBase) + em);
+}
+
+.svg-icon.mod-trash.mod-light {
+	background-position: 0 (-(8820 / $iconBase) + em);
+}
+
+.svg-icon.mod-upload {
+	background-position: 0 (-(8880 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow.mod-white {
+	background-position: 0 (-(8940 / $iconBase) + em);
+}
+
+.svg-icon.mod-marketplace {
+	background-position: 0 (-(9000 / $iconBase) + em);
+}
+
+.svg-icon.mod-extensions {
+	background-position: 0 (-(9060 / $iconBase) + em);
+}
+
+.svg-icon.mod-explore {
+	background-position: 0 (-(9120 / $iconBase) + em);
+}
+
+.svg-icon.mod-prospects {
+	background-position: 0 (-(9180 / $iconBase) + em);
+}
+
+.svg-icon.mod-get-to-know {
+	background-position: 0 (-(9240 / $iconBase) + em);
+}
+
+.svg-icon.mod-extensions.mod-blue {
+	background-position: 0 (-(9300 / $iconBase) + em);
+}
+
+.svg-icon.mod-copy {
+	background-position: 0 (-(9360 / $iconBase) + em);
+}
+
+.svg-icon.mod-media-kit {
+	background-position: 0 (-(9420 / $iconBase) + em);
+}
+
+.svg-icon.mod-quote-japan-dark {
+	background-position: 0 (-(9480 / $iconBase) + em);
+}
+
+.svg-icon.mod-quote-japan-white {
+	background-position: 0 (-(9540 / $iconBase) + em);
+}
+
+.svg-icon.mod-light-arrow {
+	background-position: 0 (-(9600 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrow-bend {
+	background-position: 0 (-(9660 / $iconBase) + em);
+}
+
+.svg-icon.mod-light-arrow-double {
+	background-position: 0 (-(9720 / $iconBase) + em);
+}
+
+.svg-icon.mod-xing.mod-inactive {
+	background-position: 0 (-(9780 / $iconBase) + em);
+}
+
+.svg-icon.mod-xing {
+	background-position: 0 (-(9840 / $iconBase) + em);
+}
+
+.svg-icon.mod-fullscreen.mod-off {
+	background-position: 0 (-(9900 / $iconBase) + em);
+}
+
+.svg-icon.mod-fullscreen.mod-on {
+	background-position: 0 (-(9960 / $iconBase) + em);
+}
+
+.svg-icon.mod-schedule {
+	background-position: 0 (-(10020 / $iconBase) + em);
+}
+
+.svg-icon.mod-dollar {
+	background-position: 0 (-(10080 / $iconBase) + em);
+}
+
+.svg-icon.mod-puzzle {
+	background-position: 0 (-(10140 / $iconBase) + em);
+}
+
+.svg-icon.mod-level {
+	background-position: 0 (-(10200 / $iconBase) + em);
+}
+
+.svg-icon.mod-connect {
+	background-position: 0 (-(10260 / $iconBase) + em);
+}
+
+.svg-icon.mod-calendar {
+	background-position: 0 (-(10020 / $iconBase) + em);
+}
+
+.svg-icon.mod-dollar {
+	background-position: 0 (-(10080 / $iconBase) + em);
+}
+
+.svg-icon.mod-puzzle {
+	background-position: 0 (-(10140 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrows-rising {
+	background-position: 0 (-(10200 / $iconBase) + em);
+}
+
+.svg-icon.mod-chat-bubbles {
+	background-position: 0 (-(10260 / $iconBase) + em);
+}
+
+.svg-icon.mod-calendar {
+	background-position: 0 (-(10020 / $iconBase) + em);
+}
+
+.svg-icon.mod-dollar {
+	background-position: 0 (-(10080 / $iconBase) + em);
+}
+
+.svg-icon.mod-puzzle {
+	background-position: 0 (-(10140 / $iconBase) + em);
+}
+
+.svg-icon.mod-arrows-rising {
+	background-position: 0 (-(10200 / $iconBase) + em);
+}
+
+.svg-icon.mod-chat-bubbles {
+	background-position: 0 (-(10260 / $iconBase) + em);
+}
+
+.svg-icon.mod-wechat.mod-inactive {
+	background-position: 0 (-(10320 / $iconBase) + em);
+}
+
+.svg-icon.mod-wechat {
+	background-position: 0 (-(10380 / $iconBase) + em);
+}
+
+.svg-icon.mod-qq.mod-inactive {
+	background-position: 0 (-(10440 / $iconBase) + em);
+}
+
+.svg-icon.mod-qq {
+	background-position: 0 (-(10500 / $iconBase) + em);
+}
+
+.svg-icon.mod-hand {
+	background-position: 0 (-(10560 / $iconBase) + em);
+}
+
+.svg-icon.mod-hand.mod-blue {
+	@include svg-bg($staticURL + "/web/icons/hand.svg");
+	background-size: 80%;
+}
+
+.svg-icon.mod-collapse.mod-coral {
+	background-position: 0 (-(10620 / $iconBase) + em);
+}
+
+.svg-icon.mod-expand.mod-coral {
+	background-position: 0 (-(10680 / $iconBase) + em);
+}
+
+.svg-icon.mod-check.mod-coral {
+	background-position: 0 (-(10740 / $iconBase) + em);
+}

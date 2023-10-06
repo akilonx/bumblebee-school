@@ -1,0 +1,156 @@
+/*********************************************************
+ * Card
+ *********************************************************/
+
+.card {
+	background-color: $white;
+	border-radius: $border-radius;
+	font-size: 1.8rem;
+	overflow: hidden;
+	position: relative;
+	border: 2px solid $gray-lighter;
+
+	@include marketing-override {
+		border-radius: 0;
+		height: 100%;
+	}
+
+	&.mod-default-font-size {
+		font-size: inherit;
+	}
+
+	.card-content {
+		padding: 0.4rem 1.6rem 1.6rem;
+
+		@include media-min-sm {
+			padding: 1.6rem;
+			margin: 0 0 1.6rem 0;
+		}
+	}
+
+	.card-image {
+		display: block;
+		height: auto;
+		margin: 1rem auto 0;
+		max-width: 100%;
+	}
+
+	.card-full-width-image {
+		height: auto;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.card-text {
+		margin-top: 0.4rem;
+
+		@include media-min-sm {
+			margin-top: 1.2rem;
+		}
+	}
+
+	.card-title {
+		font-family: $robotoFont;
+		font-size: calc(1.45rem + 0.5vw);
+		font-weight: 400;
+		margin: 0;
+		word-wrap: break-word;
+
+		@include media-min-xl {
+			font-size: 2.1rem;
+		}
+		@include marketing-override-global {
+			@include geo-medium;
+		}
+		@include marketing-override-jp {
+			@include jp-medium;
+		}
+		@include marketing-override {
+			font-size: calc(1.84rem + 0.5vw); // ~20px on 320px
+			margin-top: 0.8rem;
+			text-transform: uppercase;
+
+			@include media-min-xl {
+				font-size: 2.4rem; // 24px
+			}
+		}
+	}
+}
+
+.card-anchor-wrapper {
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	color: $text-color;
+	display: inline-block;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	transform: perspective(1px) translateZ(0);
+	vertical-align: middle;
+	width: 100%;
+
+	.card-content {
+		font-weight: 400;
+	}
+}
+
+.card-anchor-wrapper,
+.card-hover-wrapper {
+	cursor: pointer;
+
+	&:after {
+		background: $blue;
+		bottom: 0;
+		content: "";
+		height: 4px;
+		left: 50.1%;
+		position: absolute;
+		right: 50.1%;
+		transition-duration: 0.33s;
+		transition-property: left, right;
+		transition-timing-function: ease-out;
+	}
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.mod-selected {
+		text-decoration: none;
+
+		&:after {
+			left: 0;
+			right: 0;
+		}
+	}
+}
+
+.card-full-height {
+	height: 100%;
+}
+
+/**
+ * Wrap with this to padd top and bottom
+ **/
+
+.card-padded {
+	height: 100%;
+	padding: 0;
+
+	@include media-min-sm {
+		padding: 1.6rem 0;
+	}
+}
+
+.card-elevated {
+	@include elevateLevel(5);
+	border: 0 !important;
+	height: 100%;
+	width: fit-content;
+}
+
+.card-full-width {
+	width: 100%;
+}
+
+.card-full-height {
+	height: 100%;
+}

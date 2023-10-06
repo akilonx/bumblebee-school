@@ -1,0 +1,285 @@
+/*********************************************************
+ * Projects
+ *********************************************************/
+
+body.projects {
+	.add-new-project {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 10rem;
+
+		.svg-icon {
+			font-size: 2.5rem;
+		}
+	}
+
+	.manufacturer {
+		.card-column {
+			margin-top: 2rem;
+		}
+
+		.manufacturer-access-title {
+			line-height: 3rem;
+		}
+	}
+
+	.manufacturer .manufacturer-title {
+		padding-bottom: 0.1em;
+	}
+
+	.manufacturer + .manufacturer {
+		border-top: 1px solid darken($gray-lightest, 10%);
+		margin-top: 3rem;
+		padding-top: 3rem;
+
+		@include media-min-sm {
+			padding-top: 6rem;
+			margin-top: 6rem;
+		}
+	}
+
+	.manufacturer .manufacturer-access {
+		margin-top: 4.5em;
+	}
+
+	.card-anchor-wrapper {
+		&.mod-fill-up {
+			position: relative;
+
+			&:before {
+				content: "";
+				display: block;
+				padding-top: 100%;
+			}
+		}
+	}
+
+	.card-project {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		left: 0;
+		padding: 1.6rem 1.6rem 2.4rem;
+		position: absolute;
+		top: 0;
+		width: 100%;
+
+		.card-project-middle-title {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			width: 100%;
+		}
+
+		.card-project-middle {
+			margin-top: auto;
+		}
+
+		.card-project-top {
+			align-items: center;
+			display: flex;
+			flex: 1 1 auto;
+			justify-content: center;
+		}
+
+		.card-project-top img {
+			margin: 0;
+			max-height: 5rem;
+
+			@include media-min-sm {
+				max-height: 7rem;
+			}
+		}
+
+		.card-project-bottom {
+			width: 100%;
+			display: flex;
+
+			.card-project-released {
+				color: $app-green;
+				font-size: 1.4rem;
+				line-height: 1.4rem;
+				margin-top: 1rem;
+				text-transform: uppercase;
+			}
+
+			.card-progress-bar {
+				width: 100%;
+				padding-right: 1rem;
+			}
+		}
+
+		.card-project-top-middle {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+	}
+
+	.card-sub-project:before {
+		border-color: transparent $app-yellow transparent transparent;
+		border-style: solid;
+		border-width: 0 3rem 3rem 0;
+		content: "";
+		height: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 0;
+	}
+
+	.sub-extension-icon {
+		border-color: transparent $app-yellow transparent transparent;
+		border-style: solid;
+		border-width: 0 1.2rem 1.2rem 0;
+		display: inline-block;
+		height: 0;
+		margin-right: 1rem;
+		width: 0;
+	}
+
+	.access-group + .access-group {
+		margin-top: 1.6rem;
+	}
+
+	.access-group-list {
+		list-style: none;
+		margin: 0.5rem 0 0 0;
+	}
+
+	.access-group-list-item {
+		align-items: center;
+		border-bottom: 1px solid transparent;
+		display: flex;
+
+		&:hover {
+			border-bottom-color: darken($gray-lightest, 10%);
+		}
+
+		span.name {
+			flex: 1;
+			display: block;
+			width: 100%;
+		}
+
+		span.remove {
+			display: inline-block;
+			flex: 0 1 auto;
+			padding: 0 0.75rem;
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			i.svg-icon {
+				font-size: calc(1rem / 10 * 4);
+			}
+		}
+
+		& + & {
+			margin-top: 0.5rem;
+		}
+	}
+
+	.access-group-info {
+		margin-top: 0.8rem;
+	}
+
+	.access-group-action {
+		margin-top: 1rem;
+	}
+
+	.accessGroup__loading {
+		display: inline-block;
+		margin-left: 0.5rem;
+	}
+
+	.feedback-container {
+		display: flex;
+		flex-wrap: wrap;
+
+		.breadcrumb {
+			flex: 1 1 auto;
+			margin-bottom: 1rem;
+		}
+	}
+
+	&.logged-in-bar-present {
+		.feedback-container {
+			padding-top: 3rem;
+
+			@media screen and (max-width: 480px) {
+				padding-top: 5rem;
+			}
+
+			.breadcrumb {
+				padding-top: 0;
+			}
+		}
+	}
+
+	.product-logo {
+		width: 120px;
+		height: 120px;
+	}
+
+	.product-thumb {
+		width: 40px;
+		height: 40px;
+	}
+
+	.project-progress-details {
+		margin-top: 1rem;
+	}
+
+	.marketplace-products-list {
+		th:nth-child(4) {
+			width: 6rem;
+		}
+
+		span.released {
+			color: $app-green;
+			font-size: 1.4rem;
+			line-height: 1.4rem;
+			margin-top: 1rem;
+			text-transform: uppercase;
+		}
+	}
+
+	.grandfathered-customers-list {
+		& > thead > tr > th:first-child {
+			width: 3.5rem;
+		}
+
+		.expanded-details {
+			& td,
+			& th {
+				@extend .ut-bg-light-gray;
+			}
+		}
+	}
+
+	.map-canvas-row {
+		margin-top: 2rem;
+	}
+
+	.map-canvas {
+		background: url($staticURL + "/web/img/maps/map-extension.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+		border: solid;
+	}
+
+	.graph-container {
+		height: 50rem;
+	}
+
+	.license-logo {
+		width: 16px;
+		height: 16px;
+	}
+}

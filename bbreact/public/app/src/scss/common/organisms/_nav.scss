@@ -1,0 +1,71 @@
+/*********************************************************
+ * Nav
+ *********************************************************/
+
+.nav {
+	align-items: stretch;
+	background-color: $white;
+	display: flex;
+	position: relative;
+	text-align: center;
+	z-index: $z-index-nav;
+}
+
+.nav a {
+	color: $text-color;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.nav-item {
+	align-items: center;
+	cursor: default;
+	display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-size: 1.5rem;
+	height: $nav-height;
+	justify-content: center;
+	padding: 0.8rem 1.2rem;
+	user-select: none;
+}
+
+.nav-item.dropdown-container {
+	padding: 0;
+}
+.nav-item.dropdown-container button {
+	padding: 0.8rem 1.2rem;
+}
+
+.nav-item.is-active,
+.nav-item:hover {
+	background: $gray-lightest;
+}
+
+.nav-item-no-hover:hover {
+	background: transparent;
+}
+
+.nav-left {
+	align-self: flex-start;
+	margin-right: auto;
+	white-space: nowrap;
+}
+
+.nav-right {
+	margin-left: auto;
+}
+
+.nav-left,
+.nav-right,
+.nav-middle {
+	-webkit-overflow-scrolling: touch;
+	align-items: stretch;
+	display: flex;
+	flex-grow: 0;
+	flex-shrink: 0;
+	max-width: 100%;
+}

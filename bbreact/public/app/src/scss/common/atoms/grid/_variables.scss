@@ -1,0 +1,16 @@
+/*********************************************************
+ * Grid variables
+ *********************************************************/
+
+// Breakpoints
+$breakpoints: (
+	xs: 0,
+	sm: 31.5em,
+	md: 47em,
+	lg: 62.5em,
+	xl: 78.5em
+) !default;
+
+$gutter: 1.6rem !default;
+
+$columns: 12 !default;

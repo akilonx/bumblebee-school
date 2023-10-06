@@ -1,0 +1,107 @@
+@use "sass:map";
+
+body {
+	&.stage-browser {
+		$field-height: 4.8rem;
+
+		.catalogues-browser__small-label {
+			font-size: 1.4rem;
+			color: $gray;
+		}
+
+		iframe {
+			border-radius: 1rem;
+			border: 1px solid $gray-lighter;
+		}
+
+		.lightTheme {
+			background-color: white;
+		}
+		.darkTheme {
+			background-color: #333333;
+		}
+
+		.copy-wrapper {
+			align-self: flex-end;
+		}
+
+		.copy-code {
+			height: 8rem;
+			font-size: 0.8em;
+			padding: 0.8rem 1.6rem;
+		}
+
+		.must-select-token {
+			display: flex;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			font-size: 1.2em;
+		}
+
+		.explanation {
+			font-size: 90%;
+			margin-top: 1rem;
+			font-weight: bold;
+		}
+
+		hr.section-divider {
+			margin: 3rem 0 0;
+			width: 100%;
+		}
+
+		.help-decorator {
+			display: flex;
+			align-items: center;
+			margin-top: 0.8rem;
+
+			.form-field {
+				flex: 1 0 0;
+				height: $field-height;
+			}
+
+			&__help {
+				display: block;
+				flex: 0 0 3rem;
+				align-self: center;
+				margin-left: 0.6rem;
+			}
+
+			.form-input-wrapper,
+			input[type="number"],
+			input[type="range"],
+			select {
+				height: $field-height;
+			}
+
+			.form-field {
+				margin-top: 0;
+
+				&.checkbox-wrapper {
+					padding-top: 0.65rem;
+					display: flex;
+					align-items: center;
+				}
+			}
+
+			.select-access-token-row {
+				@include media-max-lg {
+					display: block;
+
+					> * {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	&.stage-product-view {
+		hr {
+			width: auto;
+			height: 0.1em;
+		}
+	}
+}

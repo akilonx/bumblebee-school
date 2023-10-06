@@ -1,0 +1,72 @@
+/*********************************************************
+ * Footer
+ *********************************************************/
+
+#configura-footer {
+	background: $footer-background;
+	color: $white;
+	margin-top: $nav-height;
+	padding: 3.2rem 0;
+	position: relative;
+	font-size: 1.7rem;
+	@include marketing-override {
+		&.lang-global {
+			@include geo-regular;
+		}
+
+		&.lang-jp {
+			@include jp-regular;
+		}
+	}
+	.legal {
+		z-index: $z-index; // On top of .beagle
+	}
+	.legal a {
+		display: inline-block;
+		font-weight: 400;
+		margin: 0 0.5em;
+		color: $white;
+		border-bottom: 1px solid $white;
+		&:hover {
+			border-bottom: none;
+			text-decoration: none;
+		}
+
+		@include media-max-lg {
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+	}
+	p {
+		margin-bottom: 0;
+	}
+	.legal p,
+	.legal a {
+		font-size: 1.44rem;
+	}
+	ul {
+		list-style: none;
+		margin-left: 0;
+	}
+	.beagle {
+		bottom: 0;
+		display: inline-block;
+		margin-bottom: -3.2rem;
+		position: absolute;
+		opacity: 0.4;
+		right: 0;
+		width: 6.5rem;
+	}
+	#subscribe-form {
+		display: flex;
+		.form-field {
+			flex-grow: 1;
+			flex-shrink: 1;
+			flex-basis: auto;
+		}
+		* + * {
+			margin: 0;
+		}
+	}
+}

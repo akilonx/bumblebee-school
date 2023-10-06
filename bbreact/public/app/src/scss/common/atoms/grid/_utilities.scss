@@ -1,0 +1,154 @@
+/*********************************************************
+ * Alignments
+ *********************************************************/
+
+// Align items
+.ut-align-items-end {
+	align-items: flex-end;
+}
+.ut-align-items-start {
+	align-items: flex-start;
+}
+.ut-align-items-stretch {
+	align-items: stretch;
+}
+.ut-align-items-center {
+	align-items: center;
+}
+.ut-align-items-baseline {
+	align-items: baseline;
+}
+
+// Justify items
+.ut-justify-content-start {
+	justify-content: flex-start;
+}
+.ut-justify-content-end {
+	justify-content: flex-end;
+}
+.ut-justify-content-center {
+	justify-content: center;
+}
+.ut-justify-content-between {
+	justify-content: space-between;
+}
+.ut-justify-content-around {
+	justify-content: space-around;
+}
+//
+
+// Self align. Use on a child. This will override the align-items value
+.ut-align-self-end {
+	align-self: flex-end;
+}
+.ut-align-self-start {
+	align-self: flex-start;
+}
+.ut-align-self-stretch {
+	align-self: stretch;
+}
+.ut-align-self-center {
+	align-self: center;
+}
+.ut-align-self-baseline {
+	align-self: baseline;
+}
+
+.ut-flex-wrap {
+	flex-wrap: wrap;
+}
+
+.ut-vertical-align-top {
+	vertical-align: top;
+}
+
+//Display inline-block
+
+.ut-display-inline-block {
+	display: inline-block;
+	word-wrap: normal;
+}
+
+/*********************************************************
+ * Hide
+ *********************************************************/
+
+/**
+ * Hide when larger
+ */
+@include media-min-sm {
+	.ut-hide-on-sm-up {
+		display: none !important;
+	}
+}
+@include media-min-md {
+	.ut-hide-on-md-up {
+		display: none !important;
+	}
+	.ut-justify-content-center-on-md-up {
+		justify-content: center;
+	}
+}
+@include media-min-lg {
+	.ut-hide-on-lg-up {
+		display: none !important;
+	}
+}
+@include media-min-xl {
+	.ut-hide-on-xl-up {
+		display: none !important;
+	}
+}
+
+/**
+ * Hide when smaller
+ */
+@include media-max-sm {
+	.ut-hide-on-sm-down {
+		display: none !important;
+	}
+}
+@include media-max-md {
+	.ut-hide-on-md-down {
+		display: none !important;
+	}
+}
+@include media-max-lg {
+	.ut-hide-on-lg-down {
+		display: none !important;
+	}
+}
+@include media-max-xl {
+	.ut-hide-on-xl-down {
+		display: none !important;
+	}
+}
+
+/**
+ * Hide when exactly
+ */
+@include media-xs-only {
+	.ut-hide-on-xs {
+		display: none !important;
+	}
+}
+@include media-sm-only {
+	.ut-hide-on-sm {
+		display: none !important;
+	}
+}
+@include media-md-only {
+	.ut-hide-on-md {
+		display: none !important;
+	}
+}
+@include media-lg-only {
+	.ut-hide-on-lg {
+		display: none !important;
+	}
+}
+@include media-xl-only {
+	.ut-hide-on-xl {
+		display: none !important;
+	}
+}

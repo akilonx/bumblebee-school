@@ -1,0 +1,56 @@
+// /*********************************************************
+//  * Social media links
+//  *********************************************************/
+
+.react-social-dropdown {
+	margin-top: 0;
+}
+
+.social-dropdown {
+	button .svg-icon.mod-share {
+		font-size: calc(1rem / 1.25);
+	}
+}
+
+.social-links {
+	display: flex;
+	list-style: none;
+	flex-wrap: wrap;
+	li {
+		margin-right: 1.2rem;
+		margin-top: 0;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.social-share {
+	align-items: center;
+	display: flex;
+	list-style: none;
+	margin: 0;
+	li {
+		margin-top: 0;
+		margin-right: 1.2rem;
+		.svg-icon {
+			display: block;
+		}
+	}
+	@include marketing-override {
+		&.lang-global {
+			@include geo-medium;
+		}
+
+		&.lang-jp {
+			@include jp-medium;
+		}
+	}
+}
+
+.social-button {
+	cursor: pointer;
+	&:disabled {
+		background: none;
+	}
+}

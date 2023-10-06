@@ -1,0 +1,211 @@
+/**
+ * Awards
+ **/
+
+$winner-height: 215px;
+$runnerup-height: 167px;
+
+body.awards {
+	.marketing-header {
+		background-color: #111111;
+	}
+
+	.award-card {
+		.card-anchor-wrapper {
+			display: flex;
+			flex-direction: column;
+			flex: 0 0 auto;
+		}
+
+		.card-content {
+			display: flex;
+			flex-direction: column;
+			flex: 1 1 auto;
+		}
+
+		.card-text {
+			margin-bottom: 1.6rem;
+		}
+
+		.award-card-submitted {
+			color: $gray-dark;
+			margin-top: auto;
+		}
+	}
+}
+
+body.finalists {
+	.marketing-header {
+		background-image: url($staticURL + "/web/img/awards/finalists_hero_black.png");
+		background-size: contain;
+		background-position: calc(58vw - 5rem) bottom;
+		background-color: #111111;
+		color: white;
+
+		@include media-max-lg {
+			background-position: center 20rem;
+			background-size: auto 21.6rem;
+		}
+
+		@include media-max-sm {
+			background-position: center 16rem;
+			background-size: auto 19.2rem;
+			min-height: 35.2rem;
+		}
+	}
+
+	.award-category {
+		margin-top: 5rem;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 5rem;
+		}
+
+		figcaption,
+		.row {
+			margin-top: 1.4rem;
+		}
+
+		ul,
+		ol {
+			margin-top: 0;
+		}
+	}
+
+	.submission-image {
+		width: 100%;
+		height: $winner-height;
+		background-color: #e7eef3;
+		cursor: pointer;
+		overflow: hidden;
+
+		@include media-md-only {
+			height: $winner-height * 0.8;
+		}
+		@include media-sm-only {
+			height: $winner-height * 0.75;
+		}
+
+		&.runnerups {
+			height: $runnerup-height;
+
+			@include media-md-only {
+				height: $runnerup-height * 0.9;
+			}
+			@include media-sm-only {
+				height: $runnerup-height * 0.8;
+			}
+		}
+
+		& > img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.row.cramp {
+		margin-left: -0.2rem;
+		margin-right: -0.2rem;
+
+		.col {
+			padding: 0.2rem;
+		}
+	}
+
+	.pdf-link-icon {
+		width: 2rem;
+		height: 2rem;
+		top: -0.3rem;
+		position: relative;
+	}
+
+	.pdf-winner-pic {
+		img {
+			max-width: 310px;
+			margin: 0 auto;
+
+			@include media-max-lg {
+				max-width: 100%;
+			}
+		}
+
+		/* Cannot use media-max-md because of -0.1em may show too early */
+		@media screen and (max-width: map-get($breakpoints, "md")) {
+			display: none;
+		}
+	}
+}
+
+/* IE10+ specific styles */
+@include media-ie11 {
+	body.awards {
+		.award-card img {
+			max-height: 300px;
+		}
+	}
+
+	body.finalists {
+		.submission-image {
+			position: relative;
+
+			& > img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				min-height: $winner-height;
+				height: auto;
+				min-width: 100%;
+				max-width: (
+					map-get($breakpoints, "sm") - 5em
+				); /* estimate max image width is during sm minus some margins */
+				width: auto;
+			}
+
+			&.runnerups > img {
+				min-height: $runnerup-height;
+			}
+		}
+	}
+}
+
+@include media-ie11-min-sm {
+	body.awards {
+		.award-card img {
+			max-height: 240px;
+		}
+	}
+
+	body.finalists {
+		.submission-image > img {
+			max-width: map-get($breakpoints, "sm") / 2;
+		}
+	}
+}
+
+@include media-ie11-min-md {
+	body.awards {
+		.award-card img {
+			max-height: 255px;
+		}
+	}
+
+	body.finalists {
+		.submission-image > img {
+			max-width: map-get($breakpoints, "md") / 3;
+		}
+	}
+}
+
+@include media-ie11-min-lg {
+	body.finalists {
+		.submission-image > img {
+			max-width: map-get($breakpoints, "lg") / 3;
+		}
+	}
+}
