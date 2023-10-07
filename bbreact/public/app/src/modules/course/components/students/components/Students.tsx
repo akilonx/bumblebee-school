@@ -1,22 +1,37 @@
-import { useAppSelector } from "@infra/redux/hook";
-import { Layout } from "@layout/index";
-import { selectStudents } from "@modules/course/redux/studentSlice";
+import { Table } from "@component/Table";
+import { Student } from "@modules/course/models/Student";
 
-export default function Students() {
+interface StudentsProps {
+  students: Student[];
+}
+
+const Students: React.FC<StudentsProps> = (props) => {
+  const { students } = props;
   // const dispatch = useAppDispatch();
-  const students = useAppSelector(selectStudents);
+  // const students = useAppSelector(selectStudents);
   // const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
 
   return (
-    <Layout>
-      <h1>Students</h1>
-      <div>
-        <ul>
-          {students.map((student) => (
-            <li key={student.id}>{student.fullName}</li>
-          ))}
-        </ul>
-      </div>
-    </Layout>
+    <>
+      <Table
+        className="mt-5 text-lg"
+        keys={["Name", "Email", "House Address", "Mobile", ""]}
+      >
+        {students.map((student) => (
+          <tr
+            key={student.id}
+            className="border-b cursor-pointer hover:bg-gray-100"
+          >
+            <td>{student.fullName}</td>
+            <td>{student.email}</td>
+            <td>{student.guardianName}</td>
+            <td>{student.guardianMobile}</td>
+            <td></td>
+          </tr>
+        ))}
+      </Table>
+    </>
   );
-}
+};
+
+export default Students;

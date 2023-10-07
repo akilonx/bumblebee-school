@@ -6,9 +6,7 @@ import { ErrorNotFound } from "../shared/components/ErrorNotFound";
 import Loading from "../shared/components/Loading";
 import { Logout } from "../shared/components/Logout";
 
-const Student = React.lazy(
-  () => import("../modules/course/components/students/components/Students")
-);
+const Student = React.lazy(() => import("../pages/Student"));
 
 export interface BreadcrumbProps {
   baseBreadcrumb: Path[];
@@ -18,19 +16,10 @@ export interface BreadcrumbProps {
 interface Props extends CognitoProps {}
 
 const MainRoute: React.FC<Props> = (props: Props) => {
-  // const baseBreadcrumb: Path[] = [];
-  // const baseUrl = "/";
-
-  // const breadcrumbs = {
-  //   baseBreadcrumb,
-  //   baseUrl,
-  // };
-
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
         <Route path="/" element={<Student />} />
-
         <Route path="/logout" element={<Logout {...props} />} />
         <Route path="*" element={<ErrorNotFound />} />
       </Routes>
