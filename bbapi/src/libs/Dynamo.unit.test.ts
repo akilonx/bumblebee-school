@@ -1,7 +1,6 @@
-import { UserRecord } from "src/types/dynamo";
-import Dynamo from "./Dynamo";
-
+import { StudentRecord } from "src/modules/school/infra/database/dynamodb/dynamo";
 import { v4 as uuid } from "uuid";
+import Dynamo from "./Dynamo";
 
 test("Dynamo.get", async () => {
   expect(typeof Dynamo.get).toBe("function");
@@ -13,28 +12,25 @@ test("Dynamo has get and write", () => {
 });
 
 const validTableName = "dev-bumblebee-serverless-single-table";
-const data: UserRecord = {
+const data: StudentRecord = {
   id: uuid(),
-  pk: `user#abc123`, // user#${residenceId}
-  sk: "homeaddress#jalanpipit", // homeaddress#${streetName}#${houseNo}
+  pk: `user#abc123`,
+  sk: "homeaddress#jalanpipit",
   email: "akilonx@gmail.com",
-  name: "Akilon",
-  houseNo: "",
-  streetName: "",
+  fullName: "Akilon",
   mobile: "",
-  mobileExtra: "",
-  phone: "",
-  createdAt: "",
-  avatar: "",
-  residenceId: "",
-  active: "",
+  guardianName: "",
+  guardianMobile: "",
+  createdAt: new Date().toISOString(),
+  createdBy: "",
+  updatedBy: "",
   updatedAt: new Date().toISOString(),
 };
 
 test("Dynamo write works", async () => {
   expect.assertions(1);
   try {
-    const res: UserRecord = await Dynamo.write<UserRecord>({
+    const res = await Dynamo.write<StudentRecord>({
       data,
       tableName: validTableName,
     });
