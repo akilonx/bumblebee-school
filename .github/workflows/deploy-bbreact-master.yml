@@ -28,7 +28,6 @@ jobs:
           filters: |
             bbreact:
               - 'bbreact/**'
-            -
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
