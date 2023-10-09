@@ -1,38 +1,44 @@
-name: Deploy master branch
+name: Deploy BBAPI
 
 on:
   push:
     branches:
       - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  deploy:
-    name: deploy
+  deploy_bbapi:
+    name: deploy bbapi
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bbapi
     strategy:
       matrix:
         node-version: [18.x]
+
     steps:
       - uses: actions/checkout@v3
+
+      - uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            BBAPI:
+              - 'bbapi/**'
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cd ./bbapi && npm ci
-        working-directory: ./bbapi
-      - run: cd ./bbreact && npm ci
-      - run: cd ./bbreact && npm run build
-        working-directory: ./bbreact
-      - name: bbapi deploy
+      - run: npm ci
+
+      - name: Serverless deploy
         uses: serverless/github-action@v3.2
         with:
-          args: -c "cd ./bbapi && serverless deploy"
-          entrypoint: /bin/sh
-      - name: bbreact deploy
-        uses: serverless/github-action@v3.2
-        with:
-          args: -c "cd ./bbreact && serverless deploy"
-          entrypoint: /bin/sh
+          args: deploy
+
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
