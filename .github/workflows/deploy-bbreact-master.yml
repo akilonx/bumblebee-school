@@ -28,17 +28,19 @@ jobs:
           filters: |
             bbreact:
               - 'bbreact/**'
-            - if: steps.changes.outputs.src == 'true'
+            -
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+        if: steps.changes.outputs.src == 'true'
       - run: npm ci
       - run: npm run build
 
       - name: Serverless deploy to S3
         uses: serverless/github-action@v3.2
+        if: steps.changes.outputs.src == 'true'
         with:
           args: -c "cd ./bbreact && serverless deploy"
           entrypoint: /bin/sh
