@@ -23,7 +23,7 @@ jobs:
   bbapi:
     needs: changes
     if: ${{ needs.changes.outputs.bbapi == 'true' }}
-    name: bbapi
+    name: deploy bbapi
     runs-on: ubuntu-latest
     defaults:
       run:
