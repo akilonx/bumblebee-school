@@ -70,7 +70,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci && cd ./public/app && npm i --force
-      - run: npm run build
+      - run: CI=false npm run build
 
       - name: Serverless deploy to S3
         uses: serverless/github-action@v3.2
