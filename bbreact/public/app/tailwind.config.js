@@ -10,13 +10,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...colors,
         lightBlue: colors.sky,
         warmGray: colors.stone,
         trueGray: colors.neutral,
         coolGray: colors.gray,
         blueGray: colors.slate,
-        red: colors.red,
+        gray: colors.neutral,
       },
       fontSize: {
         sm: "0.8rem",
