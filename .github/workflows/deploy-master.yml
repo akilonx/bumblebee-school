@@ -60,7 +60,7 @@ jobs:
         working-directory: bbreact
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -69,7 +69,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci && cd ./public/app && npm ci
+      - run: npm ci && cd ./public/app && npm ci --force
       - run: npm run build
 
       - name: Serverless deploy to S3
