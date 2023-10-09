@@ -31,14 +31,14 @@ jobs:
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
+        if: steps.changes.outputs.src == 'true'
         with:
           node-version: ${{ matrix.node-version }}
-        if: steps.changes.outputs.src == 'true'
       - run: npm ci
 
-        if: steps.changes.outputs.src == 'true'
       - name: Serverless deploy
         uses: serverless/github-action@v3.2
+        if: steps.changes.outputs.src == 'true'
         with:
           args: -c "cd ./bbapi && serverless deploy"
           entrypoint: /bin/sh
