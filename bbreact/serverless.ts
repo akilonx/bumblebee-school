@@ -14,7 +14,7 @@ const serverlessConfiguration: AWS = {
   provider: {
     name: "aws",
     runtime: "nodejs18.x",
-    profile: "serverlessUser",
+    // profile: "serverlessUser",
     region: "us-east-1",
     stage: "dev",
     apiGateway: {
