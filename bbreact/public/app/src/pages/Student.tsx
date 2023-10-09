@@ -8,7 +8,7 @@ export default function Student() {
 
   return (
     <Layout>
-      <h1 className="text-2xl text-bold">Student</h1>
+      <h1 className="text-2xl text-bold">Students</h1>
       <Students students={students} />
     </Layout>
   );
