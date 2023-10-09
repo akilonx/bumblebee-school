@@ -69,8 +69,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci && cd ./public/app && npm i --force
-      - run: CI=false npm run build
+
+      - name: Install node dependencies
+        run: npm ci && cd ./public/app && npm i --force
+
+      - name: Run build
+        run: CI=false npm run build
 
       - name: Serverless deploy to S3
         uses: serverless/github-action@v3.2
