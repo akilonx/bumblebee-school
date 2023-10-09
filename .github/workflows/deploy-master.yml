@@ -60,7 +60,7 @@ jobs:
         working-directory: bbreact
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: ["18.12.1"]
 
     steps:
       - uses: actions/checkout@v3
