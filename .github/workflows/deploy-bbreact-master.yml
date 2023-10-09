@@ -34,9 +34,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
         if: steps.changes.outputs.src == 'true'
-      - run: npm ci
+      - run: npm ci && cd ./public/app && npm ci
         if: steps.changes.outputs.src == 'true'
-      - run: npm run build
+      - run: npm run build && cd ./public/app && npm run build
+        if: steps.changes.outputs.src == 'true'
 
       - name: Serverless deploy to S3
         uses: serverless/github-action@v3.2
