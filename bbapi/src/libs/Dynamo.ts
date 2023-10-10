@@ -18,16 +18,18 @@ const config = {
   convertEmptyValues: true,
   region: process.env.region || "eu-central-1",
   ...(isTest && {
-    endpoint: "http://localhost:8000",
+    endpoint: "http://dynamodb-local:8000",
     sslEnabled: false,
     region: "local-env",
   }),
   ...(isServerlessOffline && {
-    endpoint: "http://localhost:8005",
+    endpoint: "http://dynamodb-local:8000",
+    sslEnabled: false,
+    region: "local-env",
   }),
 };
 
-const ddbClient = new DynamoDBClient({});
+const ddbClient = new DynamoDBClient(config);
 
 type Item = Record<string, AttributeValue>;
 

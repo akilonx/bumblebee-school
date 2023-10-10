@@ -1,7 +1,7 @@
 module.exports = {
   tables: [
     {
-      TableName: "dev-bumblebee-serverless-single-table",
+      TableName: "dev-bumblebeeapi-serverless-single-table",
       AttributeDefinitions: [
         {
           AttributeName: "id",

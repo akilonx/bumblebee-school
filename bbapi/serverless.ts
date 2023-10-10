@@ -11,11 +11,12 @@ const serverlessConfiguration: AWS = {
     "serverless-esbuild",
     "serverless-offline",
     // "serverless-s3-sync",
+    "serverless-dynamodb-local",
     "serverless-domain-manager",
   ],
   provider: {
     name: "aws",
-    runtime: "nodejs14.x",
+    runtime: "nodejs18.x",
     // profile: "serverlessUser",
     region: "us-east-1",
     stage: "dev",
@@ -24,15 +25,11 @@ const serverlessConfiguration: AWS = {
       shouldStartNameWithService: true,
     },
     environment: {
+      DYNAMODB_ENDPOINT: "http://dynamodb:8000",
       singleTable: "${self:custom.tables.singleTable}",
       region: "${self:provider.region}",
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1",
       NODE_OPTIONS: "--enable-source-maps --stack-trace-limit=1000",
-      CHANNEL_ID: "UCht1pOert3JqRL_CewipQBQ",
-      API_KEY: "AIzaSyBiqlfvXA2-KDya62w5qeE8Nz37WrgAkZo",
-      TRIAL_API_KEY: "e5748bec-b1ca-45a5-b1ae-4a8b62d70be4",
-      // bucketName: "${self:custom.bucketName}",
-      // uploadBucketName: "bumblebeeweb-uploads",
     },
     iam: {
       role: {
@@ -63,6 +60,18 @@ const serverlessConfiguration: AWS = {
     tables: {
       singleTable: "${sls:stage}-${self:service}-single-table",
     },
+    dynamodb: {
+      inMemory: true,
+      port: 8000,
+      migrate: true,
+      onStart: true,
+      docker: true,
+    },
+    serverlessOffline: {
+      httpPort: 3001,
+      useDocker: true,
+    },
+
     // bucketName: "bumblebeeweb-app-bucket",
     // s3Sync: [
     //   {
@@ -75,7 +84,7 @@ const serverlessConfiguration: AWS = {
       minify: false,
       sourcemap: true,
       exclude: ["aws-sdk"],
-      target: "node14",
+      target: "node18",
       define: { "require.resolve": undefined },
       platform: "node",
       concurrency: 10,

@@ -12,7 +12,7 @@ test("Dynamo has get and write", () => {
   expect(typeof Dynamo.write).toBe("function");
 });
 
-const validTableName = "dev-bumblebee-serverless-single-table";
+const validTableName = "dev-bumblebeeapi-serverless-single-table";
 const data: StudentRecord = {
   id: uuid(),
   pk: `student`,

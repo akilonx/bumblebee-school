@@ -1,0 +1,52 @@
+version: "3"
+
+services:
+  dynamodb-local:
+    command: "-jar DynamoDBLocal.jar -sharedDb -inMemory"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
+
+  bbapi:
+    container_name: bbapi_container
+    image: node:18-alpine
+    volumes:
+      - ./bbapi:/app
+      - ~/.aws:/root/.aws
+    environment:
+      - DYNAMO_ENDPOINT=http://dynamodb-local:8000
+    ports:
+      - "3001:3001"
+    depends_on:
+      - dynamodb-local
+    links:
+      - "dynamodb-local"
+    command: sh -c  "cd /app && npm run start:dev"
+
+  live-reloader:
+    image: apogiatzis/livereloading
+    container_name: livereloader
+    privileged: true
+    environment:
+      - RELOAD_DELAY=1.5 # seconds
+      - RELOAD_CONTAINER=bbapi_container
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./bbapi/src:/app/src"
+      - "./bbapi/serverless:/app/serverless"
+      - "./bbapi/package.json:/app/package.json"
+      - "./bbapi/serverless.ts:/app/serverless.ts"
+
+  bbreact:
+    image: node:18-alpine
+    volumes:
+      - ./bbreact/public/app:/app
+    command: sh -c  "cd /app && npm run start:dev"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - bbapi
+      - dynamodb-local

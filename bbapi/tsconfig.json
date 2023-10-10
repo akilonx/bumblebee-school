@@ -13,8 +13,12 @@
     "module": "CommonJS",
     "outDir": "lib",
     "esModuleInterop": true,
+    "types": [
+      "node"
+    ]
   },
   "include": [
+    "scripts/**/*.ts",
     "src/**/*.ts",
     "serverless.ts"
   ],
