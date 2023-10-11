@@ -11,7 +11,9 @@ import {
   ListItem,
   ListItemPrefix,
 } from "@material-tailwind/react";
+import PathConstants from "@routes/pathConstants";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface SideBarProps {
   signOut: () => void;
@@ -121,12 +123,13 @@ const SideBar: React.FC<SideBarProps> = (props) => {
           </AccordionBody>
         </Accordion>
         <hr className="my-2 border-blue-gray-50" /> */}
-        <ListItem>
-          <ListItemPrefix>
-            <UserIcon className="h-5 w-5" />
-          </ListItemPrefix>
-          Students
-          {/* <ListItemSuffix>
+        <Link to={PathConstants.STUDENTS}>
+          <ListItem>
+            <ListItemPrefix>
+              <UserIcon className="h-5 w-5" />
+            </ListItemPrefix>
+            Students
+            {/* <ListItemSuffix>
             <Chip
               value="14"
               size="sm"
@@ -135,7 +138,8 @@ const SideBar: React.FC<SideBarProps> = (props) => {
               className="rounded-full"
             />
           </ListItemSuffix> */}
-        </ListItem>
+          </ListItem>
+        </Link>
         <ListItem>
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />

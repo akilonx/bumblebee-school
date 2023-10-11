@@ -20,6 +20,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Student } from "@modules/course/models/Student";
+import PathConstants from "@routes/pathConstants";
+import { Link } from "react-router-dom";
 
 const TABS = [
   {
@@ -84,9 +86,11 @@ const StudentList: React.FC<StudentListProps> = (props) => {
             <Button variant="outlined" size="sm">
               view all
             </Button>
-            <Button className="flex items-center gap-3" size="sm">
-              <UserPlusIcon strokeWidth={2} className="h-4 w-4" /> Add student
-            </Button>
+            <Link to={PathConstants.CREATE_STUDENT}>
+              <Button className="flex items-center gap-3" size="sm">
+                <UserPlusIcon strokeWidth={2} className="h-4 w-4" /> Add student
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">

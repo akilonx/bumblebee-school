@@ -2,6 +2,25 @@
  * URL
  *********************************************************/
 
+// Example usage
+// const urlTemplate = "/test/product/:id/abc/:productId";
+// const params = {
+//   id: "123",
+//   productId: "456",
+// };
+export function replaceUrlParams(
+  urlTemplate: string,
+  params: { [key: string]: string }
+): string {
+  let replacedUrl = urlTemplate;
+  Object.keys(params).forEach((paramKey) => {
+    const paramValue = params[paramKey];
+    const paramPattern = `:${paramKey}`;
+    replacedUrl = replacedUrl.replace(paramPattern, paramValue);
+  });
+  return replacedUrl;
+}
+
 const domainRegex =
   /^(www|www2|my|test|.+?app|app)?(\.\w+)?(\.configura\.com|\.cetexperience\.com|\.delaval\.com|\.configuracloud\.com)?(.cn)?$/;
 export function checkDomain(domain: string) {
@@ -95,24 +114,6 @@ export interface AppURLProps {
   [key: string]: Option<string>;
 }
 
-export function appURL(props: AppURLProps) {
-  let anchor = "";
-  if (props.anchor) {
-    anchor = "#" + props.anchor;
-    delete props.anchor;
-  }
-
-  let page = props.page;
-  delete props.page;
-
-  const query = generateQueryString(props);
-  if (query !== "") {
-    page = `${page}?`;
-  }
-
-  return `${APP_URL}/${page}${query}${anchor}`;
-}
-
 export function getMyConfiguraOrigin() {
   const hostname = window.location.hostname.replace(
     /^(app|.+-app|www\d?)(?=\.)/,
@@ -169,19 +170,3 @@ export function isValidHttpUrl(url: string | undefined) {
     return false;
   }
 }
-
-/*********************************************************
- * Static variables
- *********************************************************/
-
-export const STATIC_URL = "https://downloads.configura.com";
-export const SUPPORT_URL = "https://support.configura.com";
-export const SUPPORT_AGREEMENT_URL = `${STATIC_URL}/marketing/resources/Configura%20Support%20Agreement.pdf`;
-export const LICENSE_AGREEMENT_URL = `${STATIC_URL}/marketing/resources/Configura%20License%20Agreement.pdf`;
-export const LICENSE_AGREEMENT_URL_ZH = `${STATIC_URL}/marketing/resources/Configura%20License%20Agreement%20CN.pdf`;
-export const WWW_URL =
-  process.env.REACT_APP_WWW_URL ||
-  `https://${process.env.MYCONFIGURA_DOMAIN_WWW}`;
-export const APP_URL =
-  process.env.REACT_APP_APP_URL ||
-  `https://${process.env.MYCONFIGURA_DOMAIN_APP}`;
