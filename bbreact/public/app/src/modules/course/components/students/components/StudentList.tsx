@@ -56,11 +56,11 @@ const TABLE_ROWS = [
   },
 ];
 
-interface StudentsProps {
+interface StudentListProps {
   students: Student[];
 }
 
-const Students: React.FC<StudentsProps> = (props) => {
+const StudentList: React.FC<StudentListProps> = (props) => {
   const { students } = props;
 
   const { currentItems, currentPage, totalPages, goToNextPage, goToPrevPage } =
@@ -198,7 +198,7 @@ const Students: React.FC<StudentsProps> = (props) => {
                       color="blue-gray"
                       className="font-normal"
                     >
-                      {student.createdAt.getTime()}
+                      here
                     </Typography>
                   </td>
                   <td className={classes}>
@@ -231,4 +231,4 @@ const Students: React.FC<StudentsProps> = (props) => {
   );
 };
 
-export default Students;
+export default StudentList;

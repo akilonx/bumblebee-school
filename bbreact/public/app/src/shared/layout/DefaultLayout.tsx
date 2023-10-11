@@ -1,3 +1,4 @@
+import { Loader } from "@aws-amplify/ui-react";
 import Sidebar from "@component/Sidebar";
 import {
   Button,
@@ -6,7 +7,9 @@ import {
   Navbar,
   Typography,
 } from "@material-tailwind/react";
-import React from "react";
+import React, { Suspense } from "react";
+import { Outlet } from "react-router-dom";
+
 interface LayoutProps {}
 
 export default function Layout(props: React.PropsWithChildren<LayoutProps>) {
@@ -134,7 +137,9 @@ export default function Layout(props: React.PropsWithChildren<LayoutProps>) {
       <div className="flex-1 flex flex-row overflow-y-hidden">
         <Sidebar signOut={signOut} />
         <main className="flex-1 bg-gray-100 overflow-y-auto p-5">
-          {props.children}
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </main>
         {/* 
         <aside className="sm:w-32 bg-yellow-100 overflow-y-auto">

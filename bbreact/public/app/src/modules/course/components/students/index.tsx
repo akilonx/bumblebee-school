@@ -1,3 +1,4 @@
-import Students from "./components/Students";
+import StudentForm from "@modules/course/components/students/components/StudentForm";
+import StudentList from "@modules/course/components/students/components/StudentList";
 
-export { Students };
+export { StudentForm, StudentList };

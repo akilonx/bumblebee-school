@@ -1,16 +1,25 @@
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { setupStore } from "@infra/redux/store";
-import MainRoute from "@routes/MainRoute";
 import { Amplify } from "aws-amplify";
-import { positions, transitions } from "react-alert";
 
+import { ErrorNotFound } from "@component/ErrorNotFound";
 import { AuthService } from "@infra/services/AuthService";
 import { JWTTokenClaims } from "@infra/services/models/tokens";
+import Layout from "@layout/DefaultLayout";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import amplifyConfig from "./config/aws-exports";
-// import "./scss/common.scss";
+import routes from "./routes";
 
 Amplify.configure(amplifyConfig);
+
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    errorElement: <ErrorNotFound />,
+    children: routes,
+  },
+]);
 
 export interface CognitoProps {
   signOut?: () => void;
@@ -18,12 +27,6 @@ export interface CognitoProps {
 
 function App() {
   setupStore();
-  const alertOptions = {
-    position: positions.BOTTOM_CENTER,
-    timeout: 5000,
-    offset: "53px",
-    transition: transitions.SCALE,
-  };
 
   return (
     <Authenticator>
@@ -43,7 +46,7 @@ function App() {
         authService.setToken("refresh-token", refreshToken);
         authService.setClaims(claims);
 
-        return <MainRoute signOut={signOut} />;
+        return <RouterProvider router={router} />;
       }}
     </Authenticator>
   );
