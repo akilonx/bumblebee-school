@@ -34,8 +34,8 @@ const functions: AWS["functions"] = {
         http: {
           path: "/students",
           method: "get",
-          cors: corsSettings,
-          authorizer,
+          // cors: corsSettings,
+          // authorizer,
         },
       },
     ],
