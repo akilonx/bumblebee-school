@@ -3,10 +3,10 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Student } from "../models/Student";
 import { studentService } from "../services";
 
-export const getAllStudents = createAsyncThunk(
-  "student/getAllStudents",
+export const fetchStudents = createAsyncThunk(
+  "student/fetchStudents",
   async () => {
-    return await studentService.getAllStudents();
+    return await studentService.fetchStudents();
   }
 );
 
@@ -34,13 +34,23 @@ const initialState: StudentState = {
 const studentSlice = createSlice({
   name: "student",
   initialState,
-  reducers: {},
+  reducers: {
+    addStudent: (state, action) => {
+      state.students.push(action.payload);
+    },
+    deleteStudent: (state, action) => {
+      state.students = state.students.filter(
+        (student) => student.id !== action.payload.id
+      );
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(getAllStudents.pending, (state, action) => {
+    builder.addCase(fetchStudents.pending, (state, action) => {
       state.status = "loading";
     });
-    builder.addCase(getAllStudents.fulfilled, (state, action) => {
+    builder.addCase(fetchStudents.fulfilled, (state, action) => {
       state.status = "complete";
+      console.log(action.payload);
       state.students = action.payload.isRight()
         ? action.payload.value.getValue()
         : [];

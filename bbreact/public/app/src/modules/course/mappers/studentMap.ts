@@ -11,8 +11,8 @@ export class StudentMap implements Mapper<Student> {
       email: student.email,
       guardianName: student.guardianName,
       guardianMobile: student.guardianMobile,
-      createdAt: student.createdAt,
-      updatedAt: student.updatedAt,
+      createdAt: new Date(student.createdAt),
+      updatedAt: new Date(student.updatedAt),
     };
   }
 }

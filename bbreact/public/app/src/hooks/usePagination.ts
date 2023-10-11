@@ -1,74 +1,56 @@
-import { useMemo } from "react";
+import { useState } from "react";
 
-export const DOTS = "...";
-
-const range = (start: number, end: number) => {
-  let length = end - start + 1;
-  return Array.from({ length }, (_, idx) => idx + start);
-};
-
-interface UsePaginationProps {
-  totalCount: number;
-  pageSize: number;
-  siblingCount?: number;
-  currentPage: number;
+interface PaginationOptions {
+  itemsPerPage: number;
 }
 
-export const usePagination = (props: UsePaginationProps) => {
-  const { totalCount, pageSize, siblingCount = 1, currentPage } = props;
+interface PaginationResult<T> {
+  currentItems: T[];
+  currentPage: number;
+  totalPages: number;
+  goToPage: (page: number) => void;
+  goToNextPage: () => void;
+  goToPrevPage: () => void;
+}
 
-  const paginationRange = useMemo(() => {
-    const totalPageCount = Math.ceil(totalCount / pageSize);
+function usePagination<T>(
+  items: T[],
+  options: PaginationOptions
+): PaginationResult<T> {
+  const { itemsPerPage } = options;
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
-    // Pages count is determined as siblingCount + firstPage + lastPage + currentPage + 2*DOTS
-    const totalPageNumbers = siblingCount + 5;
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-    /*
-      If the number of pages is less than the page numbers we want to show in our
-      paginationComponent, we return the range [1..totalPageCount]
-    */
-    if (totalPageNumbers >= totalPageCount) {
-      return range(1, totalPageCount);
+  const goToPage = (page: number) => {
+    if (page > 0 && page <= totalPages) {
+      setCurrentPage(page);
     }
+  };
 
-    const leftSiblingIndex = Math.max(currentPage - siblingCount, 1);
-    const rightSiblingIndex = Math.min(
-      currentPage + siblingCount,
-      totalPageCount
-    );
-
-    /*
-      We do not want to show dots if there is only one position left 
-      after/before the left/right page count as that would lead to a change if our Pagination
-      component size which we do not want
-    */
-    const shouldShowLeftDots = leftSiblingIndex > 2;
-    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
-
-    const firstPageIndex = 1;
-    const lastPageIndex = totalPageCount;
-
-    if (!shouldShowLeftDots && shouldShowRightDots) {
-      let leftItemCount = 3 + 2 * siblingCount;
-      let leftRange = range(1, leftItemCount);
-
-      return [...leftRange, DOTS, totalPageCount];
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
     }
+  };
 
-    if (shouldShowLeftDots && !shouldShowRightDots) {
-      let rightItemCount = 3 + 2 * siblingCount;
-      let rightRange = range(
-        totalPageCount - rightItemCount + 1,
-        totalPageCount
-      );
-      return [firstPageIndex, DOTS, ...rightRange];
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
+  };
 
-    if (shouldShowLeftDots && shouldShowRightDots) {
-      let middleRange = range(leftSiblingIndex, rightSiblingIndex);
-      return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
-    }
-  }, [totalCount, pageSize, siblingCount, currentPage]);
+  return {
+    currentItems,
+    currentPage,
+    totalPages,
+    goToPage,
+    goToNextPage,
+    goToPrevPage,
+  };
+}
 
-  return paginationRange ?? [];
-};
+export default usePagination;

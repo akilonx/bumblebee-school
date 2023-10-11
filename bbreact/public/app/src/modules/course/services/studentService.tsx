@@ -7,11 +7,11 @@ import { StudentMap } from "../mappers/studentMap";
 import { Student } from "../models/Student";
 
 export interface IStudentService {
-  getAllStudents(): Promise<APIResponse<Student[]>>;
+  fetchStudents(): Promise<APIResponse<Student[]>>;
 }
 
 export class StudentService extends BaseAPI implements IStudentService {
-  public async getAllStudents(): Promise<APIResponse<Student[]>> {
+  public async fetchStudents(): Promise<APIResponse<Student[]>> {
     try {
       const accessToken = this.authService.getToken("access-token");
       const isAuthenticated = !!accessToken === true;
@@ -27,7 +27,7 @@ export class StudentService extends BaseAPI implements IStudentService {
 
       return right(
         Result.ok<Student[]>(
-          response.data.posts.map((student: StudentDTO) =>
+          response.data.message.students.map((student: StudentDTO) =>
             StudentMap.toViewModel(student)
           )
         )

@@ -72,6 +72,7 @@ export class Student extends AggregateRoot<StudentProps> {
 
     const defaultValues: StudentProps = {
       ...props,
+      createdAt: props.createdAt ? props.createdAt : new Date(),
     };
 
     const student = new Student(defaultValues, id);
