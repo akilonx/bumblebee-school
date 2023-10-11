@@ -1,10 +1,9 @@
 import { Authenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
-import { AlertTemplate } from "@component/NewAlert";
 import { setupStore } from "@infra/redux/store";
 import MainRoute from "@routes/MainRoute";
 import { Amplify } from "aws-amplify";
-import { Provider as AlertProvider, positions, transitions } from "react-alert";
+import { positions, transitions } from "react-alert";
 
 import { AuthService } from "@infra/services/AuthService";
 import { JWTTokenClaims } from "@infra/services/models/tokens";
@@ -44,11 +43,7 @@ function App() {
         authService.setToken("refresh-token", refreshToken);
         authService.setClaims(claims);
 
-        return (
-          <AlertProvider template={AlertTemplate} {...alertOptions}>
-            <MainRoute signOut={signOut} />
-          </AlertProvider>
-        );
+        return <MainRoute signOut={signOut} />;
       }}
     </Authenticator>
   );
