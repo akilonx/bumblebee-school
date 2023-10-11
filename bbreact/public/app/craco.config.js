@@ -2,6 +2,7 @@ const path = require("path");
 module.exports = {
   webpack: {
     alias: {
+      "@hooks": path.resolve(__dirname, "src/hooks"),
       "@config": path.resolve(__dirname, "src/config"),
       "@core": path.resolve(__dirname, "src/shared/core"),
       "@modules": path.resolve(__dirname, "src/modules"),

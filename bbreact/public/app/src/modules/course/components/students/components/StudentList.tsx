@@ -3,6 +3,7 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
+import usePagination from "@hooks/usePagination";
 import {
   Avatar,
   Button,
@@ -19,7 +20,6 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { Student } from "@modules/course/models/Student";
-import usePagination from "../../../../../hooks/usePagination";
 
 const TABS = [
   {
