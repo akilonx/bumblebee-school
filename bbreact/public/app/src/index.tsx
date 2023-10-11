@@ -1,3 +1,4 @@
+import { Authenticator } from "@aws-amplify/ui-react";
 import { setupStore } from "@infra/redux/store";
 import { ThemeProvider } from "@material-tailwind/react";
 import ReactDOM from "react-dom/client";
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={setupStore()}>
     <ThemeProvider>
-      <App />
+      <Authenticator>
+        <App />
+      </Authenticator>
     </ThemeProvider>
   </Provider>
 );

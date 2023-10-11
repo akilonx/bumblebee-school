@@ -1,12 +1,12 @@
-import { Authenticator } from "@aws-amplify/ui-react";
+import { useAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { setupStore } from "@infra/redux/store";
 import { Amplify } from "aws-amplify";
 
 import { ErrorNotFound } from "@component/ErrorNotFound";
 import { AuthService } from "@infra/services/AuthService";
-import { JWTTokenClaims } from "@infra/services/models/tokens";
-import Layout from "@layout/DefaultLayout";
+import Layout from "@layout/Layout";
+import { useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import amplifyConfig from "./config/aws-exports";
 import routes from "./routes";
@@ -28,28 +28,15 @@ export interface CognitoProps {
 function App() {
   setupStore();
 
-  return (
-    <Authenticator>
-      {({ signOut, user }) => {
-        const authService = new AuthService();
-        const accessToken =
-          user?.getSignInUserSession()?.getAccessToken().getJwtToken() || "";
-        const refreshToken =
-          user?.getSignInUserSession()?.getRefreshToken().getToken() || "";
+  const { user } = useAuthenticator();
 
-        const claims: JWTTokenClaims = {
-          userId: user?.username || "",
-          email: user?.attributes?.email || "",
-        };
+  useEffect(() => {
+    if (user) {
+      AuthService.setUserTokens(user);
+    }
+  }, [user]);
 
-        authService.setToken("access-token", accessToken);
-        authService.setToken("refresh-token", refreshToken);
-        authService.setClaims(claims);
-
-        return <RouterProvider router={router} />;
-      }}
-    </Authenticator>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

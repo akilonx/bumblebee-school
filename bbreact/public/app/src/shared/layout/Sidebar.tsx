@@ -17,13 +17,6 @@ interface SideBarProps {
   signOut: () => void;
 }
 const SideBar: React.FC<SideBarProps> = (props) => {
-  const [open, setOpen] = React.useState(0);
-  const [openAlert, setOpenAlert] = React.useState(true);
-
-  const handleOpen = (value: number) => {
-    setOpen(open === value ? 0 : value);
-  };
-
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 hidden md:block">
       {/* <div className="mb-2 flex items-center gap-4 p-4">

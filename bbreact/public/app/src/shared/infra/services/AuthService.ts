@@ -69,4 +69,21 @@ export class AuthService implements IAuthService {
     const claims = localStorage.getItem(AuthService.tokenClaimsName);
     return claims ? JSON.parse(claims) : null;
   }
+
+  static setUserTokens(user: any) {
+    const authService = new AuthService();
+    const accessToken =
+      user?.getSignInUserSession()?.getAccessToken().getJwtToken() || "";
+    const refreshToken =
+      user?.getSignInUserSession()?.getRefreshToken().getToken() || "";
+
+    const claims: JWTTokenClaims = {
+      userId: user?.username || "",
+      email: user?.attributes?.email || "",
+    };
+
+    authService.setToken("access-token", accessToken);
+    authService.setToken("refresh-token", refreshToken);
+    authService.setClaims(claims);
+  }
 }
