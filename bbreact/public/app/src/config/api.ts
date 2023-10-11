@@ -1,7 +1,7 @@
 const isProduction = process.env.NODE_ENV === "production";
 
 const devApiConfig = {
-  baseUrl: "http://localhost:5000",
+  baseUrl: "http://localhost:3001/dev",
 };
 
 const prodApiConfig = {

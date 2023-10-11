@@ -9,7 +9,7 @@ import { Provider as AlertProvider, positions, transitions } from "react-alert";
 import { AuthService } from "@infra/services/AuthService";
 import { JWTTokenClaims } from "@infra/services/models/tokens";
 import amplifyConfig from "./config/aws-exports";
-import "./scss/common.scss";
+// import "./scss/common.scss";
 
 Amplify.configure(amplifyConfig);
 

@@ -1,4 +1,5 @@
 import { setupStore } from "@infra/redux/store";
+import { ThemeProvider } from "@material-tailwind/react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={setupStore()}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
   </Provider>
 );
 

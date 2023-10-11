@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 const withMT = require("@material-tailwind/react/utils/withMT");
-const colors = require("tailwindcss/colors");
+
+const fontFamily = {
+  sans: ["Open Sans", "sans-serif"],
+  serif: ["Roboto Slab", "serif"],
+  body: ["Open Sans", "sans-serif"],
+};
 
 module.exports = withMT({
   content: [
@@ -8,26 +13,7 @@ module.exports = withMT({
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        lightBlue: colors.sky,
-        warmGray: colors.stone,
-        trueGray: colors.neutral,
-        coolGray: colors.gray,
-        blueGray: colors.slate,
-        gray: colors.neutral,
-      },
-      fontSize: {
-        sm: "0.8rem",
-        base: "1.25rem",
-        lg: "1.25rem",
-        xl: "1.25rem",
-        "2xl": "1.563rem",
-        "3xl": "1.953rem",
-        "4xl": "2.441rem",
-        "5xl": "3.052rem",
-      },
-    },
+    fontFamily,
   },
-  plugins: [require("flowbite/plugin"), require("@tailwindcss/forms")],
+  plugins: [],
 });
