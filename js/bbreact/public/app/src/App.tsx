@@ -21,13 +21,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-export interface CognitoProps {
-  signOut?: () => void;
-}
-
 function App() {
   setupStore();
-
   const { user } = useAuthenticator();
 
   useEffect(() => {

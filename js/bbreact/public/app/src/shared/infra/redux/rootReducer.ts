@@ -2,7 +2,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 
 import studentsReducer from "@modules/course/redux/studentSlice";
 const rootReducer = combineReducers({
-  studentsReducer,
+	studentsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -28,9 +28,10 @@ const StudentForm: React.FC<IStudentFormProps> = (props) => (
             onChange={({ target }) =>
               props.updateFormField("fullNameValue", target.value)
             }
+            crossOrigin={null}
           />
-          <Input size="lg" label="Email" />
-          <Input type="password" size="lg" label="Password" />
+          <Input size="lg" label="Email" crossOrigin={null} />
+          <Input type="password" size="lg" label="Password" crossOrigin="" />
         </div>
       </CardBody>
       <CardFooter className="flex">

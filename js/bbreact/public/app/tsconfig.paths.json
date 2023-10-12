@@ -1,37 +1,17 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@config/*": [
-        "./src/config/*"
-      ],
-      "@modules/*": [
-        "./src/modules/*"
-      ],
-      "@core/*": [
-        "./src/shared/core/*"
-      ],
-      "@infra/*": [
-        "./src/shared/infra/*"
-      ],
-      "@layout/*": [
-        "./src/shared/layout/*"
-      ],
-      "@component/*": [
-        "./src/shared/components/*"
-      ],
-      "@utils/*": [
-        "./src/shared/utils/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@routes/*": [
-        "./src/routes/*"
-      ],
-    }
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@hooks/*": ["./src/hooks/*"],
+			"@config/*": ["./src/config/*"],
+			"@modules/*": ["./src/modules/*"],
+			"@core/*": ["./src/shared/core/*"],
+			"@infra/*": ["./src/shared/infra/*"],
+			"@layout/*": ["./src/shared/layout/*"],
+			"@component/*": ["./src/shared/components/*"],
+			"@utils/*": ["./src/shared/utils/*"],
+			"@pages/*": ["./src/pages/*"],
+			"@routes/*": ["./src/routes/*"]
+		}
+	}
 }

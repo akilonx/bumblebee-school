@@ -21,6 +21,7 @@ import {
 } from "@material-tailwind/react";
 import { Student } from "@modules/course/models/Student";
 import PathConstants from "@routes/pathConstants";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const TABS = [
@@ -62,7 +63,7 @@ interface StudentListProps {
   students: Student[];
 }
 
-const StudentList: React.FC<StudentListProps> = (props) => {
+const StudentList: React.FC<StudentListProps> = props => {
   const { students } = props;
 
   const { currentItems, currentPage, totalPages, goToNextPage, goToPrevPage } =
@@ -107,6 +108,7 @@ const StudentList: React.FC<StudentListProps> = (props) => {
             <Input
               label="Search"
               icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+              crossOrigin=""
             />
           </div>
         </div>
