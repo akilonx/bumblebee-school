@@ -73,7 +73,7 @@ export function capitalize(string: string) {
 
 	return string
 		.split(" ")
-		.map(string => uppercaseFirstLetter(string))
+		.map((string) => uppercaseFirstLetter(string))
 		.join(" ");
 }
 

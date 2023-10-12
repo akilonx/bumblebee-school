@@ -9,11 +9,11 @@ export function isOk<T>(arg: Result<T>): arg is T {
 }
 
 export function all<T>(args: Array<Promise<T>>): Promise<Result<T[]>> {
-	return Promise.all(args).catch(e => (e instanceof Error ? e : Error(e)));
+	return Promise.all(args).catch((e) => (e instanceof Error ? e : Error(e)));
 }
 
 export function toResult<T>(arg: Promise<T>): Promise<Result<T>> {
-	return arg.catch(e => (e instanceof Error ? e : Error(e)));
+	return arg.catch((e) => (e instanceof Error ? e : Error(e)));
 }
 
 export function findError<T>(args: Array<Result<T>>): Option<Error> {

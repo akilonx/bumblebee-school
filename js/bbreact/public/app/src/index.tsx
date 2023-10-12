@@ -6,18 +6,16 @@ import { Provider } from "react-redux";
 import App from "./App";
 import "./index.css";
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
-  <Provider store={setupStore()}>
-    <ThemeProvider>
-      <Authenticator>
-        <App />
-      </Authenticator>
-    </ThemeProvider>
-  </Provider>
+	<Provider store={setupStore()}>
+		<ThemeProvider>
+			<Authenticator>
+				<App />
+			</Authenticator>
+		</ThemeProvider>
+	</Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

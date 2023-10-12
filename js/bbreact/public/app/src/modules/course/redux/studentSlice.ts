@@ -36,11 +36,11 @@ const studentSlice = createSlice({
 			state.students.push(action.payload);
 		},
 		deleteStudent: (state, action) => {
-			state.students = state.students.filter(student => student.id !== action.payload.id);
+			state.students = state.students.filter((student) => student.id !== action.payload.id);
 		},
 	},
-	extraReducers: builder => {
-		builder.addCase(fetchStudents.pending, (state, action) => {
+	extraReducers: (builder) => {
+		builder.addCase(fetchStudents.pending, (state) => {
 			state.status = "loading";
 		});
 		builder.addCase(fetchStudents.fulfilled, (state, action) => {

@@ -6,9 +6,10 @@
 	"extends": [
 		"standard-with-typescript",
 		"eslint:recommended",
-		"plugin:@typescript-eslint/recommended",
-		"react-app",
-		"react-app/jest"
+		"plugin:react/recommended",
+		// "plugin:@typescript-eslint/recommended",
+		"react-app"
+		// "react-app/jest"
 	],
 	"rules": {
 		"react/jsx-uses-react": "off",

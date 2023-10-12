@@ -47,9 +47,9 @@ export function compareBy<K extends string | number>(key: K, ascending: boolean)
 export type HasExtension = { extensionId: number; extensionName: string };
 
 export function compareExtensionOrder<U extends HasExtension, V extends HasExtension>(a: U, b: V) {
-	let aOrder = findIndex(id => id === a.extensionId, SORTED_FIRST_EXTENSIONS);
+	let aOrder = findIndex((id) => id === a.extensionId, SORTED_FIRST_EXTENSIONS);
 	aOrder = aOrder === undefined ? SORTED_FIRST_COUNT : aOrder;
-	let bOrder = findIndex(id => id === b.extensionId, SORTED_FIRST_EXTENSIONS);
+	let bOrder = findIndex((id) => id === b.extensionId, SORTED_FIRST_EXTENSIONS);
 	bOrder = bOrder === undefined ? SORTED_FIRST_COUNT : bOrder;
 
 	return aOrder - bOrder || a.extensionName.localeCompare(b.extensionName);

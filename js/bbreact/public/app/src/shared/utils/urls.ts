@@ -10,7 +10,7 @@
 // };
 export function replaceUrlParams(urlTemplate: string, params: { [key: string]: string }): string {
 	let replacedUrl = urlTemplate;
-	Object.keys(params).forEach(paramKey => {
+	Object.keys(params).forEach((paramKey) => {
 		const paramValue = params[paramKey];
 		const paramPattern = `:${paramKey}`;
 		replacedUrl = replacedUrl.replace(paramPattern, paramValue);
@@ -63,7 +63,7 @@ export interface MyURLProps {
 
 export function generateQueryString(parameters: MyURLProps) {
 	return Object.keys(parameters)
-		.map(key => key + "=" + parameters[key])
+		.map((key) => key + "=" + parameters[key])
 		.join("&");
 }
 

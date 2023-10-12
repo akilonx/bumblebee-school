@@ -15,7 +15,7 @@ export function addClasses(element: Element, classNames: string[]) {
 }
 
 export function classNames(names: Array<string | Option<boolean>>): string {
-	return names.filter(name => typeof name === "string").join(" ");
+	return names.filter((name) => typeof name === "string").join(" ");
 }
 
 export function removeClass(element: Element, className: string) {
@@ -109,7 +109,7 @@ export function identity<T>(arg: T): T {
 	return arg;
 }
 
-export function noop(arg: any) {
+export function noop(_arg: any) {
 	// Do nothing
 }
 
@@ -208,7 +208,7 @@ export function unique<T, K extends TypedKeys<string | number, T> & string>(
 ) {
 	const matched = new Set();
 
-	const filteredArray = list.filter(l => {
+	const filteredArray = list.filter((l) => {
 		const duplicate = matched.has(l[key]);
 		matched.add(l[key]);
 		return !duplicate;
@@ -225,7 +225,7 @@ export function uniqueValues<T, K extends TypedKeys<string | number, T> & string
 	list: Array<T>,
 	key: K
 ) {
-	return unique(list, key).map(i => i[key]);
+	return unique(list, key).map((i) => i[key]);
 }
 
 /**
@@ -235,7 +235,7 @@ export function uniqueValues<T, K extends TypedKeys<string | number, T> & string
 export function deduplicate<T>(list: Array<T>) {
 	const matched = new Set();
 
-	const filteredArray = list.filter(item => {
+	const filteredArray = list.filter((item) => {
 		const duplicate = matched.has(item);
 		matched.add(item);
 		return !duplicate;
@@ -349,7 +349,7 @@ export function interleave<T>(toInsert: T, items: T[]): T[] {
  * Returns an array of words (separated by whitespace) that exist in a string
  */
 export function getKeywords(text: string): string[] {
-	return text.split(/\s+/).filter(word => word !== "");
+	return text.split(/\s+/).filter((word) => word !== "");
 }
 
 /**
@@ -361,7 +361,7 @@ export function getKeywords(text: string): string[] {
  * @param limit The max number of results to return
  */
 export function search<T>(items: T[], getScore: (item: T) => number, limit: number): T[] {
-	const rankedItems = items.map(item => ({
+	const rankedItems = items.map((item) => ({
 		item,
 		score: getScore(item),
 	}));
@@ -439,9 +439,7 @@ export function getHostname(url: string) {
 export function fetchJSON<T = any>(
 	url: string,
 	method: "GET" | "POST" = "GET",
-	data?: any,
-	skipDebug?: boolean,
-	pure = false
+	skipDebug?: boolean
 ): Promise<T> {
 	const options: RequestInit = {
 		credentials: "include",
@@ -450,14 +448,14 @@ export function fetchJSON<T = any>(
 		method,
 	};
 
-	let response = fetch(url, options).then(response => response.json());
+	let response = fetch(url, options).then((response) => response.json());
 
 	if (!skipDebug) {
 		// response = response.then((response) => handleDebugResponse(response, url));
 	}
 
 	if (process.env.NODE_ENV !== "production") {
-		response = response.then(response => {
+		response = response.then((response) => {
 			if ((window as any).updateDevBar) {
 				(window as any).updateDevBar(response.devBarData);
 			}
@@ -471,28 +469,6 @@ export function fetchJSON<T = any>(
 	//   response = response.then((response) => handleTFAResponse(response));
 	//   response = response.then((response) => handleVPNResponse(response));
 	// }
-
-	return response;
-}
-
-function handleNotLoggedInResponse(response: { error?: string }) {
-	if (!response) {
-		return response;
-	}
-
-	// Exclude /login to avoid infinite loop
-	if (
-		response.error === "error.login_required" &&
-		!window.location.pathname.startsWith("/login")
-	) {
-		const nextURL = encodeURIComponent(window.location.toString());
-
-		// TODO: bad side-effect! We should avoid doing this!
-		//window.location.href = urls.appURL({ page: "login", next_url: nextURL });
-		return {
-			info: "You are not logged in. Redirecting you to the login page...",
-		};
-	}
 
 	return response;
 }
@@ -519,11 +495,6 @@ export function handleTFAResponse(response: { tfa_required?: boolean }) {
 	}
 
 	if (response.tfa_required) {
-		const nextURL = encodeURIComponent(window.location.toString());
-		/* window.location.href = urls.appURL({
-      page: "my/internal/two-factor-authentication/authenticate",
-      next_url: nextURL,
-    }); */
 		return Error(
 			"This page is only available over secured login. Redirecting you to the authentication page..."
 		);
