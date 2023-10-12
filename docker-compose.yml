@@ -14,8 +14,9 @@ services:
     container_name: bbapi_container
     image: node:18-alpine
     volumes:
-      - ./bbapi:/app
+      - ./js/bbapi:/app
       - ~/.aws:/root/.aws
+      - ./node_modules:/app/node_modules
     environment:
       - DYNAMO_ENDPOINT=http://dynamodb-local:8000
     ports:
@@ -34,16 +35,16 @@ services:
       - RELOAD_DELAY=1.5 # seconds
       - RELOAD_CONTAINER=bbapi_container
     volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
-      - "./bbapi/src:/app/src"
-      - "./bbapi/serverless:/app/serverless"
-      - "./bbapi/package.json:/app/package.json"
-      - "./bbapi/serverless.ts:/app/serverless.ts"
-
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./js/bbapi/src:/app/src
+      - ./js/bbapi/serverless:/app/serverless
+      - ./js/bbapi/package.json:/app/package.json
+      - ./js/bbapi/serverless.ts:/app/serverless.ts
   bbreact:
     image: node:18-alpine
     volumes:
-      - ./bbreact/public/app:/app
+      - ./js/bbreact/public/app:/app
+      - ./node_modules:/app/node_modules
     command: sh -c  "cd /app && npm run start:dev"
     ports:
       - "3000:3000"

@@ -2,8 +2,9 @@
   "name": "web-workspace",
   "private": true,
   "workspaces": [
-    "bbapi/*",
-    "bbreact/*"
+    "js/*",
+    "js/**/*",
+    "js/bbreact/public/*"
   ],
   "dependencies": {
     "tunnel": "^0.0.6",
