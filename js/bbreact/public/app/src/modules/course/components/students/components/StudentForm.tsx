@@ -1,5 +1,4 @@
 import { Button, Card, CardBody, CardFooter, Input } from "@material-tailwind/react";
-import React from "react";
 
 interface IStudentFormProps {
 	updateFormField: (fieldName: string, val: string) => void;
@@ -11,7 +10,7 @@ interface IStudentFormProps {
 	onSubmit: () => void;
 }
 
-const StudentForm: React.FC<IStudentFormProps> = (props) => (
+const StudentForm = (props: IStudentFormProps) => (
 	<Card className="h-full w-full">
 		<form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
 			<CardBody className="overflow-scroll px-5">
