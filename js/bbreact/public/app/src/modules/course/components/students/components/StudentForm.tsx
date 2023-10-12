@@ -21,8 +21,9 @@ const StudentForm = (props: IStudentFormProps) => (
 						onChange={({ target }) =>
 							props.updateFormField("fullNameValue", target.value)
 						}
+						crossOrigin=""
 					/>
-					<Input size="lg" label="Email" crossOrigin={null} />
+					<Input size="lg" label="Email" crossOrigin="" />
 					<Input type="password" size="lg" label="Password" crossOrigin="" />
 				</div>
 			</CardBody>
