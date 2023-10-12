@@ -4,6 +4,10 @@
 		"es2021": true
 	},
 	"extends": [
+		"eslint:recommended",
+		"plugin:eslint-plugin/recommended",
+		"plugin:@typescript-eslint/recommended-type-checked",
+		"plugin:@typescript-eslint/stylistic-type-checked",
 		"standard-with-typescript",
 		"eslint:recommended",
 		"plugin:react/recommended",
@@ -14,24 +18,207 @@
 	"rules": {
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
-		"@typescript-eslint/no-unused-vars": "error",
-		"@typescript-eslint/consistent-type-definitions": ["error", "type"]
+		// "@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/consistent-type-definitions": [
+			"error",
+			"type"
+		],
+		// make sure we"re not leveraging any deprecated APIs
+		"deprecation/deprecation": "error",
+		// TODO(#7138): Investigate enabling these soon ✨
+		"@typescript-eslint/prefer-nullish-coalescing": "off",
+		// TODO(#7130): Investigate changing these in or removing these from presets
+		"@typescript-eslint/no-confusing-void-expression": "off",
+		"@typescript-eslint/prefer-string-starts-ends-with": "off",
+		//
+		// our plugin :D
+		//
+		"@typescript-eslint/ban-ts-comment": [
+			"error",
+			{
+				"ts-expect-error": "allow-with-description",
+				"ts-ignore": true,
+				"ts-nocheck": true,
+				"ts-check": false,
+				"minimumDescriptionLength": 5
+			}
+		],
+		"@typescript-eslint/consistent-type-imports": [
+			"error",
+			{
+				"prefer": "type-imports",
+				"disallowTypeAnnotations": true
+			}
+		],
+		"@typescript-eslint/explicit-function-return-type": [
+			"error",
+			{
+				"allowIIFEs": true
+			}
+		],
+		"@typescript-eslint/no-explicit-any": "error",
+		"@typescript-eslint/no-non-null-assertion": "off",
+		"@typescript-eslint/no-var-requires": "off",
+		"@typescript-eslint/unbound-method": "off",
+		"@typescript-eslint/restrict-template-expressions": [
+			"error",
+			{
+				"allowNumber": true,
+				"allowBoolean": true,
+				"allowAny": true,
+				"allowNullish": true,
+				"allowRegExp": true
+			}
+		],
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"varsIgnorePattern": "^_",
+				"argsIgnorePattern": "^_"
+			}
+		],
+		//
+		// Internal repo rules
+		//
+		"@typescript-eslint/internal/no-poorly-typed-ts-props": "error",
+		"@typescript-eslint/internal/no-typescript-default-import": "error",
+		"@typescript-eslint/internal/prefer-ast-types-enum": "error",
+		//
+		// eslint-base
+		//
+		"curly": [
+			"error",
+			"all"
+		],
+		"eqeqeq": [
+			"error",
+			"always",
+			{
+				"null": "never"
+			}
+		],
+		"logical-assignment-operators": "error",
+		"no-else-return": "error",
+		"no-mixed-operators": "error",
+		"no-console": "error",
+		"no-process-exit": "error",
+		"no-fallthrough": [
+			"error",
+			{
+				"commentPattern": ".*intentional fallthrough.*"
+			}
+		],
+		//
+		// eslint-plugin-eslint-comment
+		//
+		// require a eslint-enable comment for every eslint-disable comment
+		"eslint-comments/disable-enable-pair": [
+			"error",
+			{
+				"allowWholeFile": true
+			}
+		],
+		// disallow a eslint-enable comment for multiple eslint-disable comments
+		"eslint-comments/no-aggregating-enable": "error",
+		// disallow duplicate eslint-disable comments
+		"eslint-comments/no-duplicate-disable": "error",
+		// disallow eslint-disable comments without rule names
+		"eslint-comments/no-unlimited-disable": "error",
+		// disallow unused eslint-disable comments
+		"eslint-comments/no-unused-disable": "error",
+		// disallow unused eslint-enable comments
+		"eslint-comments/no-unused-enable": "error",
+		// disallow ESLint directive-comments
+		"eslint-comments/no-use": [
+			"error",
+			{
+				"allow": [
+					"eslint-disable",
+					"eslint-disable-line",
+					"eslint-disable-next-line",
+					"eslint-enable",
+					"global"
+				]
+			}
+		],
+		//
+		// eslint-plugin-import
+		//
+		// disallow non-import statements appearing before import statements
+		"import/first": "error",
+		// Require a newline after the last import/require in a group
+		"import/newline-after-import": "error",
+		// Forbid import of modules using absolute paths
+		"import/no-absolute-path": "error",
+		// disallow AMD require/define
+		"import/no-amd": "error",
+		// forbid default exports - we want to standardize on named exports so that imported names are consistent
+		"import/no-default-export": "error",
+		// disallow imports from duplicate paths
+		"import/no-duplicates": "error",
+		// Forbid the use of extraneous packages
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": true,
+				"peerDependencies": true,
+				"optionalDependencies": false
+			}
+		],
+		// Forbid mutable exports
+		"import/no-mutable-exports": "error",
+		// Prevent importing the default as if it were named
+		"import/no-named-default": "error",
+		// Prohibit named exports
+		"import/no-named-export": "off", // we want everything to be a named export
+		// Forbid a module from importing itself
+		"import/no-self-import": "error",
+		// Require modules with a single export to use a default export
+		"import/prefer-default-export": "off", // we want everything to be named
+		// enforce a sort order across the codebase
+		"simple-import-sort/imports": "error",
+		"one-var": [
+			"error",
+			"never"
+		],
+		"unicorn/no-typeof-undefined": "error"
 	},
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"ecmaVersion": 12,
-		"sourceType": "module"
+		"sourceType": "module",
+		"project": [
+			"./tsconfig.eslint.json"
+		]
 	},
-	"plugins": ["react", "@typescript-eslint"],
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		"@typescript-eslint",
+		"@typescript-eslint/internal",
+		"deprecation",
+		"eslint-comments",
+		"eslint-plugin",
+		"import",
+		"jest",
+		"simple-import-sort",
+		"unicorn"
+	],
 	"settings": {
 		"react": {
 			"version": "detect"
 		}
 	},
-	"ignorePatterns": ["node_modules/", "build/"],
+	"ignorePatterns": [
+		"node_modules/",
+		"build/"
+	],
 	"overrides": [
 		{
-			"files": ["**/*.ts", "**/*.tsx"],
+			"files": [
+				"**/*.ts",
+				"**/*.tsx"
+			],
 			"rules": {
 				// ... rules specific to JavaScript and TypeScript files
 			}
