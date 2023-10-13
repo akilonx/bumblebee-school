@@ -1,8 +1,8 @@
-import { MagnifyingGlassIcon, UserIcon } from "@heroicons/react/24/outline";
-import { Cog6ToothIcon, PowerIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { Card, Input, List, ListItem, ListItemPrefix } from "@material-tailwind/react";
-import PathConstants from "@routes/pathConstants";
-import { Link } from "react-router-dom";
+import { MagnifyingGlassIcon, UserIcon } from '@heroicons/react/24/outline';
+import { Cog6ToothIcon, PowerIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+import { Card, Input, List, ListItem, ListItemPrefix } from '@material-tailwind/react';
+import PathConstants from '@routes/pathConstants';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
 	return (

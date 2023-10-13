@@ -1,11 +1,11 @@
-import { Button, IconButton, MobileNav, Navbar, Typography } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
+import { Button, IconButton, MobileNav, Navbar, Typography } from '@material-tailwind/react';
+import { useEffect, useState } from 'react';
 
 const Topbar = () => {
 	const [openNav, setOpenNav] = useState(false);
 
 	useEffect(() => {
-		window.addEventListener("resize", () => window.innerWidth >= 960 && setOpenNav(false));
+		window.addEventListener('resize', () => window.innerWidth >= 960 && setOpenNav(false));
 	}, []);
 
 	const navList = (

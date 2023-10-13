@@ -6,13 +6,13 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { apiConfig } from "@config/api";
-import type { AxiosInstance } from "axios";
-import axios from "axios";
-import { get } from "lodash";
+import { apiConfig } from '@config/api';
+import type { AxiosInstance } from 'axios';
+import axios from 'axios';
+import { get } from 'lodash';
 
-import type { IAuthService } from "./AuthService";
-import type { JWTToken } from "./models/tokens";
+import type { IAuthService } from './AuthService';
+import type { JWTToken } from './models/tokens';
 
 export abstract class BaseAPI {
 	protected baseUrl: string;
@@ -40,15 +40,15 @@ export abstract class BaseAPI {
 	}
 
 	private didAccessTokenExpire(response: any): boolean {
-		return get(response, "data.message") === "Token signature expired.";
+		return get(response, 'data.message') === 'Token signature expired.';
 	}
 
 	private async regenerateAccessTokenFromRefreshToken(): Promise<JWTToken> {
 		const response = await axios({
-			method: "POST",
+			method: 'POST',
 			url: `${this.baseUrl}/users/token/refresh`,
 			data: {
-				refreshToken: this.authService.getToken("refresh-token"),
+				refreshToken: this.authService.getToken('refresh-token'),
 			},
 		});
 		return response.data.accessToken;
@@ -57,7 +57,7 @@ export abstract class BaseAPI {
 	private getErrorResponseHandler() {
 		return async (error: any) => {
 			if (this.didAccessTokenExpire(error.response)) {
-				const refreshToken = this.authService.getToken("refresh-token");
+				const refreshToken = this.authService.getToken('refresh-token');
 				const hasRefreshToken = !(refreshToken.length === 0);
 
 				if (hasRefreshToken) {
@@ -66,15 +66,15 @@ export abstract class BaseAPI {
 						const accessToken = await this.regenerateAccessTokenFromRefreshToken();
 
 						// Save token
-						this.authService.setToken("access-token", accessToken);
+						this.authService.setToken('access-token', accessToken);
 
 						// Retry request
 						error.config.headers.authorization = accessToken;
 						return this.axiosInstance.request(error.config);
 					} catch (err) {
 						// remove access and refresh tokens
-						this.authService.removeToken("access-token");
-						this.authService.removeToken("refresh-token");
+						this.authService.removeToken('access-token');
+						this.authService.removeToken('refresh-token');
 					}
 				}
 			}
@@ -84,7 +84,7 @@ export abstract class BaseAPI {
 
 	protected async get(url: string, params?: any, headers?: any): Promise<any> {
 		return this.axiosInstance({
-			method: "GET",
+			method: 'GET',
 			url: `${this.baseUrl}${url}`,
 			params: params || null,
 			headers: headers || null,
@@ -93,7 +93,7 @@ export abstract class BaseAPI {
 
 	protected async post(url: string, data?: any, params?: any, headers?: any): Promise<any> {
 		return this.axiosInstance({
-			method: "POST",
+			method: 'POST',
 			url: `${this.baseUrl}${url}`,
 			data: data || null,
 			params: params || null,

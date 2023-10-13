@@ -1,4 +1,4 @@
-import "./Avatar.css";
+import './Avatar.css';
 
 export const Avatar = ({ fullName }: { fullName: string }) => (
 	<div className="tooltip circleWithText">
