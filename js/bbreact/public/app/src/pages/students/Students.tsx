@@ -21,11 +21,11 @@ export default function Students() {
 	}, [studentsFetchStatus, dispatch]);
 
 	return (
-		<>
+		<div>
 			<Typography variant="h3" className="pb-3">
 				Students
 			</Typography>
 			<StudentList students={students} />
-		</>
+		</div>
 	);
 }
