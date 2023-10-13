@@ -1,12 +1,12 @@
-import { useAppDispatch, useAppSelector } from "@infra/redux/hook";
-import { Typography } from "@material-tailwind/react";
-import { StudentList } from "@modules/course/components/students";
+import { useAppDispatch, useAppSelector } from '@infra/redux/hook';
+import { Typography } from '@material-tailwind/react';
+import { StudentList } from '@modules/course/components/students';
 import {
 	fetchStudents,
 	selectStudents,
 	selectStudentsFetchStatus,
-} from "@modules/course/redux/studentsSlice";
-import { useEffect } from "react";
+} from '@modules/course/redux/studentsSlice';
+import { useEffect } from 'react';
 
 export default function Students() {
 	const dispatch = useAppDispatch();
@@ -15,7 +15,7 @@ export default function Students() {
 	const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
 
 	useEffect(() => {
-		if (studentsFetchStatus === "idle") {
+		if (studentsFetchStatus === 'idle') {
 			void dispatch(fetchStudents());
 		}
 	}, [studentsFetchStatus, dispatch]);

@@ -1,6 +1,6 @@
-import type { JWTToken, JWTTokenClaims, RefreshToken } from "./models/tokens";
+import type { JWTToken, JWTTokenClaims, RefreshToken } from './models/tokens';
 
-type TokenType = "access-token" | "refresh-token";
+type TokenType = 'access-token' | 'refresh-token';
 
 export type IAuthService = {
 	isAuthenticated: () => boolean;
@@ -12,20 +12,20 @@ export type IAuthService = {
 };
 
 export class AuthService implements IAuthService {
-	public static accessTokenName = "bumblebee-access-token";
-	public static refreshTokenName = "bumblebee-refresh-token";
-	public static tokenClaimsName = "bumblebee-token-claims";
+	public static accessTokenName = 'bumblebee-access-token';
+	public static refreshTokenName = 'bumblebee-refresh-token';
+	public static tokenClaimsName = 'bumblebee-token-claims';
 
 	public accessToken: JWTToken;
 	public refreshToken: RefreshToken;
 
 	constructor() {
-		this.accessToken = this.getToken("access-token");
-		this.refreshToken = this.getToken("refresh-token");
+		this.accessToken = this.getToken('access-token');
+		this.refreshToken = this.getToken('refresh-token');
 	}
 
 	private getTokenName(tokenType: TokenType): string {
-		return tokenType === "access-token"
+		return tokenType === 'access-token'
 			? AuthService.accessTokenName
 			: AuthService.refreshTokenName;
 	}
@@ -58,7 +58,7 @@ export class AuthService implements IAuthService {
 	}
 
 	isAuthenticated(): boolean {
-		return this.getToken("access-token") !== null;
+		return this.getToken('access-token') !== null;
 	}
 
 	setClaims(claims: JWTTokenClaims): void {
@@ -72,16 +72,16 @@ export class AuthService implements IAuthService {
 
 	static setUserTokens(user: any) {
 		const authService = new AuthService();
-		const accessToken = user?.getSignInUserSession()?.getAccessToken().getJwtToken() || "";
-		const refreshToken = user?.getSignInUserSession()?.getRefreshToken().getToken() || "";
+		const accessToken = user?.getSignInUserSession()?.getAccessToken().getJwtToken() || '';
+		const refreshToken = user?.getSignInUserSession()?.getRefreshToken().getToken() || '';
 
 		const claims: JWTTokenClaims = {
-			userId: user?.username || "",
-			email: user?.attributes?.email || "",
+			userId: user?.username || '',
+			email: user?.attributes?.email || '',
 		};
 
-		authService.setToken("access-token", accessToken);
-		authService.setToken("refresh-token", refreshToken);
+		authService.setToken('access-token', accessToken);
+		authService.setToken('refresh-token', refreshToken);
 		authService.setClaims(claims);
 	}
 }

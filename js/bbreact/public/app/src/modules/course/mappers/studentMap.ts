@@ -1,7 +1,7 @@
-import { Mapper } from "@utils/Mapper";
+import { Mapper } from '@utils/Mapper';
 
-import type { StudentDTO } from "../dtos/StudentDTO";
-import type { Student } from "../models/Student";
+import type { StudentDTO } from '../dtos/StudentDTO';
+import type { Student } from '../models/Student';
 
 export class StudentDTOMapper extends Mapper<StudentDTO, Student> {
 	from(input: StudentDTO): Student {

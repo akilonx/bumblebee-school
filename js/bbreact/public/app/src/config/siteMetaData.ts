@@ -1,5 +1,5 @@
 const siteMetaData = {
-	title: "",
+	title: '',
 };
 
 export { siteMetaData };

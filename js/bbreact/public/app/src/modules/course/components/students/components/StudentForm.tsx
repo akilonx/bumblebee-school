@@ -1,4 +1,4 @@
-import { Button, Card, CardBody, CardFooter, Input } from "@material-tailwind/react";
+import { Button, Card, CardBody, CardFooter, Input } from '@material-tailwind/react';
 
 type IStudentFormProps = {
 	updateFormField: (fieldName: string, val: string) => void;
@@ -18,31 +18,31 @@ const StudentForm = (props: IStudentFormProps) => (
 					<Input
 						size="lg"
 						label="Full Name"
-						onChange={({ target }) => props.updateFormField("fullNameValue", target.value)}
+						onChange={({ target }) => props.updateFormField('fullNameValue', target.value)}
 						crossOrigin=""
 					/>
 					<Input
 						size="lg"
 						label="Mobile"
-						onChange={({ target }) => props.updateFormField("mobileValue", target.value)}
+						onChange={({ target }) => props.updateFormField('mobileValue', target.value)}
 						crossOrigin=""
 					/>
 					<Input
 						size="lg"
 						label="Email"
-						onChange={({ target }) => props.updateFormField("emailValue", target.value)}
+						onChange={({ target }) => props.updateFormField('emailValue', target.value)}
 						crossOrigin=""
 					/>
 					<Input
 						size="lg"
 						label="Guardian Name"
-						onChange={({ target }) => props.updateFormField("guardianMobileValue", target.value)}
+						onChange={({ target }) => props.updateFormField('guardianMobileValue', target.value)}
 						crossOrigin=""
 					/>
 					<Input
 						size="lg"
 						label="Guardian Mobile"
-						onChange={({ target }) => props.updateFormField("guardianMobileValue", target.value)}
+						onChange={({ target }) => props.updateFormField('guardianMobileValue', target.value)}
 						crossOrigin=""
 					/>
 				</div>

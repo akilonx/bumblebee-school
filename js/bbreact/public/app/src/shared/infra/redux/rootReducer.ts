@@ -1,5 +1,5 @@
-import studentsReducer from "@modules/course/redux/studentSlice";
-import { combineReducers } from "@reduxjs/toolkit";
+import studentsReducer from '@modules/course/redux/studentSlice';
+import { combineReducers } from '@reduxjs/toolkit';
 
 const rootReducer = combineReducers({
 	studentsReducer,

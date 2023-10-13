@@ -12,20 +12,20 @@ function createEntityDefaultState(type: any) {
 }
 
 export function isObject(obj: any) {
-	return Object.prototype.toString.call(obj) === "[object Object]";
+	return Object.prototype.toString.call(obj) === '[object Object]';
 }
 
 const defaultFetchStateConfig = {
 	aggregate: false,
 	type: String,
-	verb: "fetching",
+	verb: 'fetching',
 };
 
 export class ReduxUtils {
 	public static createAsyncStates(entityNameSingular: string, config = defaultFetchStateConfig) {
 		const obj = Object.create(null);
 		const { aggregate, type, verb } = config;
-		entityNameSingular = aggregate ? entityNameSingular + "s" : entityNameSingular;
+		entityNameSingular = aggregate ? entityNameSingular + 's' : entityNameSingular;
 		obj[`is${capitalize(verb)}${capitalize(entityNameSingular)}`] = false;
 		obj[`is${capitalize(verb)}${capitalize(entityNameSingular)}Success`] = false;
 		obj[`is${capitalize(verb)}${capitalize(entityNameSingular)}Failure`] = false;
@@ -76,20 +76,20 @@ export class ReduxUtils {
 			case true:
 				return {
 					[eventName]: false,
-					[eventName + "Success"]: true,
-					[eventName + "Failure"]: false,
+					[eventName + 'Success']: true,
+					[eventName + 'Failure']: false,
 				};
 			case false:
 				return {
 					[eventName]: false,
-					[eventName + "Success"]: false,
-					[eventName + "Failure"]: true,
+					[eventName + 'Success']: false,
+					[eventName + 'Failure']: true,
 				};
 			default:
 				return {
 					[eventName]: true,
-					[eventName + "Success"]: false,
-					[eventName + "Failure"]: false,
+					[eventName + 'Success']: false,
+					[eventName + 'Failure']: false,
 				};
 		}
 	}
