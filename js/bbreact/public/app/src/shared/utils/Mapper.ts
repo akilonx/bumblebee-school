@@ -1,8 +1,14 @@
-export abstract class Mapper<From, To> {
-	public abstract mapFrom(input: From): To;
+export abstract class Mapper<TFrom, TTo> {
+	abstract from(input: TFrom): TTo;
+	abstract into(input: TTo): TFrom;
 
-	static from<From, To>(this: new () => Mapper<From, To>, data: From): To {
+	static from<TFrom, TTo>(this: new () => Mapper<TFrom, TTo>, input: TFrom): TTo {
 		const instance = new this();
-		return instance.mapFrom(data);
+		return instance.from(input);
+	}
+
+	static into<TFrom, TTo>(this: new () => Mapper<TFrom, TTo>, input: TTo): TFrom {
+		const instance = new this();
+		return instance.into(input);
 	}
 }

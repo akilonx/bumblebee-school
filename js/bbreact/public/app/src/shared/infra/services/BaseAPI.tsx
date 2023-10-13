@@ -1,4 +1,11 @@
-// @ts-expect-error
+/* eslint-disable @typescript-eslint/strict-boolean-expressions */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/require-await */
+/* eslint-disable prefer-promise-reject-errors */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { apiConfig } from "@config/api";
 import type { AxiosInstance } from "axios";
 import axios from "axios";
@@ -51,7 +58,7 @@ export abstract class BaseAPI {
 		return async (error: any) => {
 			if (this.didAccessTokenExpire(error.response)) {
 				const refreshToken = this.authService.getToken("refresh-token");
-				const hasRefreshToken = !!refreshToken;
+				const hasRefreshToken = !(refreshToken.length === 0);
 
 				if (hasRefreshToken) {
 					try {
@@ -68,7 +75,6 @@ export abstract class BaseAPI {
 						// remove access and refresh tokens
 						this.authService.removeToken("access-token");
 						this.authService.removeToken("refresh-token");
-						console.log(err);
 					}
 				}
 			}

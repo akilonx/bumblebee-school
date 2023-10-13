@@ -3,13 +3,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 import { left, right } from "@core/Either";
 import { Result } from "@core/Result";
 import type { APIResponse } from "@infra/services/APIResponse";
 import { BaseAPI } from "@infra/services/BaseAPI";
 
 import type { StudentDTO } from "../dtos/StudentDTO";
-import { StudentViewModel } from "../mappers/studentMap";
+import { StudentDTOMapper } from "../mappers/studentMap";
 import type { Student } from "../models/Student";
 
 export type IStudentService = {
@@ -30,7 +32,7 @@ export class StudentService extends BaseAPI implements IStudentService {
 			return right(
 				Result.ok<Student[]>(
 					response.data.message.students.map(
-						(student: StudentDTO): Student => StudentViewModel.from(student)
+						(student: StudentDTO): Student => StudentDTOMapper.from(student)
 					)
 				)
 			);
