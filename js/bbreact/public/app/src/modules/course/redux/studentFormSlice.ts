@@ -1,8 +1,5 @@
-import type { RootState } from "@infra/redux/store";
-import type { PayloadAction } from "@reduxjs/toolkit";
-import { createSlice } from "@reduxjs/toolkit";
-
-import type { Student } from "../models/Student";
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 type IObjectKeys = Record<string, string | number>;
 
@@ -12,7 +9,7 @@ type FormState = {
 	mobile: string;
 	guardianMobile: string;
 	guardianName: string;
-	status: "idle" | "loading" | "complete";
+	status: 'idle' | 'loading' | 'complete';
 } & IObjectKeys;
 
 // export const saveStudent = createAsyncThunk("student/fetchStudentById", async () => {
@@ -20,21 +17,24 @@ type FormState = {
 // });
 
 const initialState: FormState = {
-	fullName: "",
-	email: "",
-	mobile: "",
-	guardianName: "",
-	guardianMobile: "",
-	status: "idle",
+	fullName: '',
+	email: '',
+	mobile: '',
+	guardianName: '',
+	guardianMobile: '',
+	status: 'idle',
 };
 
 const studentFormSlice = createSlice({
-	name: "student",
+	name: 'studentForm',
 	initialState,
 	reducers: {
 		updateField: (state, action: PayloadAction<{ field: string; value: string }>) => {
 			const { field, value } = action.payload;
 			state[field] = value;
+		},
+		submitForm: (state) => {
+			state.status = 'loading';
 		},
 	},
 	extraReducers: (_builder) => {
@@ -46,7 +46,6 @@ const studentFormSlice = createSlice({
 	},
 });
 
-export const selectStudents = (state: RootState): Student[] => state.student.students;
-export const selectStudentsFetchStatus = (state: RootState): string => state.student.status;
-
+export const { updateField, submitForm } = studentFormSlice.actions;
+export const selectForm = (state: { studentForm: FormState }): FormState => state.studentForm;
 export default studentFormSlice.reducer;

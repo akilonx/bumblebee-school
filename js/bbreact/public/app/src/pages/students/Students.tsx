@@ -5,7 +5,7 @@ import {
 	fetchStudents,
 	selectStudents,
 	selectStudentsFetchStatus,
-} from "@modules/course/redux/studentSlice";
+} from "@modules/course/redux/studentsSlice";
 import { useEffect } from "react";
 
 export default function Students() {

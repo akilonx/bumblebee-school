@@ -1,30 +1,25 @@
-import { useAppDispatch, useAppSelector } from "@infra/redux/hook";
-import { Typography } from "@material-tailwind/react";
-import { StudentForm } from "@modules/course/components/students";
-import type { Student } from "@modules/course/models/Student";
-import { fetchStudents, selectStudentsFetchStatus } from "@modules/course/redux/studentSlice";
-import { useEffect, useState } from "react";
+import { useAppDispatch } from '@infra/redux/hook';
+import { Typography } from '@material-tailwind/react';
+import { StudentForm } from '@modules/course/components/students';
+import { submitForm, updateField } from '@modules/course/redux/studentFormSlice';
 
 export default function CreateStudent() {
 	const dispatch = useAppDispatch();
-	const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
+	// const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
 
-	const [formState, setFormState] = useState<Student>({} satisfies Student);
-
-	const handleSubmit = () => {};
-
-	const handleUpdateFormField = (fieldName: string, val: string) => {
-		setFormState((prevState) => ({
-			...prevState,
-			[fieldName]: val,
-		}));
+	const handleSubmit = () => {
+		dispatch(submitForm());
 	};
 
-	useEffect(() => {
-		if (studentsFetchStatus === "idle") {
-			void dispatch(fetchStudents());
-		}
-	}, [studentsFetchStatus, dispatch]);
+	const handleUpdateFormField = (field: string, value: string): void => {
+		dispatch(updateField({ field, value }));
+	};
+
+	// useEffect(() => {
+	// 	if (studentsFetchStatus === "idle") {
+	// 		void dispatch(updateField());
+	// 	}
+	// }, [studentsFetchStatus, dispatch]);
 
 	return (
 		<div>
@@ -33,11 +28,11 @@ export default function CreateStudent() {
 			</Typography>
 			<StudentForm
 				updateFormField={handleUpdateFormField}
-				fullNameValue={""}
-				emailValue={""}
-				mobileValue={""}
-				guardianMobileValue={""}
-				guardianNameValue={""}
+				fullNameValue={''}
+				emailValue={''}
+				mobileValue={''}
+				guardianMobileValue={''}
+				guardianNameValue={''}
 				onSubmit={handleSubmit}
 			/>
 		</div>
