@@ -1,5 +1,10 @@
 {
 	"eslint.workingDirectories": [
 		"./public/app/src"
-	]
+	],
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"editor.tabSize": 2
 }

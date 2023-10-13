@@ -11,17 +11,43 @@
 		"standard-with-typescript",
 		"eslint:recommended",
 		"plugin:react/recommended",
+		"eslint:recommended",
+		"plugin:prettier/recommended"
 		// "plugin:@typescript-eslint/recommended",
-		"react-app"
+		// "react-app"
 		// "react-app/jest"
 	],
+	"plugins": [
+		"react",
+		"@typescript-eslint",
+		// "@typescript-eslint/internal",
+		"deprecation",
+		"eslint-comments",
+		"eslint-plugin",
+		"import",
+		"jest",
+		"simple-import-sort",
+		"unicorn",
+		"prettier"
+	],
 	"rules": {
+		"prettier/prettier": "error",
+		"no-tabs": "off",
+		"indent": [
+			"error",
+			"tab"
+		],
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
 		// "@typescript-eslint/no-unused-vars": "error",
 		"@typescript-eslint/consistent-type-definitions": [
 			"error",
 			"type"
+		],
+		// enforce semicolons 
+		"@typescript-eslint/semi": [
+			"error",
+			"always"
 		],
 		// make sure we"re not leveraging any deprecated APIs
 		"deprecation/deprecation": "error",
@@ -80,9 +106,9 @@
 		//
 		// Internal repo rules
 		//
-		"@typescript-eslint/internal/no-poorly-typed-ts-props": "error",
-		"@typescript-eslint/internal/no-typescript-default-import": "error",
-		"@typescript-eslint/internal/prefer-ast-types-enum": "error",
+		// "@typescript-eslint/internal/no-poorly-typed-ts-props": "error",
+		// "@typescript-eslint/internal/no-typescript-default-import": "error",
+		// "@typescript-eslint/internal/prefer-ast-types-enum": "error",
 		//
 		// eslint-base
 		//
@@ -153,7 +179,7 @@
 		// disallow AMD require/define
 		"import/no-amd": "error",
 		// forbid default exports - we want to standardize on named exports so that imported names are consistent
-		"import/no-default-export": "error",
+		// "import/no-default-export": "error",
 		// disallow imports from duplicate paths
 		"import/no-duplicates": "error",
 		// Forbid the use of extraneous packages
@@ -184,26 +210,13 @@
 		"unicorn/no-typeof-undefined": "error"
 	},
 	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"ecmaVersion": 12,
-		"sourceType": "module",
-		"project": [
-			"./tsconfig.eslint.json"
-		]
-	},
-	"plugins": [
-		"react",
-		"@typescript-eslint",
-		"@typescript-eslint",
-		"@typescript-eslint/internal",
-		"deprecation",
-		"eslint-comments",
-		"eslint-plugin",
-		"import",
-		"jest",
-		"simple-import-sort",
-		"unicorn"
-	],
+	// "parserOptions": {
+	// 	"ecmaVersion": 12,
+	// 	"sourceType": "module",
+	// 	"project": [
+	// 		"./tsconfig.eslint.json"
+	// 	]
+	// },
 	"settings": {
 		"react": {
 			"version": "detect"
@@ -223,5 +236,6 @@
 				// ... rules specific to JavaScript and TypeScript files
 			}
 		}
-	]
+	],
+	"root": true
 }

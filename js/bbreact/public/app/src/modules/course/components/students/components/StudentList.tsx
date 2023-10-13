@@ -18,7 +18,6 @@ import {
 } from "@material-tailwind/react";
 import { Student } from "@modules/course/models/Student";
 import PathConstants from "@routes/pathConstants";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const TABS = [
@@ -60,7 +59,7 @@ interface StudentListProps {
 	students: Student[];
 }
 
-const StudentList: React.FC<StudentListProps> = props => {
+const StudentList = (props: StudentListProps) => {
 	const { students } = props;
 
 	const { currentItems, currentPage, totalPages, goToNextPage, goToPrevPage } = usePagination(
@@ -97,8 +96,8 @@ const StudentList: React.FC<StudentListProps> = props => {
 					<Tabs value="all" className="w-full md:w-max">
 						<TabsHeader>
 							{TABS.map(({ label, value }) => (
-								<Tab key={value} value={value}>
-									&nbsp;&nbsp;{label}&nbsp;&nbsp;
+								<Tab className="px-2" key={value} value={value}>
+									{label}
 								</Tab>
 							))}
 						</TabsHeader>
