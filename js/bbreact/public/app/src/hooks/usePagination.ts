@@ -22,19 +22,19 @@ function usePagination<T>(items: T[], options: PaginationOptions): PaginationRes
 	const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 	const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
-	const goToPage = (page: number) => {
+	const goToPage = (page: number): void => {
 		if (page > 0 && page <= totalPages) {
 			setCurrentPage(page);
 		}
 	};
 
-	const goToNextPage = () => {
+	const goToNextPage = (): void => {
 		if (currentPage < totalPages) {
 			setCurrentPage(currentPage + 1);
 		}
 	};
 
-	const goToPrevPage = () => {
+	const goToPrevPage = (): void => {
 		if (currentPage > 1) {
 			setCurrentPage(currentPage - 1);
 		}

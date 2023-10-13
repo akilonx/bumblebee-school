@@ -27,7 +27,7 @@ function App() {
 	const { user } = useAuthenticator();
 
 	useEffect(() => {
-		if (user) {
+		if (user != null) {
 			AuthService.setUserTokens(user);
 		}
 	}, [user]);

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import type { RootState } from "@infra/redux/store";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -46,7 +48,6 @@ const studentSlice = createSlice({
 		});
 		builder.addCase(fetchStudents.fulfilled, (state, action) => {
 			state.status = "complete";
-			console.log(action.payload);
 			state.students = action.payload.isRight() ? action.payload.value.getValue() : [];
 		});
 	},

@@ -1,19 +1,19 @@
-import type { Mapper } from "@utils/Mapper";
+import { Mapper } from "@utils/Mapper";
 
 import type { StudentDTO } from "../dtos/StudentDTO";
 import type { Student } from "../models/Student";
 
-export class StudentMap implements Mapper<Student> {
-	public static toViewModel(student: StudentDTO): Student {
+export class StudentViewModel extends Mapper<StudentDTO, Student> {
+	mapFrom(input: StudentDTO): Student {
 		return {
-			id: student.id,
-			fullName: student.fullName,
-			mobile: student.mobile,
-			email: student.email,
-			guardianName: student.guardianName,
-			guardianMobile: student.guardianMobile,
-			createdAt: new Date(student.createdAt),
-			updatedAt: new Date(student.updatedAt),
+			id: input.id,
+			fullName: input.fullName,
+			mobile: input.mobile,
+			email: input.email,
+			guardianName: input.guardianName,
+			guardianMobile: input.guardianMobile,
+			createdAt: new Date(input.createdAt),
+			updatedAt: new Date(input.updatedAt),
 		};
 	}
 }

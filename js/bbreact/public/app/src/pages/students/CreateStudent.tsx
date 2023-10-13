@@ -11,7 +11,7 @@ export default function CreateStudent() {
 
 	useEffect(() => {
 		if (studentsFetchStatus === "idle") {
-			dispatch(fetchStudents());
+			void dispatch(fetchStudents());
 		}
 	}, [studentsFetchStatus, dispatch]);
 

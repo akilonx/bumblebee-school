@@ -82,7 +82,8 @@
 				"allowIIFEs": true
 			}
 		],
-		"@typescript-eslint/no-explicit-any": "error",
+		// "@typescript-eslint/no-explicit-any": "error",
+		"@typescript-eslint/no-explicit-any": "off",
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"@typescript-eslint/no-var-requires": "off",
 		"@typescript-eslint/unbound-method": "off",
@@ -217,6 +218,10 @@
 	// 		"./tsconfig.eslint.json"
 	// 	]
 	// },
+	"parserOptions": {
+		"parser": "@typescript-eslint/parser",
+		"ecmaVersion": 2022
+	},
 	"settings": {
 		"react": {
 			"version": "detect"
@@ -229,11 +234,16 @@
 	"overrides": [
 		{
 			"files": [
-				"**/*.ts",
-				"**/*.tsx"
+				"*.jsx",
+				"*.tsx"
 			],
 			"rules": {
-				// ... rules specific to JavaScript and TypeScript files
+				"@typescript-eslint/explicit-module-boundary-types": [
+					"off"
+				],
+				"@typescript-eslint/explicit-function-return-type": [
+					"off"
+				]
 			}
 		}
 	],

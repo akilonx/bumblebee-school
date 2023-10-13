@@ -3,6 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@automapper/classes": "^8.7.7",
+		"@automapper/core": "^8.7.7",
 		"@aws-amplify/ui-react": "^5.0.7",
 		"@craco/craco": "^7.1.0",
 		"@heroicons/react": "^2.0.18",
@@ -36,6 +38,7 @@
 		"react-scripts": "^5.0.1",
 		"redux": "^4.2.1",
 		"redux-thunk": "^2.4.2",
+		"reflect-metadata": "^0.1.13",
 		"sass": "^1.69.1",
 		"swr": "^2.2.0",
 		"uuid": "^9.0.1",
@@ -64,7 +67,9 @@
 		]
 	},
 	"devDependencies": {
+		"@babel/eslint-parser": "^7.22.15",
 		"@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+		"@babel/plugin-syntax-decorators": "^7.22.10",
 		"@tailwindcss/forms": "^0.5.4",
 		"@types/moment": "^2.13.0",
 		"@types/react": "^18.2.19",

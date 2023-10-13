@@ -2,6 +2,9 @@
 	"eslint.workingDirectories": [
 		"./public/app/src"
 	],
+	"eslint.options": {
+		"experimentalDecorators": true
+	},
 	"editor.formatOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
