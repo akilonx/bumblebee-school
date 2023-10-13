@@ -1,30 +1,31 @@
-import { useAppDispatch } from '@infra/redux/hook';
+import { useAppDispatch, useAppSelector } from '@infra/redux/hook';
 import { Typography } from '@material-tailwind/react';
 import { StudentForm } from '@modules/course/components/students';
-import { submitForm, updateField } from '@modules/course/redux/studentFormSlice';
+import type { StudentFormData, ValueOf } from '@modules/course/redux/studentFormSlice';
+import { studentFormState, submitForm, updateField } from '@modules/course/redux/studentFormSlice';
+import type { SubmitHandler } from 'react-hook-form';
+
+export type UpdateFormField = (
+	field: keyof StudentFormData,
+	value: ValueOf<StudentFormData>
+) => void;
 
 export default function CreateStudent() {
 	const dispatch = useAppDispatch();
-	// const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
+	const formState = useAppSelector(studentFormState);
 
-	const handleSubmit = () => {
-		dispatch(submitForm());
+	const handleSubmit: SubmitHandler<StudentFormData> = (data: StudentFormData) => {
+		dispatch(submitForm(data));
 	};
 
-	const handleUpdateFormField = (field: string, value: string): void => {
+	const handleUpdateFormField: UpdateFormField = (field, value): void => {
 		dispatch(updateField({ field, value }));
 	};
-
-	// useEffect(() => {
-	// 	if (studentsFetchStatus === "idle") {
-	// 		void dispatch(updateField());
-	// 	}
-	// }, [studentsFetchStatus, dispatch]);
 
 	return (
 		<div>
 			<Typography variant="h3" className="pb-3">
-				Create New Students
+				Create New Students here {formState.student.fullName}
 			</Typography>
 			<StudentForm
 				updateFormField={handleUpdateFormField}
@@ -35,6 +36,7 @@ export default function CreateStudent() {
 				guardianNameValue={''}
 				onSubmit={handleSubmit}
 			/>
+			<div>{JSON.stringify(formState)}</div>
 		</div>
 	);
 }

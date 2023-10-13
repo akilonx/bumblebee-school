@@ -25,8 +25,8 @@ export class StudentDTOMapper extends Mapper<StudentDTO, Student> {
 			email: input.email,
 			guardianName: input.guardianName,
 			guardianMobile: input.guardianMobile,
-			createdAt: input.createdAt,
-			updatedAt: input.updatedAt,
+			createdAt: new Date(),
+			updatedAt: new Date(),
 		};
 	}
 }

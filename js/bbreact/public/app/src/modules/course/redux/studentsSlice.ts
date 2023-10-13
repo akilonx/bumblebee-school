@@ -51,9 +51,11 @@ const studentSlice = createSlice({
 	},
 });
 
-export const selectStudents = (state: { student: StudentState }): Student[] =>
-	state.student.students;
-export const selectStudentsFetchStatus = (state: { student: StudentState }): string =>
-	state.student.status;
+type RootState = {
+	student: StudentState;
+};
+
+export const selectStudents = (state: RootState): Student[] => state.student.students;
+export const selectStudentsFetchStatus = (state: RootState): string => state.student.status;
 
 export default studentSlice.reducer;

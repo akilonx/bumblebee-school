@@ -1,27 +1,38 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 
-type IObjectKeys = Record<string, string | number>;
+export type ValueOf<T> = T[keyof T];
 
-type FormState = {
+export type StudentFormData = {
 	fullName: string;
 	email: string;
 	mobile: string;
 	guardianMobile: string;
 	guardianName: string;
+};
+
+type StudentFormState = {
+	student: StudentFormData;
 	status: 'idle' | 'loading' | 'complete';
-} & IObjectKeys;
+};
+
+export type UpdateFieldPayload = {
+	field: keyof StudentFormData;
+	value: ValueOf<StudentFormData>;
+};
 
 // export const saveStudent = createAsyncThunk("student/fetchStudentById", async () => {
 // 	return studentService;
 // });
 
-const initialState: FormState = {
-	fullName: '',
-	email: '',
-	mobile: '',
-	guardianName: '',
-	guardianMobile: '',
+const initialState: StudentFormState = {
+	student: {
+		fullName: 'test',
+		email: '',
+		mobile: '',
+		guardianName: '',
+		guardianMobile: '',
+	},
 	status: 'idle',
 };
 
@@ -29,12 +40,12 @@ const studentFormSlice = createSlice({
 	name: 'studentForm',
 	initialState,
 	reducers: {
-		updateField: (state, action: PayloadAction<{ field: string; value: string }>) => {
-			const { field, value } = action.payload;
-			state[field] = value;
+		updateField: (state, action: PayloadAction<UpdateFieldPayload>) => {
+			Object.assign(state, { [action.payload.field]: action.payload.value });
 		},
-		submitForm: (state) => {
+		submitForm: (state, action: PayloadAction<StudentFormData>) => {
 			state.status = 'loading';
+			state.student = action.payload;
 		},
 	},
 	extraReducers: (_builder) => {
@@ -46,6 +57,11 @@ const studentFormSlice = createSlice({
 	},
 });
 
+type RootState = {
+	studentForm: StudentFormState;
+};
+
 export const { updateField, submitForm } = studentFormSlice.actions;
-export const selectForm = (state: { studentForm: FormState }): FormState => state.studentForm;
+
+export const studentFormState = (state: RootState): StudentFormState => state.studentForm;
 export default studentFormSlice.reducer;
