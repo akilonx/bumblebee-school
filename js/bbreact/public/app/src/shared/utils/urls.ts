@@ -26,12 +26,12 @@ export function checkDomain(domain: string) {
 
 export function checkMyDomain(domain: string) {
 	const match = checkDomain(domain);
-	return match !== null && match[1] === "my";
+	return match !== null && match[1] === 'my';
 }
 
 export function checkWWWDomain(domain: string) {
 	const match = checkDomain(domain);
-	return match !== null && match[1] === "www";
+	return match !== null && match[1] === 'www';
 }
 
 export function checkDevDomain(domain: string) {
@@ -62,16 +62,16 @@ export type MyURLProps = {
 
 export function generateQueryString(parameters: MyURLProps) {
 	return Object.keys(parameters)
-		.map((key) => key + "=" + parameters[key])
-		.join("&");
+		.map((key) => key + '=' + parameters[key])
+		.join('&');
 }
 
 export function myURL(props: MyURLProps) {
 	const origin = getMyConfiguraOrigin();
 
-	let anchor = "";
+	let anchor = '';
 	if (props.anchor) {
-		anchor = "#" + props.anchor;
+		anchor = '#' + props.anchor;
 		delete props.anchor;
 	}
 
@@ -87,9 +87,9 @@ export type MyConfiguraURLProps = {
 
 export function myConfiguraURL(props: MyConfiguraURLProps) {
 	const origin = getMyConfiguraOrigin();
-	let anchor = "";
+	let anchor = '';
 	if (props.anchor) {
-		anchor = "#" + props.anchor;
+		anchor = '#' + props.anchor;
 		delete props.anchor;
 	}
 
@@ -97,7 +97,7 @@ export function myConfiguraURL(props: MyConfiguraURLProps) {
 	delete props.path;
 
 	let query = generateQueryString(props);
-	if (query !== "") {
+	if (query !== '') {
 		query = `?${query}`;
 	}
 
@@ -111,17 +111,17 @@ export type AppURLProps = {
 };
 
 export function getMyConfiguraOrigin() {
-	const hostname = window.location.hostname.replace(/^(app|.+-app|www\d?)(?=\.)/, "my");
+	const hostname = window.location.hostname.replace(/^(app|.+-app|www\d?)(?=\.)/, 'my');
 
-	if (hostname === "") {
+	if (hostname === '') {
 		return hostname;
 	}
 	return `https://${hostname}`;
 }
 
 export function getConfiguraOrigin() {
-	const hostname = window.location.hostname.replace(/^(my|app|.+-app)/, "www").replace(/\.cn/, "");
-	if (hostname === "") {
+	const hostname = window.location.hostname.replace(/^(my|app|.+-app)/, 'www').replace(/\.cn/, '');
+	if (hostname === '') {
 		return hostname;
 	}
 	return `https://${hostname}`;
@@ -129,20 +129,20 @@ export function getConfiguraOrigin() {
 
 export function getCookieDomain() {
 	return window.location.hostname
-		.replace(/^my./, "")
-		.replace(/(www\d?)./, "")
-		.replace(/^(app|.+-app|www\d?)(?=\.)/, "");
+		.replace(/^my./, '')
+		.replace(/(www\d?)./, '')
+		.replace(/^(app|.+-app|www\d?)(?=\.)/, '');
 }
 
 export function getChinaOrigin() {
-	if (process.env.NODE_ENV !== "production") {
+	if (process.env.NODE_ENV !== 'production') {
 		return `${getConfiguraOrigin()}/china`;
 	}
 	return `${getConfiguraOrigin()}.cn`;
 }
 
 export function getPath(domain: string, url: string) {
-	return url.replace(domain, "");
+	return url.replace(domain, '');
 }
 
 export function isValidHttpUrl(url: string | undefined) {

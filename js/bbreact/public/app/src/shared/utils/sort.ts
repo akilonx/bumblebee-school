@@ -1,4 +1,4 @@
-import { findIndex } from "./helpers";
+import { findIndex } from './helpers';
 
 const SORTED_FIRST_EXTENSIONS = [1, 204]; // CET Designer & CET Developer
 const SORTED_FIRST_COUNT = SORTED_FIRST_EXTENSIONS.length;
@@ -11,11 +11,11 @@ export function compareBy<K extends string | number>(key: K, ascending: boolean)
 		let aValue = a[key];
 		let bValue = b[key];
 
-		if (typeof aValue === "string") {
+		if (typeof aValue === 'string') {
 			aValue = aValue.toLowerCase();
 		}
 
-		if (typeof bValue === "string") {
+		if (typeof bValue === 'string') {
 			bValue = bValue.toLowerCase();
 		}
 

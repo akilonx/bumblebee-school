@@ -1,4 +1,4 @@
-import { find } from "./helpers";
+import { find } from './helpers';
 
 export function isError(arg: any): arg is Error {
 	return arg instanceof Error;
@@ -31,10 +31,7 @@ export function hasErrors<T>(args: Array<Result<T>>): args is Array<Result<T>> {
 	return findError(args) !== undefined;
 }
 export class TranslatableError extends Error {
-	constructor(
-		message?: string,
-		public values?: TranslationValues
-	) {
+	constructor(message?: string, public values?: TranslationValues) {
 		super(message);
 		this.values = values;
 		Object.setPrototypeOf(this, TranslatableError.prototype);

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-floating-promises */
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import type { ReportHandler } from "web-vitals";
+import type { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
 	if (onPerfEntry && onPerfEntry instanceof Function) {
-		import("web-vitals").then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+		import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
 			getCLS(onPerfEntry);
 			getFID(onPerfEntry);
 			getFCP(onPerfEntry);

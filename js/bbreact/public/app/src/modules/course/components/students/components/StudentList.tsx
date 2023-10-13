@@ -1,6 +1,6 @@
-import { ChevronUpDownIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { PencilIcon, UserPlusIcon } from "@heroicons/react/24/solid";
-import usePagination from "@hooks/usePagination";
+import { ChevronUpDownIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { PencilIcon, UserPlusIcon } from '@heroicons/react/24/solid';
+import usePagination from '@hooks/usePagination';
 import {
 	Avatar,
 	Button,
@@ -15,43 +15,43 @@ import {
 	TabsHeader,
 	Tooltip,
 	Typography,
-} from "@material-tailwind/react";
-import type { Student } from "@modules/course/models/Student";
-import PathConstants from "@routes/pathConstants";
-import { Link } from "react-router-dom";
+} from '@material-tailwind/react';
+import type { Student } from '@modules/course/models/Student';
+import PathConstants from '@routes/pathConstants';
+import { Link } from 'react-router-dom';
 
 const TABS = [
 	{
-		label: "All",
-		value: "all",
+		label: 'All',
+		value: 'all',
 	},
 	{
-		label: "Monitored",
-		value: "monitored",
+		label: 'Monitored',
+		value: 'monitored',
 	},
 	{
-		label: "Unmonitored",
-		value: "unmonitored",
+		label: 'Unmonitored',
+		value: 'unmonitored',
 	},
 ];
 
-const TABLE_HEAD = ["Member", "Function", "Status", "Employed", ""];
+const TABLE_HEAD = ['Member', 'Function', 'Status', 'Employed', ''];
 
 const TABLE_ROWS = [
 	{
-		img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg",
+		img: 'https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-3.jpg',
 	},
 	{
-		img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg",
+		img: 'https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-2.jpg',
 	},
 	{
-		img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg",
+		img: 'https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-1.jpg',
 	},
 	{
-		img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg",
+		img: 'https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-4.jpg',
 	},
 	{
-		img: "https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg",
+		img: 'https://demos.creative-tim.com/test/corporate-ui-dashboard/assets/img/team-5.jpg',
 	},
 ];
 
@@ -125,7 +125,7 @@ const StudentList = (props: StudentListProps) => {
 										color="blue-gray"
 										className="flex items-center justify-between gap-2 font-normal leading-none opacity-70"
 									>
-										{head}{" "}
+										{head}{' '}
 										{index !== TABLE_HEAD.length - 1 && (
 											<ChevronUpDownIcon strokeWidth={2} className="h-4 w-4" />
 										)}
@@ -137,7 +137,7 @@ const StudentList = (props: StudentListProps) => {
 					<tbody>
 						{currentItems.map((student, index) => {
 							const isLast = index === TABLE_ROWS.length - 1;
-							const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
+							const classes = isLast ? 'p-4' : 'p-4 border-b border-blue-gray-50';
 
 							return (
 								<tr key={student.id}>

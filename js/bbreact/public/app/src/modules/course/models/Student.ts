@@ -5,6 +5,6 @@ export type Student = {
 	mobile: string;
 	guardianMobile: string;
 	guardianName: string;
-	createdAt: Date;
-	updatedAt: Date;
+	createdAt?: Date;
+	updatedAt?: Date;
 };

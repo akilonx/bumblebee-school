@@ -1,6 +1,6 @@
-import { AuthService } from "@infra/services/AuthService";
+import { AuthService } from '@infra/services/AuthService';
 
-import { StudentService } from "./studentService";
+import { StudentService } from './studentService';
 
 const authService = new AuthService();
 const studentService = new StudentService(authService);

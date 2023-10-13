@@ -1,14 +1,14 @@
-import "./index.css";
+import './index.css';
 
-import { Authenticator } from "@aws-amplify/ui-react";
-import { setupStore } from "@infra/redux/store";
-import { ThemeProvider } from "@material-tailwind/react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
+import { Authenticator } from '@aws-amplify/ui-react';
+import { setupStore } from '@infra/redux/store';
+import { ThemeProvider } from '@material-tailwind/react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 
-import App from "./App";
+import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
+const root = ReactDOM.createRoot(document.getElementById('root')!);
 
 root.render(
 	<Provider store={setupStore()}>

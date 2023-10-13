@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 /*********************************************************
  * Classes
@@ -15,7 +15,7 @@ export function addClasses(element: Element, classNames: string[]) {
 }
 
 export function classNames(names: Array<string | Option<boolean>>): string {
-	return names.filter((name) => typeof name === "string").join(" ");
+	return names.filter((name) => typeof name === 'string').join(' ');
 }
 
 export function removeClass(element: Element, className: string) {
@@ -80,11 +80,11 @@ export function findAncestor(element: Element, classNames: string[]) {
  */
 export function range(start: number, end: number, step = 1): number[] {
 	if (start > end) {
-		throw new Error("End is larger than Start");
+		throw new Error('End is larger than Start');
 	}
 
 	if (start + step > end) {
-		throw new Error("Cannot create a valid range since start + step is larger than the end");
+		throw new Error('Cannot create a valid range since start + step is larger than the end');
 	}
 
 	if (start === end) {
@@ -146,7 +146,7 @@ export function findInTree<T, S extends keyof T, U extends keyof T>(
 	while (hayStack.length > 0) {
 		const node = hayStack.pop();
 		if (node === undefined) {
-			throw new Error("[findInTree] the popped node was undefined -- should not happen");
+			throw new Error('[findInTree] the popped node was undefined -- should not happen');
 		}
 		const needle = node && node[needleKey];
 		if (needle !== undefined) {
@@ -269,7 +269,7 @@ export function isNull<T>(arg: T | null): arg is null {
 }
 
 export function upperCaseFirstChar(s: string) {
-	return s.length === 0 ? "" : s.substr(0, 1).toLocaleUpperCase() + s.substr(1);
+	return s.length === 0 ? '' : s.substr(0, 1).toLocaleUpperCase() + s.substr(1);
 }
 
 /**
@@ -343,7 +343,7 @@ export function interleave<T>(toInsert: T, items: T[]): T[] {
  * Returns an array of words (separated by whitespace) that exist in a string
  */
 export function getKeywords(text: string): string[] {
-	return text.split(/\s+/).filter((word) => word !== "");
+	return text.split(/\s+/).filter((word) => word !== '');
 }
 
 /**
@@ -394,17 +394,17 @@ export function copy<T, K extends keyof T>(first: T, second?: Pick<T, K>) {
 export function truncate(
 	maxCharacters: number,
 	text: string,
-	overflow: "clip" | "ellipsis" = "clip"
+	overflow: 'clip' | 'ellipsis' = 'clip'
 ): string {
 	if (text.length <= maxCharacters) {
 		return text;
 	}
 
 	switch (overflow) {
-		case "clip":
+		case 'clip':
 			return text.slice(0, maxCharacters);
-		case "ellipsis":
-			return text.slice(0, maxCharacters) + "...";
+		case 'ellipsis':
+			return text.slice(0, maxCharacters) + '...';
 		default:
 			throw new Error(`bad overflow: ${overflow}`);
 	}
@@ -421,7 +421,7 @@ export function basename(path: string) {
  * Get hostname from URL
  */
 export function getHostname(url: string) {
-	const a = document.createElement("a");
+	const a = document.createElement('a');
 	a.href = url;
 	return a.hostname;
 }
@@ -432,13 +432,13 @@ export function getHostname(url: string) {
 
 export async function fetchJSON<T = any>(
 	url: string,
-	method: "GET" | "POST" = "GET",
+	method: 'GET' | 'POST' = 'GET',
 	skipDebug?: boolean
 ): Promise<T> {
 	const options: RequestInit = {
-		credentials: "include",
-		headers: new Headers({ "Content-Type": "application/json; charset=utf-8" }),
-		mode: "cors",
+		credentials: 'include',
+		headers: new Headers({ 'Content-Type': 'application/json; charset=utf-8' }),
+		mode: 'cors',
 		method,
 	};
 
@@ -448,7 +448,7 @@ export async function fetchJSON<T = any>(
 		// response = response.then((response) => handleDebugResponse(response, url));
 	}
 
-	if (process.env.NODE_ENV !== "production") {
+	if (process.env.NODE_ENV !== 'production') {
 		response = response.then((response) => {
 			if ((window as any).updateDevBar) {
 				(window as any).updateDevBar(response.devBarData);
@@ -476,7 +476,7 @@ export function handleVPNResponse(response: { vpn?: number }) {
 		const nextURL = encodeURIComponent(window.location.toString());
 		window.location.href = `/my/internal/vpn/${nextURL}`;
 		return Error(
-			"This page is only available over VPN. Redirecting you to the authentication page..."
+			'This page is only available over VPN. Redirecting you to the authentication page...'
 		);
 	}
 
@@ -490,7 +490,7 @@ export function handleTFAResponse(response: { tfa_required?: boolean }) {
 
 	if (response.tfa_required) {
 		return Error(
-			"This page is only available over secured login. Redirecting you to the authentication page..."
+			'This page is only available over secured login. Redirecting you to the authentication page...'
 		);
 	}
 
@@ -542,7 +542,7 @@ export function scrollTo(target: HTMLElement, customOffset = 0, callback?: () =>
 
 export function toUTCDate(date: Date) {
 	const regex = /.*, (.*)[0-9]{2}:[0-9]{2}:[0-9]{2} GMT/;
-	return date.toUTCString().replace(regex, "$1");
+	return date.toUTCString().replace(regex, '$1');
 }
 
 /*********************************************************
@@ -550,13 +550,13 @@ export function toUTCDate(date: Date) {
  *********************************************************/
 
 export function exportCSV(baseFilename: string, content: string) {
-	const universalBOM = "\uFEFF";
-	const link = document.createElement("a");
+	const universalBOM = '\uFEFF';
+	const link = document.createElement('a');
 	const blob = new Blob([universalBOM + content], {
-		type: "text/csv;charset=utf-8",
+		type: 'text/csv;charset=utf-8',
 	});
-	link.setAttribute("href", URL.createObjectURL(blob));
-	link.setAttribute("download", `${baseFilename}.csv`);
+	link.setAttribute('href', URL.createObjectURL(blob));
+	link.setAttribute('download', `${baseFilename}.csv`);
 	document.body.appendChild(link);
 
 	link.click();

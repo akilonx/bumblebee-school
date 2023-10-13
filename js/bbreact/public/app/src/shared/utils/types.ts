@@ -13,7 +13,7 @@
  * Licenses
  *********************************************************/
 
-export type LicenseType = "payable" | "trial" | "free" | "sponsored" | "education" | "internal";
-export type LicenseValidity = "year" | "month" | "halfyear" | "infinite" | "custom";
+export type LicenseType = 'payable' | 'trial' | 'free' | 'sponsored' | 'education' | 'internal';
+export type LicenseValidity = 'year' | 'month' | 'halfyear' | 'infinite' | 'custom';
 
 export default {};

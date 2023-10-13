@@ -1,11 +1,11 @@
-import type { TranslatableError } from "./results";
+import type { TranslatableError } from './results';
 
 declare global {
 	export type Translations = Record<string, Translation>;
 
 	type Option<T> = T | undefined;
 	type Result<T> = T | Error;
-	type Loading<T> = T | "loading";
+	type Loading<T> = T | 'loading';
 
 	type Translation = string | ((args: Array<string | number>) => string);
 
@@ -16,5 +16,5 @@ declare global {
 	type Translator = (translatable: Translatable) => string;
 }
 
-export * from "./helpers";
-export * from "./sort";
+export * from './helpers';
+export * from './sort';

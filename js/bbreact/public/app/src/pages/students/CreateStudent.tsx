@@ -1,38 +1,42 @@
-import { useAppDispatch, useAppSelector } from "@infra/redux/hook";
-import { Typography } from "@material-tailwind/react";
-import { StudentForm } from "@modules/course/components/students";
-import { fetchStudents, selectStudentsFetchStatus } from "@modules/course/redux/studentSlice";
-import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from '@infra/redux/hook';
+import { Typography } from '@material-tailwind/react';
+import { StudentForm } from '@modules/course/components/students';
+import type { StudentFormData, ValueOf } from '@modules/course/redux/studentFormSlice';
+import { studentFormState, submitForm, updateField } from '@modules/course/redux/studentFormSlice';
+import type { SubmitHandler } from 'react-hook-form';
+
+export type UpdateFormField = (
+	field: keyof StudentFormData,
+	value: ValueOf<StudentFormData>
+) => void;
 
 export default function CreateStudent() {
 	const dispatch = useAppDispatch();
+	const formState = useAppSelector(studentFormState);
 
-	const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
+	const handleSubmit: SubmitHandler<StudentFormData> = (data: StudentFormData) => {
+		dispatch(submitForm(data));
+	};
 
-	useEffect(() => {
-		if (studentsFetchStatus === "idle") {
-			void dispatch(fetchStudents());
-		}
-	}, [studentsFetchStatus, dispatch]);
+	const handleUpdateFormField: UpdateFormField = (field, value): void => {
+		dispatch(updateField({ field, value }));
+	};
 
 	return (
-		<>
+		<div>
 			<Typography variant="h3" className="pb-3">
-				Create New Students
+				Create New Students here {formState.student.fullName}
 			</Typography>
 			<StudentForm
-				updateFormField={function (_fieldName: string, _val: string): void {
-					throw new Error("Function not implemented.");
-				}}
-				fullNameValue={""}
-				emailValue={""}
-				mobileValue={""}
-				guardianMobileValue={""}
-				guardianNameValue={""}
-				onSubmit={function (): void {
-					throw new Error("Function not implemented.");
-				}}
+				updateFormField={handleUpdateFormField}
+				fullNameValue={''}
+				emailValue={''}
+				mobileValue={''}
+				guardianMobileValue={''}
+				guardianNameValue={''}
+				onSubmit={handleSubmit}
 			/>
-		</>
+			<div>{JSON.stringify(formState)}</div>
+		</div>
 	);
 }

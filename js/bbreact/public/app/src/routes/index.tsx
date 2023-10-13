@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import PathConstants from "./pathConstants";
+import PathConstants from './pathConstants';
 
-const CreateStudent = React.lazy(async () => await import("../pages/students/CreateStudent"));
-const Students = React.lazy(async () => await import("../pages/students/Students"));
+const CreateStudent = React.lazy(async () => await import('../pages/students/CreateStudent'));
+const Students = React.lazy(async () => await import('../pages/students/Students'));
 
 const routes = [
 	{ path: PathConstants.HOME, element: <Students />, exact: true },
