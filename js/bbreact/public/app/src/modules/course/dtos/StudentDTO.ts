@@ -1,4 +1,4 @@
-export interface StudentDTO {
+export type StudentDTO = {
 	id: string;
 	fullName: string;
 	email: string;
@@ -7,4 +7,4 @@ export interface StudentDTO {
 	guardianName: string;
 	createdAt: Date;
 	updatedAt: Date;
-}
+};

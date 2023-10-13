@@ -8,7 +8,7 @@
 //   id: "123",
 //   productId: "456",
 // };
-export function replaceUrlParams(urlTemplate: string, params: { [key: string]: string }): string {
+export function replaceUrlParams(urlTemplate: string, params: Record<string, string>): string {
 	let replacedUrl = urlTemplate;
 	Object.keys(params).forEach((paramKey) => {
 		const paramValue = params[paramKey];
@@ -36,7 +36,7 @@ export function checkWWWDomain(domain: string) {
 
 export function checkDevDomain(domain: string) {
 	const match = checkDomain(domain);
-	return match !== null && match[2] !== undefined;
+	return match?.[2] !== undefined;
 }
 
 export function isDevDomain() {
@@ -46,20 +46,19 @@ export function isDevDomain() {
 export function apiURL(endpoint: string) {
 	if (process.env.REACT_APP_MYCONFIGURA_PERL_API_URL) {
 		return `${process.env.REACT_APP_MYCONFIGURA_PERL_API_URL}/api/v3/${endpoint}`;
-	} else {
-		// Handles calls to my.configura.com
-		// Used for the menu
-		return `/api/v3/${endpoint}`;
 	}
+	// Handles calls to my.configura.com
+	// Used for the menu
+	return `/api/v3/${endpoint}`;
 }
 
-export interface MyURLProps {
+export type MyURLProps = {
 	page?: string;
 	section?: string;
 	subsection?: string;
 	anchor?: string;
 	[key: string]: Option<string>;
-}
+};
 
 export function generateQueryString(parameters: MyURLProps) {
 	return Object.keys(parameters)
@@ -80,11 +79,11 @@ export function myURL(props: MyURLProps) {
 	return `${origin}/index.pl?${query}${anchor}`;
 }
 
-export interface MyConfiguraURLProps {
+export type MyConfiguraURLProps = {
 	path?: string;
 	anchor?: string;
 	[key: string]: Option<string>;
-}
+};
 
 export function myConfiguraURL(props: MyConfiguraURLProps) {
 	const origin = getMyConfiguraOrigin();
@@ -94,7 +93,7 @@ export function myConfiguraURL(props: MyConfiguraURLProps) {
 		delete props.anchor;
 	}
 
-	let path = props.path;
+	const path = props.path;
 	delete props.path;
 
 	let query = generateQueryString(props);
@@ -105,11 +104,11 @@ export function myConfiguraURL(props: MyConfiguraURLProps) {
 	return `${origin}${path}${query}${anchor}`;
 }
 
-export interface AppURLProps {
+export type AppURLProps = {
 	page?: string;
 	anchor?: string;
 	[key: string]: Option<string>;
-}
+};
 
 export function getMyConfiguraOrigin() {
 	const hostname = window.location.hostname.replace(/^(app|.+-app|www\d?)(?=\.)/, "my");
@@ -121,9 +120,7 @@ export function getMyConfiguraOrigin() {
 }
 
 export function getConfiguraOrigin() {
-	const hostname = window.location.hostname
-		.replace(/^(my|app|.+-app)/, "www")
-		.replace(/\.cn/, "");
+	const hostname = window.location.hostname.replace(/^(my|app|.+-app)/, "www").replace(/\.cn/, "");
 	if (hostname === "") {
 		return hostname;
 	}
@@ -140,9 +137,8 @@ export function getCookieDomain() {
 export function getChinaOrigin() {
 	if (process.env.NODE_ENV !== "production") {
 		return `${getConfiguraOrigin()}/china`;
-	} else {
-		return `${getConfiguraOrigin()}.cn`;
 	}
+	return `${getConfiguraOrigin()}.cn`;
 }
 
 export function getPath(domain: string, url: string) {
@@ -154,13 +150,12 @@ export function isValidHttpUrl(url: string | undefined) {
 		return false;
 	}
 
-	var rgHttpUrl = new RegExp(
+	const rgHttpUrl = new RegExp(
 		"^(http|https):\\/\\/(([a-zA-Z0-9$\\-_.+!*'(),;:&=]|%[0-9a-fA-F]{2})+@)?(((25[0-5]|2[0-4][0-9]|[0-1][0-9][0-9]|[1-9][0-9]|[0-9])(\\.(25[0-5]|2[0-4][0-9]|[0-1][0-9][0-9]|[1-9][0-9]|[0-9])){3})|localhost|([a-zA-Z0-9\\-\\u00C0-\\u017F]+\\.)+([a-zA-Z]{2,}))(:[0-9]+)?(\\/(([a-zA-Z0-9$\\-_.+!*'(),;:@&=]|%[0-9a-fA-F]{2})*(\\/([a-zA-Z0-9$\\-_.+!*'(),;:@&=]|%[0-9a-fA-F]{2})*)*)?(\\?([a-zA-Z0-9$\\-_.+!*'(),;:@&=/?]|%[0-9a-fA-F]{2})*)?(\\#([a-zA-Z0-9$\\-_.+!*'(),;:@&=/?]|%[0-9a-fA-F]{2})*)?)?$"
 	);
 
 	if (rgHttpUrl.test(url)) {
 		return true;
-	} else {
-		return false;
 	}
+	return false;
 }

@@ -2,30 +2,30 @@ import { useAppDispatch, useAppSelector } from "@infra/redux/hook";
 import { Typography } from "@material-tailwind/react";
 import { StudentList } from "@modules/course/components/students";
 import {
-  fetchStudents,
-  selectStudents,
-  selectStudentsFetchStatus,
+	fetchStudents,
+	selectStudents,
+	selectStudentsFetchStatus,
 } from "@modules/course/redux/studentSlice";
 import { useEffect } from "react";
 
 export default function Students() {
-  const dispatch = useAppDispatch();
+	const dispatch = useAppDispatch();
 
-  const students = useAppSelector(selectStudents);
-  const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
+	const students = useAppSelector(selectStudents);
+	const studentsFetchStatus = useAppSelector(selectStudentsFetchStatus);
 
-  useEffect(() => {
-    if (studentsFetchStatus === "idle") {
-      dispatch(fetchStudents());
-    }
-  }, [studentsFetchStatus, dispatch]);
+	useEffect(() => {
+		if (studentsFetchStatus === "idle") {
+			dispatch(fetchStudents());
+		}
+	}, [studentsFetchStatus, dispatch]);
 
-  return (
-    <>
-      <Typography variant="h3" className="pb-3">
-        Students
-      </Typography>
-      <StudentList students={students} />
-    </>
-  );
+	return (
+		<>
+			<Typography variant="h3" className="pb-3">
+				Students
+			</Typography>
+			<StudentList students={students} />
+		</>
+	);
 }

@@ -2,7 +2,7 @@ export class Result<T> {
 	public isSuccess: boolean;
 	public isFailure: boolean;
 	public error: T | string;
-	private _value: T;
+	private readonly _value: T;
 
 	public constructor(isSuccess: boolean, error?: T | string | null, value?: T) {
 		if (isSuccess && error) {
@@ -41,9 +41,11 @@ export class Result<T> {
 		return new Result<U>(false, error);
 	}
 
-	public static combine(results: Result<any>[]): Result<any> {
-		for (let result of results) {
-			if (result.isFailure) return result;
+	public static combine(results: Array<Result<any>>): Result<any> {
+		for (const result of results) {
+			if (result.isFailure) {
+				return result;
+			}
 		}
 		return Result.ok();
 	}

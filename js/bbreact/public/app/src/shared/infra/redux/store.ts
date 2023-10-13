@@ -1,6 +1,6 @@
-import { combineReducers, configureStore, PreloadedState } from "@reduxjs/toolkit";
-
 import studentReducer from "@modules/course/redux/studentSlice";
+import type { PreloadedState } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 // Create the root reducer independently to obtain the RootState type
 export const rootReducer = combineReducers({

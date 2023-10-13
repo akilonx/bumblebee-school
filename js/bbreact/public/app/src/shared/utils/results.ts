@@ -8,12 +8,12 @@ export function isOk<T>(arg: Result<T>): arg is T {
 	return !(arg instanceof Error);
 }
 
-export function all<T>(args: Array<Promise<T>>): Promise<Result<T[]>> {
-	return Promise.all(args).catch((e) => (e instanceof Error ? e : Error(e)));
+export async function all<T>(args: Array<Promise<T>>): Promise<Result<T[]>> {
+	return await Promise.all(args).catch((e) => (e instanceof Error ? e : Error(e)));
 }
 
-export function toResult<T>(arg: Promise<T>): Promise<Result<T>> {
-	return arg.catch((e) => (e instanceof Error ? e : Error(e)));
+export async function toResult<T>(arg: Promise<T>): Promise<Result<T>> {
+	return await arg.catch((e) => (e instanceof Error ? e : Error(e)));
 }
 
 export function findError<T>(args: Array<Result<T>>): Option<Error> {
@@ -31,7 +31,10 @@ export function hasErrors<T>(args: Array<Result<T>>): args is Array<Result<T>> {
 	return findError(args) !== undefined;
 }
 export class TranslatableError extends Error {
-	constructor(message?: string, public values?: TranslationValues) {
+	constructor(
+		message?: string,
+		public values?: TranslationValues
+	) {
 		super(message);
 		this.values = values;
 		Object.setPrototypeOf(this, TranslatableError.prototype);

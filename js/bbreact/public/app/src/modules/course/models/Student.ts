@@ -1,4 +1,4 @@
-export interface Student {
+export type Student = {
 	id: string;
 	fullName: string;
 	email: string;
@@ -7,4 +7,4 @@ export interface Student {
 	guardianName: string;
 	createdAt: Date;
 	updatedAt: Date;
-}
+};

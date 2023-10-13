@@ -35,11 +35,7 @@ const Topbar = () => {
 	return (
 		<Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4">
 			<div className="flex items-center justify-between text-blue-gray-900">
-				<Typography
-					as="a"
-					href="#"
-					className="mr-4 cursor-pointer py-1.5 font-normal text-2xl"
-				>
+				<Typography as="a" href="#" className="mr-4 cursor-pointer py-1.5 font-normal text-2xl">
 					Bumblebee Music School
 				</Typography>
 				<div className="flex items-center gap-4">
@@ -62,11 +58,7 @@ const Topbar = () => {
 								stroke="currentColor"
 								strokeWidth={2}
 							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M6 18L18 6M6 6l12 12"
-								/>
+								<path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 							</svg>
 						) : (
 							<svg
@@ -76,11 +68,7 @@ const Topbar = () => {
 								stroke="currentColor"
 								strokeWidth={2}
 							>
-								<path
-									strokeLinecap="round"
-									strokeLinejoin="round"
-									d="M4 6h16M4 12h16M4 18h16"
-								/>
+								<path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
 							</svg>
 						)}
 					</IconButton>

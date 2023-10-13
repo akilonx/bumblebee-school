@@ -1,6 +1,7 @@
-import { Mapper } from "@utils/Mapper";
-import { StudentDTO } from "../dtos/StudentDTO";
-import { Student } from "../models/Student";
+import type { Mapper } from "@utils/Mapper";
+
+import type { StudentDTO } from "../dtos/StudentDTO";
+import type { Student } from "../models/Student";
 
 export class StudentMap implements Mapper<Student> {
 	public static toViewModel(student: StudentDTO): Student {

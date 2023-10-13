@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-interface PaginationOptions {
+type PaginationOptions = {
 	itemsPerPage: number;
-}
+};
 
-interface PaginationResult<T> {
+type PaginationResult<T> = {
 	currentItems: T[];
 	currentPage: number;
 	totalPages: number;
 	goToPage: (page: number) => void;
 	goToNextPage: () => void;
 	goToPrevPage: () => void;
-}
+};
 
 function usePagination<T>(items: T[], options: PaginationOptions): PaginationResult<T> {
 	const { itemsPerPage } = options;

@@ -1,6 +1,6 @@
 import { Button, Card, CardBody, CardFooter, Input } from "@material-tailwind/react";
 
-interface IStudentFormProps {
+type IStudentFormProps = {
 	updateFormField: (fieldName: string, val: string) => void;
 	fullNameValue: string;
 	emailValue: string;
@@ -8,7 +8,7 @@ interface IStudentFormProps {
 	guardianMobileValue: string;
 	guardianNameValue: string;
 	onSubmit: () => void;
-}
+};
 
 const StudentForm = (props: IStudentFormProps) => (
 	<Card className="h-full w-full">
@@ -18,9 +18,7 @@ const StudentForm = (props: IStudentFormProps) => (
 					<Input
 						size="lg"
 						label="Full Name"
-						onChange={({ target }) =>
-							props.updateFormField("fullNameValue", target.value)
-						}
+						onChange={({ target }) => props.updateFormField("fullNameValue", target.value)}
 						crossOrigin=""
 					/>
 					<Input size="lg" label="Email" crossOrigin="" />

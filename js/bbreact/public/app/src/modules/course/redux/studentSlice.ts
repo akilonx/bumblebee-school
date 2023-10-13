@@ -1,16 +1,17 @@
-import { RootState } from "@infra/redux/store";
+import type { RootState } from "@infra/redux/store";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Student } from "../models/Student";
+
+import type { Student } from "../models/Student";
 import { studentService } from "../services";
 
 export const fetchStudents = createAsyncThunk("student/fetchStudents", async () => {
 	return await studentService.fetchStudents();
 });
 
-interface StudentState {
+type StudentState = {
 	students: Student[];
 	status: "idle" | "loading" | "complete";
-}
+};
 
 const initialState: StudentState = {
 	students: [

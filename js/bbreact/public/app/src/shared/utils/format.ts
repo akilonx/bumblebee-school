@@ -59,7 +59,7 @@ export function kebabToSnakeCase(string: string) {
  * Returns string where the first letter is in uppercase
  */
 export function uppercaseFirstLetter(string: string) {
-	if (string === null || typeof string === "undefined") {
+	if (string === null || string === undefined) {
 		return "";
 	}
 
@@ -80,7 +80,7 @@ export function capitalize(string: string) {
 /**
  * Simple string interpolation
  */
-export function interpolate(string: string, args: { [index: string]: string | number }) {
+export function interpolate(string: string, args: Record<string, string | number>) {
 	for (const key in args) {
 		const arg = args[key];
 		string = string.replace(RegExp("\\{{" + key + "\\}}", "g"), arg.toString());

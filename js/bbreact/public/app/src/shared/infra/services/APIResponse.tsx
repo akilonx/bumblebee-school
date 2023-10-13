@@ -1,5 +1,6 @@
-import { Either } from "@core/Either";
-import { Result } from "@core/Result";
-import { APIErrorMessage } from "./APIErrorMessage";
+import type { Either } from "@core/Either";
+import type { Result } from "@core/Result";
+
+import type { APIErrorMessage } from "./APIErrorMessage";
 
 export type APIResponse<T> = Either<APIErrorMessage, Result<T>>;

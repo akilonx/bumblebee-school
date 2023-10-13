@@ -16,7 +16,7 @@ import {
 	Tooltip,
 	Typography,
 } from "@material-tailwind/react";
-import { Student } from "@modules/course/models/Student";
+import type { Student } from "@modules/course/models/Student";
 import PathConstants from "@routes/pathConstants";
 import { Link } from "react-router-dom";
 
@@ -55,9 +55,9 @@ const TABLE_ROWS = [
 	},
 ];
 
-interface StudentListProps {
+type StudentListProps = {
 	students: Student[];
-}
+};
 
 const StudentList = (props: StudentListProps) => {
 	const { students } = props;
@@ -127,10 +127,7 @@ const StudentList = (props: StudentListProps) => {
 									>
 										{head}{" "}
 										{index !== TABLE_HEAD.length - 1 && (
-											<ChevronUpDownIcon
-												strokeWidth={2}
-												className="h-4 w-4"
-											/>
+											<ChevronUpDownIcon strokeWidth={2} className="h-4 w-4" />
 										)}
 									</Typography>
 								</th>
@@ -146,17 +143,9 @@ const StudentList = (props: StudentListProps) => {
 								<tr key={student.id}>
 									<td className={classes}>
 										<div className="flex items-center gap-3">
-											<Avatar
-												src={TABLE_ROWS[index].img}
-												alt={student.fullName}
-												size="sm"
-											/>
+											<Avatar src={TABLE_ROWS[index].img} alt={student.fullName} size="sm" />
 											<div className="flex flex-col">
-												<Typography
-													variant="small"
-													color="blue-gray"
-													className="font-normal"
-												>
+												<Typography variant="small" color="blue-gray" className="font-normal">
 													{student.fullName}
 												</Typography>
 												<Typography
@@ -171,11 +160,7 @@ const StudentList = (props: StudentListProps) => {
 									</td>
 									<td className={classes}>
 										<div className="flex flex-col">
-											<Typography
-												variant="small"
-												color="blue-gray"
-												className="font-normal"
-											>
+											<Typography variant="small" color="blue-gray" className="font-normal">
 												{student.guardianName}
 											</Typography>
 											<Typography
@@ -198,11 +183,7 @@ const StudentList = (props: StudentListProps) => {
 										</div>
 									</td>
 									<td className={classes}>
-										<Typography
-											variant="small"
-											color="blue-gray"
-											className="font-normal"
-										>
+										<Typography variant="small" color="blue-gray" className="font-normal">
 											here
 										</Typography>
 									</td>

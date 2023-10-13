@@ -1,2 +1,2 @@
-// @ts-ignore
-export interface Mapper<T> {}
+// @ts-expect-error
+export type Mapper<T> = {};

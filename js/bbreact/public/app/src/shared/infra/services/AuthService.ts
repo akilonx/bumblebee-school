@@ -1,20 +1,20 @@
-import { JWTToken, JWTTokenClaims, RefreshToken } from "./models/tokens";
+import type { JWTToken, JWTTokenClaims, RefreshToken } from "./models/tokens";
 
 type TokenType = "access-token" | "refresh-token";
 
-export interface IAuthService {
-	isAuthenticated(): boolean;
-	getToken(tokenType: TokenType): JWTToken | RefreshToken;
-	setToken(tokenType: TokenType, token: JWTToken | RefreshToken): void;
-	removeToken(tokenType: TokenType): void;
-	setClaims(claims: JWTTokenClaims): void;
-	getClaims(): JWTTokenClaims;
-}
+export type IAuthService = {
+	isAuthenticated: () => boolean;
+	getToken: (tokenType: TokenType) => JWTToken;
+	setToken: (tokenType: TokenType, token: JWTToken) => void;
+	removeToken: (tokenType: TokenType) => void;
+	setClaims: (claims: JWTTokenClaims) => void;
+	getClaims: () => JWTTokenClaims;
+};
 
 export class AuthService implements IAuthService {
-	public static accessTokenName: string = "bumblebee-access-token";
-	public static refreshTokenName: string = "bumblebee-refresh-token";
-	public static tokenClaimsName: string = "bumblebee-token-claims";
+	public static accessTokenName = "bumblebee-access-token";
+	public static refreshTokenName = "bumblebee-refresh-token";
+	public static tokenClaimsName = "bumblebee-token-claims";
 
 	public accessToken: JWTToken;
 	public refreshToken: RefreshToken;
@@ -30,15 +30,15 @@ export class AuthService implements IAuthService {
 			: AuthService.refreshTokenName;
 	}
 
-	public getToken(tokenType: TokenType): JWTToken | RefreshToken {
+	public getToken(tokenType: TokenType): JWTToken {
 		const tokenName: string = this.getTokenName(tokenType);
 
 		const token = localStorage.getItem(tokenName);
 		return token ? JSON.parse(token).token : null;
 	}
 
-	public setToken(tokenType: TokenType, token: JWTToken | RefreshToken): void {
-		var d = new Date();
+	public setToken(tokenType: TokenType, token: JWTToken): void {
+		const d = new Date();
 		d.setTime(d.getTime() + 30 * 60 * 1000); // set cookie to last 30 mins
 
 		const tokenName: string = this.getTokenName(tokenType);
@@ -46,7 +46,7 @@ export class AuthService implements IAuthService {
 		localStorage.setItem(
 			tokenName,
 			JSON.stringify({
-				token: token,
+				token,
 				expires: d,
 			})
 		);

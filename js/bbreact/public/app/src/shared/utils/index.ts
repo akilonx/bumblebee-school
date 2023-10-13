@@ -1,9 +1,7 @@
-import { TranslatableError } from "./results";
+import type { TranslatableError } from "./results";
 
 declare global {
-	export interface Translations {
-		[propName: string]: Translation;
-	}
+	export type Translations = Record<string, Translation>;
 
 	type Option<T> = T | undefined;
 	type Result<T> = T | Error;
@@ -11,7 +9,7 @@ declare global {
 
 	type Translation = string | ((args: Array<string | number>) => string);
 
-	type TranslationValues = Array<string | number> | { [index: string]: any };
+	type TranslationValues = Array<string | number> | Record<string, any>;
 	type TranslatableMessage = { message: string; values?: TranslationValues };
 	type Translatable = string | TranslatableMessage | Error | TranslatableError;
 

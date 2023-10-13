@@ -8,11 +8,7 @@ const SideBar = () => {
 	return (
 		<Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5 hidden md:block">
 			<div className="p-2">
-				<Input
-					icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-					label="Search"
-					crossOrigin=""
-				/>
+				<Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" crossOrigin="" />
 			</div>
 			<List>
 				<Link to={PathConstants.STUDENTS}>

@@ -35,7 +35,7 @@ export class ReduxUtils {
 
 	public static createBlurredStates(inputObj: any) {
 		const obj = Object.assign({}, inputObj);
-		for (let key of Object.keys(obj)) {
+		for (const key of Object.keys(obj)) {
 			const val = obj[key];
 			const isValueAnObject = isObject(val);
 
@@ -50,20 +50,22 @@ export class ReduxUtils {
 
 	public static createInitialErrorState(value: any, inverted?: boolean) {
 		const isValueAnObject = isObject(value);
-		if (!isValueAnObject) return inverted ? true : false;
+		if (!isValueAnObject) {
+			return !!inverted;
+		}
 		return this.createErrorStates(value, inverted);
 	}
 
 	public static createErrorStates(inputObj: any, inverted?: boolean) {
 		const obj = Object.assign({}, inputObj);
-		for (let key of Object.keys(obj)) {
+		for (const key of Object.keys(obj)) {
 			const val = obj[key];
 			const isValueAnObject = isObject(val);
 
 			if (isValueAnObject) {
 				obj[key] = this.createErrorStates(val);
 			} else {
-				obj[key] = inverted ? true : false;
+				obj[key] = !!inverted;
 			}
 		}
 		return obj;

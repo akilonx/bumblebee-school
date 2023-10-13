@@ -78,7 +78,7 @@ export function findAncestor(element: Element, classNames: string[]) {
  * @param end Ending number of the range
  * @param step Step number of the range
  */
-export function range(start: number, end: number, step: number = 1): Array<number> {
+export function range(start: number, end: number, step = 1): number[] {
 	if (start > end) {
 		throw new Error("End is larger than Start");
 	}
@@ -114,7 +114,7 @@ export function noop(_arg: any) {
 }
 
 export function existsIn<T>(haystack: T[], needle: T) {
-	return haystack.indexOf(needle) > -1;
+	return haystack.includes(needle);
 }
 
 /**
@@ -186,13 +186,10 @@ export type TypedKeys<V, T> = {
 export type StringKeys<T> = TypedKeys<string, T>;
 export type NumberKeys<T> = TypedKeys<number, T>;
 
-export function groupBy<T, K extends TypedKeys<string | number, T> & string>(
-	list: Array<T>,
-	key: K
-) {
-	let result: { [L: string]: Array<T> } = {};
+export function groupBy<T, K extends TypedKeys<string | number, T> & string>(list: T[], key: K) {
+	const result: Record<string, T[]> = {};
 	return list.reduce(function (accum, item) {
-		let group = item[key] as any as string;
+		const group = item[key] as any as string;
 		(accum[group] = accum[group] || []).push(item);
 		return accum;
 	}, result);
@@ -202,10 +199,7 @@ export function groupBy<T, K extends TypedKeys<string | number, T> & string>(
  * Unique by a key
  */
 
-export function unique<T, K extends TypedKeys<string | number, T> & string>(
-	list: Array<T>,
-	key: K
-) {
+export function unique<T, K extends TypedKeys<string | number, T> & string>(list: T[], key: K) {
 	const matched = new Set();
 
 	const filteredArray = list.filter((l) => {
@@ -222,7 +216,7 @@ export function unique<T, K extends TypedKeys<string | number, T> & string>(
  */
 
 export function uniqueValues<T, K extends TypedKeys<string | number, T> & string>(
-	list: Array<T>,
+	list: T[],
 	key: K
 ) {
 	return unique(list, key).map((i) => i[key]);
@@ -232,7 +226,7 @@ export function uniqueValues<T, K extends TypedKeys<string | number, T> & string
  * Unique by a key
  */
 
-export function deduplicate<T>(list: Array<T>) {
+export function deduplicate<T>(list: T[]) {
 	const matched = new Set();
 
 	const filteredArray = list.filter((item) => {
@@ -436,7 +430,7 @@ export function getHostname(url: string) {
  * Fetch
  */
 
-export function fetchJSON<T = any>(
+export async function fetchJSON<T = any>(
 	url: string,
 	method: "GET" | "POST" = "GET",
 	skipDebug?: boolean
@@ -448,7 +442,7 @@ export function fetchJSON<T = any>(
 		method,
 	};
 
-	let response = fetch(url, options).then((response) => response.json());
+	let response = fetch(url, options).then(async (response) => await response.json());
 
 	if (!skipDebug) {
 		// response = response.then((response) => handleDebugResponse(response, url));
@@ -470,7 +464,7 @@ export function fetchJSON<T = any>(
 	//   response = response.then((response) => handleVPNResponse(response));
 	// }
 
-	return response;
+	return await response;
 }
 
 export function handleVPNResponse(response: { vpn?: number }) {

@@ -1,6 +1,7 @@
 import { Loader } from "@aws-amplify/ui-react";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
