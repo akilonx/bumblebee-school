@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import type { RootState } from "@infra/redux/store";
+import type { PayloadAction } from "@reduxjs/toolkit";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import type { Student } from "../models/Student";
@@ -35,10 +34,10 @@ const studentSlice = createSlice({
 	name: "student",
 	initialState,
 	reducers: {
-		addStudent: (state, action) => {
+		addStudent: (state, action: PayloadAction<Student>) => {
 			state.students.push(action.payload);
 		},
-		deleteStudent: (state, action) => {
+		deleteStudent: (state, action: PayloadAction<Student>) => {
 			state.students = state.students.filter((student) => student.id !== action.payload.id);
 		},
 	},
